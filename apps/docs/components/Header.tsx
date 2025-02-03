@@ -84,7 +84,7 @@ export default function Header() {
                 </div>
             </div>
             {isOpen ? (
-                <div className="bg-muted-background absolute top-0 flex h-lvh w-dvw flex-col gap-12 px-10 py-6 transition-all duration-300 lg:hidden">
+                <div className="bg-primary-background absolute top-0 flex h-lvh w-dvw flex-col gap-12 px-10 py-6 transition-all duration-300 lg:hidden">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex h-fit gap-2">
                             <Image
