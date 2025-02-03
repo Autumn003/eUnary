@@ -1,0 +1,14 @@
+# Ignore node_modules folder
+node_modules
+
+# Ignore build output folders
+.next
+out
+
+# Ignore generated files or logs
+dist
+*.log
+
+# Ignore Tailwind's `purge` generated files (optional, depending on how you're using it)
+tailwind.config.js
+postcss.config.js
