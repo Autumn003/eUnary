@@ -5,17 +5,23 @@ import 'remixicon/fonts/remixicon.css';
 import { ThemeToggler } from './ThemeToggler';
 import Link from 'next/link';
 import { useState } from 'react';
+import SearchBox from './SearchBox';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const handleMenuOpner = () => {
         setIsOpen(!isOpen);
     };
 
+    const handleSearchBtn = () => {
+        setIsDialogOpen(!isDialogOpen);
+    };
+
     return (
         <div className="relative">
-            <div className="bg-primary-background hidden h-16 min-w-full grid-cols-12 px-8 lg:grid">
+            <div className="bg-primary-background hidden h-16 max-w-[88rem] grid-cols-12 px-8 lg:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
                         src="/logo-dark.jpg"
@@ -78,9 +84,12 @@ export default function Header() {
                         <i className="ri-github-fill"></i>
                     </Link>
                     <ThemeToggler />
-                    <h1 className="border-muted-foreground text-secondary-foreground h-9 w-56 rounded-xl border p-1 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+                    <button
+                        onClick={handleSearchBtn}
+                        className="border-muted-foreground text-secondary-foreground h-9 w-56 rounded-xl border p-1 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+                    >
                         search bar
-                    </h1>
+                    </button>
                 </div>
             </div>
             {isOpen ? (
@@ -175,6 +184,12 @@ export default function Header() {
                     </button>
                 </div>
             )}
+
+            <SearchBox
+                isDialogOpen={isDialogOpen}
+                setIsDialogOpen={setIsDialogOpen}
+                className="fixed top-[33%] left-[33%]"
+            />
         </div>
     );
 }
