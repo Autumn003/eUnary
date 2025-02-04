@@ -86,14 +86,19 @@ export default function Header() {
                     <ThemeToggler />
                     <button
                         onClick={handleSearchBtn}
-                        className="border-muted-foreground text-secondary-foreground h-9 w-56 rounded-xl border p-1 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+                        className="border-muted-foreground text-secondary-foreground flex h-9 w-56 cursor-pointer items-center justify-around rounded-xl border p-1 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
                     >
-                        search bar
+                        <i className="ri-search-line"></i>
+                        <p className="text-[12px]">Search components...</p>
+                        <div className="bg-muted-background flex items-center gap-1 rounded-md px-2 py-1 text-[11px]">
+                            <i className="ri-command-line"></i>
+                            <p>K</p>
+                        </div>
                     </button>
                 </div>
             </div>
             {isOpen ? (
-                <div className="bg-primary-background absolute top-0 flex h-lvh w-dvw flex-col gap-12 px-10 py-6 transition-all duration-300 lg:hidden">
+                <div className="absolute top-0 z-40 flex h-lvh w-dvw flex-col gap-12 bg-black/30 px-10 py-6 backdrop-blur-md transition-all duration-300 lg:hidden">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex h-fit gap-2">
                             <Image
@@ -122,28 +127,28 @@ export default function Header() {
                     <div className="flex flex-col gap-8 px-4 font-semibold">
                         <Link
                             href="/components"
-                            className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
+                            className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Components
                         </Link>
                         <Link
                             href="/"
                             target="_blank"
-                            className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
+                            className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Templates
                         </Link>
                         <Link
                             href="/"
                             target="_blank"
-                            className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
+                            className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Pricing
                         </Link>
                         <Link
                             href="/"
                             target="_blank"
-                            className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
+                            className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Posts
                         </Link>
@@ -185,10 +190,14 @@ export default function Header() {
                 </div>
             )}
 
+            {isDialogOpen && (
+                <div className="bg-primary-background/30 fixed inset-0 z-40 backdrop-blur-md"></div>
+            )}
+
             <SearchBox
                 isDialogOpen={isDialogOpen}
                 setIsDialogOpen={setIsDialogOpen}
-                className="fixed top-[33%] left-[33%]"
+                className="fixed top-[33%] left-[50%] z-50 -translate-x-1/2"
             />
         </div>
     );
