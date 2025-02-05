@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import 'remixicon/fonts/remixicon.css';
-import { ThemeToggler } from './ThemeToggler';
 import Link from 'next/link';
 import { useState } from 'react';
 import SearchBox from './SearchBox';
+import ThemeToggler from './ThemeToggler';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +20,8 @@ export default function Header() {
     };
 
     return (
-        <div className="relative">
-            <div className="bg-primary-background hidden h-16 max-w-[88rem] grid-cols-12 px-8 lg:grid">
+        <div className="bg-primary-background relative">
+            <div className="container hidden h-16 max-w-[88rem] grid-cols-12 px-8 lg:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
                         src="/logo-dark.jpg"
@@ -47,22 +47,19 @@ export default function Header() {
                         Components
                     </Link>
                     <Link
-                        href="/"
-                        target="_blank"
+                        href="/templates"
                         className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                     >
                         Templates
                     </Link>
                     <Link
-                        href="/"
-                        target="_blank"
+                        href="/pricing"
                         className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                     >
                         Pricing
                     </Link>
                     <Link
-                        href="/"
-                        target="_blank"
+                        href="/posts"
                         className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                     >
                         Posts
@@ -132,22 +129,19 @@ export default function Header() {
                             Components
                         </Link>
                         <Link
-                            href="/"
-                            target="_blank"
+                            href="/templates"
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Templates
                         </Link>
                         <Link
-                            href="/"
-                            target="_blank"
+                            href="/pricing"
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Pricing
                         </Link>
                         <Link
-                            href="/"
-                            target="_blank"
+                            href="/posts"
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Posts

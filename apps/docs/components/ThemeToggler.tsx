@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import 'remixicon/fonts/remixicon.css';
 
-export const ThemeToggler = () => {
+export default function ThemeToggler() {
     useEffect(() => {
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
@@ -40,4 +40,4 @@ export const ThemeToggler = () => {
             </button>
         </>
     );
-};
+}

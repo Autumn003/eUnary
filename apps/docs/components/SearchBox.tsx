@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import 'remixicon/fonts/remixicon.css';
 import { cn } from '../lib/utils';
@@ -60,6 +62,7 @@ export default function SearchBox({
                 <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.1 }}
                     className={cn(
                         'bg-primary-background text-secondary-foreground border-muted-background h-72 w-[30rem] rounded-xl border transition-all duration-300',
                         className
