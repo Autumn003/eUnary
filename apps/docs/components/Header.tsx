@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div className="bg-primary-background relative">
-            <div className="container hidden h-16 max-w-[88rem] grid-cols-12 px-8 lg:grid">
+            <div className="bg-primary-background/30 fixed top-0 left-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 px-8 backdrop-blur-md lg:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
                         src="/logo-dark.jpg"
@@ -95,7 +95,7 @@ export default function Header() {
                 </div>
             </div>
             {isOpen ? (
-                <div className="absolute top-0 z-40 flex h-lvh w-dvw flex-col gap-12 bg-black/30 px-10 py-6 backdrop-blur-md transition-all duration-300 lg:hidden">
+                <div className="bg-primary-background/30 fixed top-0 z-40 flex h-full w-dvw flex-col gap-12 px-10 py-6 backdrop-blur-md transition-all duration-300 lg:hidden">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex h-fit gap-2">
                             <Image
@@ -165,7 +165,7 @@ export default function Header() {
                     </div>
                 </div>
             ) : (
-                <div className="bg-primary-background sticky top-0 z-50 flex items-center justify-between p-4 transition-all duration-400 lg:hidden">
+                <div className="bg-primary-background/30 fixed top-0 z-50 flex w-full items-center justify-between p-4 backdrop-blur-md transition-all duration-400 lg:hidden">
                     <Link
                         href="/"
                         className="col-span-2 flex items-center gap-2"

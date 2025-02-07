@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import AutoScrollingGallery from './AutoScrollingGallery';
 
 export default function Home() {
     const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
@@ -16,8 +17,8 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="container">
-            <div className="flex items-center">
+        <div className="">
+            <div className="container flex items-center">
                 <div className="flex h-96 w-full flex-col items-start justify-center px-8 xl:px-0">
                     <h1 className="dark:text-primary-foreground text-secondary-foreground relative mb-6 max-w-4xl text-left text-4xl font-bold md:text-7xl">
                         Build your website with Eunary
@@ -49,7 +50,7 @@ export default function Home() {
                     </h1>
                 </div>
             </div>
-            <div>Section 2</div>
+            <AutoScrollingGallery />
             <div>Section 3</div>
             <div>Section 4</div>
         </div>

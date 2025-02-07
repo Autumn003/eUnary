@@ -18,7 +18,7 @@ export default function RootLayout({
     return (
         <html suppressHydrationWarning lang="en">
             <body className={`${inter.className} text-primary-foreground`}>
-                <div className="fixed inset-0 -z-50 bg-linear-to-t from-white to-stone-200 dark:from-gray-800 dark:to-black" />
+                <div className="fixed inset-0 -z-50 bg-white dark:bg-black" />
                 <Header />
                 {children}
             </body>
