@@ -30,7 +30,7 @@ export default function Header() {
                         height={28}
                         className="rounded-lg dark:invert"
                     />
-                    <div className="text-accent-foreground -mb-1 flex items-end gap-1">
+                    <div className="-mb-1 flex items-end gap-1">
                         <h1 className="text-primary-foreground text-2xl font-semibold">
                             Eunary
                         </h1>

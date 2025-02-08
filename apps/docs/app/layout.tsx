@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Header } from '../components';
+import { Header, Footer } from '../components';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +21,7 @@ export default function RootLayout({
                 <div className="fixed inset-0 -z-50 bg-white dark:bg-black" />
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );

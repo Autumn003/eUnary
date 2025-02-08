@@ -95,7 +95,7 @@ const AutoScrollingGallery = () => {
 
     return (
         <div className="relative h-72 overflow-hidden lg:h-[30rem]">
-            <div className="absolute top-0 z-50 h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(0,0,0,_0)_10%,_rgba(255,255,255,_0.8)_40%,_rgba(255,255,255,1)_100%)] dark:bg-[radial-gradient(at_80%_50%,_rgba(255,255,255,_0)_10%,_rgba(0,0,0,_0.8)_40%,_rgba(0,0,0,1)_100%)]">
+            <div className="absolute top-0 z-10 h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(0,0,0,_0)_10%,_rgba(255,255,255,_0.8)_40%,_rgba(255,255,255,1)_100%)] dark:bg-[radial-gradient(at_80%_50%,_rgba(255,255,255,_0)_10%,_rgba(0,0,0,_0.8)_40%,_rgba(0,0,0,1)_100%)]">
                 <div className="container flex h-full items-center justify-between lg:flex-col lg:items-start lg:justify-center">
                     <h2 className="text-primary-foreground w-[50%] text-4xl font-semibold md:text-6xl">
                         Ship{' '}
