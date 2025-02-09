@@ -1,15 +1,9 @@
-import fs from 'fs';
-import path from 'path';
 import ComponentShowcase from '../../components/ComponentShowcase';
 import { ThemeToggler } from '../../components';
+import { getFileContent } from '../../lib/getFileContent';
 
-const getComponentCode = () => {
-    const filePath = path.join(process.cwd(), 'components/ThemeToggler.tsx');
-    return fs.readFileSync(filePath, 'utf-8');
-};
-
-export default function ShowcasePage() {
-    const code = getComponentCode();
+export default async function ShowcasePage() {
+    const code = await getFileContent('components/ThemeToggler.tsx');
 
     return (
         <div className="container mt-20">
