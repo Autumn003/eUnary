@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import AutoScrollingGallery from './AutoScrollingGallery';
-
 export default function Home() {
     const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
 
@@ -51,7 +50,10 @@ export default function Home() {
                 </div>
             </div>
             <AutoScrollingGallery />
-            <div>Section 3</div>
+            <div className="flex">
+                <div className="w-full"></div>
+                <div className="w-full"></div>
+            </div>
             <div>Section 4</div>
         </div>
     );

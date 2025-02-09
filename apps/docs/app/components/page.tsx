@@ -1,9 +1,24 @@
-import AutoScrollingGallery from '../../components/AutoScrollingGallery';
-export default function Page() {
+import fs from 'fs';
+import path from 'path';
+import ComponentShowcase from '../../components/ComponentShowcase';
+import { ThemeToggler } from '../../components';
+
+const getComponentCode = () => {
+    const filePath = path.join(process.cwd(), 'components/ThemeToggler.tsx');
+    return fs.readFileSync(filePath, 'utf-8');
+};
+
+export default function ShowcasePage() {
+    const code = getComponentCode();
+
     return (
-        <div className="pt-20">
-            <h1 className="mb-4 text-center text-2xl">Image Carousel</h1>
-            <AutoScrollingGallery />
+        <div className="container mx-auto mt-20 overflow-scroll">
+            <ComponentShowcase
+                title="Theme Toggler"
+                component={<ThemeToggler />}
+                code={code}
+                className={'components/ThemeToggler.tsx'}
+            />
         </div>
     );
 }
