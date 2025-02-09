@@ -3,16 +3,15 @@
 import React, { useState } from 'react';
 import { cn } from '../lib/utils';
 import CodeShowcase from './CodeShowcase';
+import 'remixicon/fonts/remixicon.css';
 
 interface ComponentShowcaseProps {
-    title: string;
     component: React.ReactNode;
     code: string;
     className: string;
 }
 
 const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
-    title,
     component,
     code,
     className,
@@ -26,23 +25,31 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
     return (
         <div
             className={cn(
-                'no-scrollbar gap-4 rounded-lg border p-4 shadow-md',
+                'no-scrollbar h-full gap-4 rounded-lg p-4',
                 className
             )}
         >
             <button
                 onClick={showCodeBtnHandler}
-                className="bg-muted-background rounded-xl px-4 py-1"
+                className="bg-muted-background mx-4 my-4 cursor-pointer rounded-xl px-3 py-1"
             >
-                {showCode ? 'Component' : 'Code'}
+                {showCode ? (
+                    <>
+                        <i className="ri-window-line mr-2"></i> Component
+                    </>
+                ) : (
+                    <>
+                        <i className="ri-terminal-box-line"></i> Code
+                    </>
+                )}
             </button>
             {!showCode && (
-                <div className="flex items-center justify-center p-4">
+                <div className="border-muted-background flex min-h-96 items-center justify-center rounded-2xl border p-4">
                     <div className="rounded-lg border p-4">{component}</div>
                 </div>
             )}
 
-            {showCode && <CodeShowcase code={code} title={title} />}
+            {showCode && <CodeShowcase code={code} />}
         </div>
     );
 };

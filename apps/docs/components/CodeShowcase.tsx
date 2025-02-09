@@ -1,22 +1,42 @@
+import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import 'remixicon/fonts/remixicon.css';
 
-export default function CodeShowcase({
-    code,
-    title,
-}: {
-    code: string;
-    title: string;
-}) {
+export default function CodeShowcase({ code }: { code: string }) {
+    const [copied, setCopied] = useState(false);
+
+    const copyBtnHandler = () => {
+        navigator.clipboard.writeText(code);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
-        <div className="w-fit rounded-lg bg-[#1E1E1E] p-8 text-white">
-            <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+        <div className="no-scrollbar h-96 w-full overflow-auto rounded-4xl bg-[#1E1E1E] p-4 text-white md:p-6">
+            <button
+                className="absolute right-20 cursor-pointer rounded-xl p-2 transition-all duration-200 hover:bg-stone-800"
+                onClick={copyBtnHandler}
+            >
+                {copied ? (
+                    <>
+                        <i className="ri-check-line"></i>
+                    </>
+                ) : (
+                    <>
+                        <i className="ri-file-copy-fill"></i>
+                    </>
+                )}
+            </button>
             <SyntaxHighlighter
                 language="tsx"
                 style={vscDarkPlus}
                 customStyle={{
                     borderRadius: '8px',
-                    width: '40rem',
+                    overflow: 'scroll',
+                    whiteSpace: 'pre',
+                    paddingBottom: '8px',
+                    scrollbarWidth: 'none',
                 }}
             >
                 {code}

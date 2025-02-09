@@ -12,12 +12,11 @@ export default function ShowcasePage() {
     const code = getComponentCode();
 
     return (
-        <div className="container mx-auto mt-20 overflow-scroll">
+        <div className="container mt-20">
             <ComponentShowcase
-                title="Theme Toggler"
                 component={<ThemeToggler />}
                 code={code}
-                className={'components/ThemeToggler.tsx'}
+                className="no-scrollbar"
             />
         </div>
     );
