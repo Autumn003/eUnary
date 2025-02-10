@@ -28,7 +28,7 @@ export default async function FileContent({ filePath }: { filePath: string }) {
                         whiteSpace: 'pre',
                         scrollbarWidth: 'none',
                         height: '24rem',
-                        padding: '15px',
+                        padding: '35px 15px',
                     }}
                 >
                     {content}

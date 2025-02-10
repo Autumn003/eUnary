@@ -7,6 +7,7 @@ import ThemeToggler from './ThemeToggler';
 import HeroSection from './Home/HeroSection';
 import FileContent from './FileContent';
 import ComponentExample from './Home/ComponentExample';
+import CopyPaste from './Home/CopyPaste';
 
 export {
     Header,
@@ -18,4 +19,5 @@ export {
     HeroSection,
     FileContent,
     ComponentExample,
+    CopyPaste,
 };

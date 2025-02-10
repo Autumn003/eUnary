@@ -3,7 +3,7 @@ import ThemeToggler from '../ThemeToggler';
 
 const ComponentExample = () => {
     return (
-        <div className="container my-5">
+        <div className="container my-24">
             <div className="border-muted-background grid grid-cols-2 gap-10 rounded-4xl p-4">
                 <div className="col-span-2 flex items-center justify-center md:col-span-1">
                     <ThemeToggler />

@@ -1,6 +1,7 @@
 import {
     AutoScrollingGallery,
     ComponentExample,
+    CopyPaste,
     FileContent,
     HeroSection,
     Home,
@@ -9,11 +10,10 @@ import {
 export default function page() {
     return (
         <div>
-            {/* <Home /> */}
             <HeroSection />
             <AutoScrollingGallery />
-            {/* <FileContent filePath="/components/ThemeToggler.tsx" /> */}
             <ComponentExample />
+            <CopyPaste />
         </div>
     );
 }
