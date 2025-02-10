@@ -1,9 +1,19 @@
-import { Home } from '../components';
+import {
+    AutoScrollingGallery,
+    ComponentExample,
+    FileContent,
+    HeroSection,
+    Home,
+} from '../components';
 
 export default function page() {
     return (
         <div>
-            <Home />
+            {/* <Home /> */}
+            <HeroSection />
+            <AutoScrollingGallery />
+            {/* <FileContent filePath="/components/ThemeToggler.tsx" /> */}
+            <ComponentExample />
         </div>
     );
 }

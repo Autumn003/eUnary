@@ -1,7 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import AutoScrollingGallery from './AutoScrollingGallery';
+import AutoScrollingGallery from './Home/AutoScrollingGallery';
+import FileContent from './FileContent';
 export default function Home() {
     const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
 
@@ -51,7 +52,9 @@ export default function Home() {
             </div>
             <AutoScrollingGallery />
             <div className="flex">
-                <div className="w-full"></div>
+                <div className="w-full">
+                    {/* <FileContent filePath="components/ThemeToggler.tsx" /> */}
+                </div>
                 <div className="w-full"></div>
             </div>
             <div>Section 4</div>
