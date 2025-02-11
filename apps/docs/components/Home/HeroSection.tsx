@@ -43,7 +43,7 @@ const HeroSection = () => {
                     animations.
                 </p>
             </div>
-            <div className="hidden h-[40rem] w-full items-center justify-center p-20 text-center xl:flex">
+            <div className="hidden h-[40rem] w-full items-center justify-center text-center xl:flex">
                 <h1 className="h-full w-full rounded-2xl bg-gray-400 text-center">
                     right section
                 </h1>

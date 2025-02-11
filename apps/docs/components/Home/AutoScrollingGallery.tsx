@@ -94,8 +94,9 @@ const AutoScrollingGallery = () => {
     const duplicatedItems = [...galleryItems, ...galleryItems];
 
     return (
-        <div className="relative h-72 overflow-hidden lg:h-[30rem]">
+        <div className="relative my-24 h-72 overflow-hidden lg:h-[30rem]">
             <div className="absolute top-0 z-10 h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(0,0,0,_0)_10%,_rgba(255,255,255,_0.8)_40%,_rgba(255,255,255,1)_100%)] dark:bg-[radial-gradient(at_80%_50%,_rgba(255,255,255,_0)_10%,_rgba(0,0,0,_0.8)_40%,_rgba(0,0,0,1)_100%)]">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white dark:from-black" />
                 <div className="container flex h-full items-center justify-between lg:flex-col lg:items-start lg:justify-center">
                     <h2 className="text-primary-foreground w-[50%] text-4xl font-semibold md:text-6xl">
                         Ship{' '}
@@ -106,8 +107,10 @@ const AutoScrollingGallery = () => {
                     </h2>
                     <div>buttons</div>
                 </div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white dark:from-black" />
             </div>
             {/* Scrollable Content */}
+
             <div
                 ref={scrollRef}
                 className="no-scrollbar relative h-full overflow-hidden"

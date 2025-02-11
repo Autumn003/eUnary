@@ -32,8 +32,8 @@ const CopyPaste = () => {
     }, []);
 
     return (
-        <div className="container my-24 grid grid-cols-2">
-            <div className="col-span-2 my-10 text-center">
+        <div className="container grid grid-cols-2 sm:my-24">
+            <div className="col-span-2 my-20 text-center">
                 <h3 className="mb-5 text-xl font-semibold">
                     As simple as copy and paste
                 </h3>
@@ -42,7 +42,7 @@ const CopyPaste = () => {
                     components in your projects. It’s that easy!
                 </p>
             </div>
-            <div className="border-muted-background z-20 col-span-1 overflow-hidden rounded-2xl border bg-[#1e1e1e]">
+            <div className="border-muted-background z-20 col-span-2 max-w-[36rem] overflow-hidden rounded-2xl border bg-[#1e1e1e] lg:col-span-1">
                 <div className="flex h-8 w-full items-center gap-2 bg-zinc-100 px-3 dark:bg-zinc-900">
                     <div className="h-3 w-3 rounded-full bg-red-500"></div>
                     <div className="h-3 w-3 rounded-full bg-gray-300"></div>
@@ -67,7 +67,7 @@ const CopyPaste = () => {
                     />
                 </AnimatePresence>
             </div>
-            <div className="border-muted-background z-10 col-span-1 mx-auto my-auto flex h-fit w-fit items-center justify-center rounded-3xl border px-14 py-16">
+            <div className="border-muted-background z-10 col-span-1 mx-auto my-auto hidden h-fit w-fit items-center justify-center rounded-3xl border px-14 py-16 lg:flex">
                 <Image
                     src="/cmd_btn.png"
                     alt="Command"

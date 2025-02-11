@@ -20,7 +20,7 @@ export default function RootLayout({
             <body className={`${inter.className} text-primary-foreground`}>
                 <div className="fixed inset-0 -z-50 bg-white dark:bg-black" />
                 <Header />
-                {children}
+                <div className="mt-16">{children}</div>
                 <Footer />
             </body>
         </html>

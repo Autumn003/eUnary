@@ -5,7 +5,7 @@ export default async function ShowcasePage() {
     const code = await getFileContent('components/ThemeToggler.tsx');
 
     return (
-        <div className="container mt-20 px-72">
+        <div className="container px-64">
             <ComponentShowcase
                 component={<ThemeToggler />}
                 code={code}
