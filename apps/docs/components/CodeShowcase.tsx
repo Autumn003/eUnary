@@ -14,33 +14,35 @@ export default function CodeShowcase({ code }: { code: string }) {
 
     return (
         <div className="no-scrollbar h-96 w-full overflow-auto rounded-4xl bg-[#1E1E1E] p-4 text-white md:p-6">
-            <button
-                className="absolute right-20 cursor-pointer rounded-xl p-2 transition-all duration-200 hover:bg-stone-800"
-                onClick={copyBtnHandler}
-            >
-                {copied ? (
-                    <>
-                        <i className="ri-check-line"></i>
-                    </>
-                ) : (
-                    <>
-                        <i className="ri-file-copy-fill"></i>
-                    </>
-                )}
-            </button>
-            <SyntaxHighlighter
-                language="tsx"
-                style={vscDarkPlus}
-                customStyle={{
-                    borderRadius: '8px',
-                    overflow: 'scroll',
-                    whiteSpace: 'pre',
-                    paddingBottom: '8px',
-                    scrollbarWidth: 'none',
-                }}
-            >
-                {code}
-            </SyntaxHighlighter>
+            <div className="flex">
+                <SyntaxHighlighter
+                    language="tsx"
+                    style={vscDarkPlus}
+                    customStyle={{
+                        borderRadius: '8px',
+                        overflow: 'scroll',
+                        whiteSpace: 'pre',
+                        paddingBottom: '8px',
+                        scrollbarWidth: 'none',
+                    }}
+                >
+                    {code}
+                </SyntaxHighlighter>
+                <button
+                    className="sticky top-0 cursor-pointer self-start rounded-xl p-2 transition-all duration-200 hover:bg-stone-800"
+                    onClick={copyBtnHandler}
+                >
+                    {copied ? (
+                        <>
+                            <i className="ri-check-line"></i>
+                        </>
+                    ) : (
+                        <>
+                            <i className="ri-file-copy-fill"></i>
+                        </>
+                    )}
+                </button>
+            </div>
         </div>
     );
 }
