@@ -6,34 +6,34 @@ import { useEffect, useRef } from 'react';
 const galleryItems = [
     {
         type: 'image',
-        src: '/sample_img_1.webp',
+        src: '/media/sample_img_1.webp',
         className: 'col-span-2 row-span-1 self-center h-44 w-full',
     },
     {
         type: 'video',
-        src: '/sample_1.mp4',
+        src: '/media/sample_1.mp4',
         className: 'col-span-2 row-span-2 h-full w-full',
     },
     {
         type: 'image',
-        src: '/sample_img_3.png',
+        src: '/media/sample_img_3.png',
         className: 'col-span-2 row-span-1 self-center h-44 w-full',
     },
     {
         type: 'image',
-        src: '/sample_img_2.png',
+        src: '/media/sample_img_2.png',
         className: 'col-span-1 self-center',
     },
-    { type: 'video', src: '/sample_2.mp4', className: 'col-span-1 h-64' },
-    { type: 'image', src: '/sample_img_4.png', className: 'col-span-1' },
+    { type: 'video', src: '/media/sample_2.mp4', className: 'col-span-1 h-64' },
+    { type: 'image', src: '/media/sample_img_4.png', className: 'col-span-1' },
     {
         type: 'video',
-        src: '/sample_3.mp4',
+        src: '/media/sample_3.mp4',
         className: 'col-span-1 h-64 mix-blend-exclusion',
     },
     {
         type: 'video',
-        src: '/sample_4.mp4',
+        src: '/media/sample_4.mp4',
         className: 'col-span-4 h-64 w-full',
     },
 ];

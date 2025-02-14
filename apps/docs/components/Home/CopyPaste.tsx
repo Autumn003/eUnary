@@ -18,7 +18,7 @@ const CopyPaste = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const videos = ['/Copy-Paste.mp4', '/sample_1.mp4'];
+    const videos = ['/media/Copy-Paste.mp4', '/media/sample_1.mp4'];
     const [videoIndex, setVideoIndex] = useState(0);
     const [key, setKey] = useState(0);
 
@@ -69,7 +69,7 @@ const CopyPaste = () => {
             </div>
             <div className="border-muted-background z-10 col-span-1 mx-auto my-auto hidden h-fit w-fit items-center justify-center rounded-3xl border px-14 py-16 lg:flex">
                 <Image
-                    src="/cmd_btn.png"
+                    src="/media/cmd_btn.png"
                     alt="Command"
                     width={200}
                     height={200}
