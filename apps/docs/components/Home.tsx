@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import AutoScrollingGallery from './Home/AutoScrollingGallery';
-import FileContent from './FileContent';
 export default function Home() {
     const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
 

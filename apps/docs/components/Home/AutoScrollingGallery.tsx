@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 // Gallery items
@@ -105,7 +106,20 @@ const AutoScrollingGallery = () => {
                         </span>{' '}
                         with beautiful components
                     </h2>
-                    <div>buttons</div>
+                    <div className="z-30 mt-10 flex flex-col gap-4 lg:flex-row">
+                        <Link
+                            href="/components"
+                            className="border-secondary-background text-primary-background bg-secondary-background rounded-2xl border px-2 py-4 text-center text-sm font-semibold sm:px-4"
+                        >
+                            Eplore Components
+                        </Link>
+                        <Link
+                            href="/pricing"
+                            className="text-primary-foreground border-secondary-background rounded-2xl border p-4 text-center text-sm font-semibold"
+                        >
+                            EunaryUI Pro
+                        </Link>
+                    </div>
                 </div>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white dark:from-black" />
             </div>

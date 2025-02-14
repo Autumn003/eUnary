@@ -11,7 +11,7 @@ export default function Footer() {
                         className="col-span-2 flex items-center gap-2"
                     >
                         <Image
-                            src="/logo-dark.jpg"
+                            src="/media/logo-dark.jpg"
                             alt="logo"
                             width={40}
                             height={40}

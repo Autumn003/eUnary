@@ -24,7 +24,7 @@ export default function Header() {
             <div className="bg-primary-background/30 fixed top-0 left-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 px-8 backdrop-blur-md lg:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
-                        src="/logo-dark.jpg"
+                        src="/media/logo-dark.jpg"
                         alt="logo"
                         width={28}
                         height={28}
@@ -99,7 +99,7 @@ export default function Header() {
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex h-fit gap-2">
                             <Image
-                                src="/logo-dark.jpg"
+                                src="/media/logo-dark.jpg"
                                 alt="logo"
                                 width={28}
                                 height={28}
