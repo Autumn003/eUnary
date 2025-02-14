@@ -8,6 +8,7 @@ import HeroSection from './Home/HeroSection';
 import FileContent from './FileContent';
 import ComponentExample from './Home/ComponentExample';
 import CopyPaste from './Home/CopyPaste';
+import Features from './Home/Features';
 
 export {
     Header,
@@ -20,4 +21,5 @@ export {
     FileContent,
     ComponentExample,
     CopyPaste,
+    Features,
 };

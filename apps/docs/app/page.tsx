@@ -2,6 +2,7 @@ import {
     AutoScrollingGallery,
     ComponentExample,
     CopyPaste,
+    Features,
     HeroSection,
 } from '../components';
 
@@ -12,6 +13,7 @@ export default function page() {
             <CopyPaste />
             <AutoScrollingGallery />
             <ComponentExample />
+            <Features />
         </div>
     );
 }
