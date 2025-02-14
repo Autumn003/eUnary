@@ -1,0 +1,21 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "eunary",
+    "homepage": "https://ui.eunary.com",
+    "items": [
+        {
+            "name": "button",
+            "type": "registry:ui",
+            "title": "Button",
+            "description": "A simple button component.",
+            "files": [
+                {
+                    "path": "../../packages/ui/src/button.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/button.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        }
+    ]
+}
