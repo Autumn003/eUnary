@@ -17,8 +17,9 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <div className="container flex items-center">
-            <div className="flex h-96 w-full flex-col items-start justify-center px-8 xl:px-0">
+        <div className="relative container flex items-center bg-[url(/media/whirl.svg)] bg-cover bg-center bg-no-repeat">
+            <div className="bg-primary-background/30 absolute inset-0 z-10 backdrop-blur-lg" />
+            <div className="z-20 flex h-96 w-full flex-col items-start justify-center px-8 xl:px-0">
                 <h1 className="dark:text-primary-foreground text-secondary-foreground relative mb-6 max-w-4xl text-left text-4xl font-bold md:text-7xl">
                     Build your website with Eunary
                     <AnimatePresence mode="wait">
@@ -43,10 +44,8 @@ const HeroSection = () => {
                     animations.
                 </p>
             </div>
-            <div className="hidden h-[40rem] w-full items-center justify-center text-center xl:flex">
-                <h1 className="h-full w-full rounded-2xl bg-gray-400 text-center">
-                    right section
-                </h1>
+            <div className="z-20 hidden h-[40rem] w-full items-center justify-center text-center xl:flex">
+                <h1 className="text-center">right section</h1>
             </div>
         </div>
     );

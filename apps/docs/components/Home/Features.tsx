@@ -54,15 +54,17 @@ const Features = () => {
                     applications.
                 </p>
             </div>
-            <div className="relative container bg-[url(/media/wavy.png)] bg-cover bg-left bg-no-repeat py-6">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white dark:from-black" />
+            <div className="relative container bg-[url(/media/whirl.svg)] bg-cover bg-left bg-no-repeat py-6">
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-black" />
+
+                <div className="bg-primary-background/40 dark:bg-primary-background/20 absolute inset-0" />
                 <div className="grid h-96 grid-cols-4 justify-center overflow-auto md:h-auto">
                     {data.map((item, index) => (
                         <div
                             key={index}
                             className="col-span-4 md:col-span-2 lg:col-span-1"
                         >
-                            <div className="bg-primary-background/30 m-4 min-h-44 max-w-96 rounded-3xl p-4 backdrop-blur-md">
+                            <div className="bg-primary-background/10 m-4 min-h-44 max-w-96 rounded-3xl p-4 backdrop-blur">
                                 <div className="my-2 flex items-center gap-2">
                                     <div className="bg-muted-background my-auto flex h-8 w-8 items-center justify-center rounded-full">
                                         {item.logo}
@@ -81,7 +83,7 @@ const Features = () => {
                     ))}
                 </div>
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white dark:from-black" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-black" />
             </div>
         </div>
     );
