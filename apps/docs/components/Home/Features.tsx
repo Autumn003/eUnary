@@ -64,7 +64,7 @@ const Features = () => {
                             key={index}
                             className="col-span-4 md:col-span-2 lg:col-span-1"
                         >
-                            <div className="bg-primary-background/10 m-4 min-h-44 max-w-96 rounded-3xl p-4 backdrop-blur">
+                            <div className="bg-primary-background/10 m-4 mx-auto min-h-44 max-w-96 rounded-3xl p-4 backdrop-blur">
                                 <div className="my-2 flex items-center gap-2">
                                     <div className="bg-muted-background my-auto flex h-8 w-8 items-center justify-center rounded-full">
                                         {item.logo}
