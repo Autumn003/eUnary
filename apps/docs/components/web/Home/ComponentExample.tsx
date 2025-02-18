@@ -1,4 +1,4 @@
-import FileContent from '../FileContent';
+import FileContent from '../code/FileContent';
 import ThemeToggler from '../ThemeToggler';
 
 const ComponentExample = () => {

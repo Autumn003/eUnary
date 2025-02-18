@@ -10,7 +10,7 @@ export default function ShowcasePage() {
             {items.map((item, index) => (
                 <Link
                     key={index}
-                    href={`components/${item.name}`}
+                    href={`/components/${item.name}`}
                     className="group col-span-2 m-3 h-fit rounded-2xl md:col-span-1"
                 >
                     <motion.div

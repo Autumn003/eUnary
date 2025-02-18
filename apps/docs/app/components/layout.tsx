@@ -1,4 +1,4 @@
-import Sidebar from '../../components/Sidebar';
+import { Sidebar } from '@/components';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

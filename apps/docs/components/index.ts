@@ -1,18 +1,17 @@
-import AutoScrollingGallery from './Home/AutoScrollingGallery';
-import Footer from './Footer';
-import Header from './Header';
-import Home from './Home';
-import SearchBox from './SearchBox';
-import ThemeToggler from './ThemeToggler';
-import HeroSection from './Home/HeroSection';
-import FileContent from './FileContent';
-import ComponentExample from './Home/ComponentExample';
-import CopyPaste from './Home/CopyPaste';
-import Features from './Home/Features';
+import AutoScrollingGallery from './web/Home/AutoScrollingGallery';
+import Footer from './web/layout/Footer';
+import Header from './web/layout/Header';
+import SearchBox from './web/SearchBox';
+import ThemeToggler from './web/ThemeToggler';
+import HeroSection from './web/Home/HeroSection';
+import FileContent from './web/code/FileContent';
+import ComponentExample from './web/Home/ComponentExample';
+import CopyPaste from './web/Home/CopyPaste';
+import Features from './web/Home/Features';
+import Sidebar from './web/layout/Sidebar';
 
 export {
     Header,
-    Home,
     SearchBox,
     ThemeToggler,
     AutoScrollingGallery,
@@ -22,4 +21,5 @@ export {
     ComponentExample,
     CopyPaste,
     Features,
+    Sidebar,
 };

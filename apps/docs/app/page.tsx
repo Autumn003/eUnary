@@ -4,7 +4,7 @@ import {
     CopyPaste,
     Features,
     HeroSection,
-} from '../components';
+} from '@/components';
 
 export default function page() {
     return (

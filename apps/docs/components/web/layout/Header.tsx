@@ -4,8 +4,8 @@ import Image from 'next/image';
 import 'remixicon/fonts/remixicon.css';
 import Link from 'next/link';
 import { useState } from 'react';
-import SearchBox from './SearchBox';
-import ThemeToggler from './ThemeToggler';
+import SearchBox from '../SearchBox';
+import ThemeToggler from '../ThemeToggler';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);

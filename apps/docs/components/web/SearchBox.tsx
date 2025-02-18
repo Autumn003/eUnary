@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import 'remixicon/fonts/remixicon.css';
-import { cn } from '../lib/utils';
+import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
 export default function SearchBox({

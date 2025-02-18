@@ -1,15 +1,15 @@
-import { ThemeToggler } from '../../../../components';
-import ComponentShowcase from '../../../../components/ComponentShowcase';
-import { getFileContent } from '../../../../lib/getFileContent';
+import { ThemeToggler } from '@/components';
+import ComponentShowcase from '@/components/web/code/ComponentShowcase';
+import { getFileContent } from '@/lib/getFileContent';
 
 const page = async () => {
-    const code = await getFileContent('components/ThemeToggler.tsx');
+    const code = await getFileContent('components/web/ThemeToggler.tsx');
     return (
-        <div>
+        <div className="h-full w-full">
             <ComponentShowcase
                 component={<ThemeToggler />}
                 code={code}
-                className="no-scrollbar"
+                className=""
             />
         </div>
     );
