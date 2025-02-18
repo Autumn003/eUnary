@@ -9,7 +9,7 @@ const Sidebar = () => {
         { title: 'CLI', target: 'docs/cli' },
     ];
     return (
-        <div className="h-screen">
+        <div className="h-full">
             <div className="custom-scrollbar flex h-full flex-col overflow-auto py-6 pr-6 text-[15px] lg:py-8">
                 <div className="my-2 flex flex-col">
                     <h4 className="my-2 font-semibold">Installation</h4>

@@ -1,0 +1,10 @@
+{
+    "items": [
+        {
+            "name": "button",
+            "title": "Button",
+            "description": "A simple button component.",
+            "thumbnail": "/media/sample_img_1.webp"
+        }
+    ]
+}
