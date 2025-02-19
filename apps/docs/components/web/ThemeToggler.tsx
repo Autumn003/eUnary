@@ -21,7 +21,7 @@ export default function ThemeToggler() {
             document.documentElement.classList.add('dark');
             localStorage.setItem('theme', 'dark');
         }
-        setIsDark(!isDark);
+        setIsDark((prev) => !prev);
     };
 
     return (
