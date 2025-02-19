@@ -12,3 +12,6 @@ dist
 # Ignore Tailwind's `purge` generated files (optional, depending on how you're using it)
 tailwind.config.js
 postcss.config.js
+
+
+*.mdx
