@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 import { Mdx } from '@/components/mdx-component';
+// import '@/styles/mdx.css';
 
 interface DocPageProps {
     params: {

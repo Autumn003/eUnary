@@ -1,32 +1,33 @@
-// // @ts-nocheck
+// @ts-nocheck
 
-// import { getHighlighter } from '@shikijs/compat';
-// import {
-//     defineDocumentType,
-//     defineNestedType,
-//     makeSource,
-// } from 'contentlayer/source-files';
-// import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-// import rehypePrettyCode from 'rehype-pretty-code';
-// import rehypeSlug from 'rehype-slug';
-// import { codeImport } from 'remark-code-import';
-// import remarkGfm from 'remark-gfm';
-// import { visit } from 'unist-util-visit';
+import { getHighlighter } from '@shikijs/compat';
+import {
+    defineDocumentType,
+    defineNestedType,
+    makeSource,
+} from 'contentlayer/source-files';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import { codeImport } from 'remark-code-import';
+import remarkGfm from 'remark-gfm';
+import { visit } from 'unist-util-visit';
 
-// // import { rehypeComponent } from "./lib/rehype-component"
-// // import { rehypeNpmCommand } from "./lib/rehype-npm-command"
+// import { rehypeComponent } from "./lib/rehype-component"
+// import { rehypeNpmCommand } from "./lib/rehype-npm-command"
 
-// /** @type {import('contentlayer/source-files').ComputedFields} */
-// const computedFields = {
-//     slug: {
-//         type: 'string',
-//         resolve: (doc) => `/${doc._raw.flattenedPath}`,
-//     },
-//     slugAsParams: {
-//         type: 'string',
-//         resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
-//     },
-// };
+/** @type {import('contentlayer/source-files').ComputedFields} */
+const computedFields = {
+    slug: {
+        type: 'string',
+        resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    },
+    slugAsParams: {
+        type: 'string',
+        // resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+        resolve: (doc) => doc._raw.flattenedPath,
+    },
+};
 
 // const LinksProperties = defineNestedType(() => ({
 //     name: 'LinksProperties',
@@ -40,48 +41,85 @@
 //     },
 // }));
 
-// export const Doc = defineDocumentType(() => ({
-//     name: 'Doc',
-//     filePathPattern: `**/*.mdx`,
-//     contentType: 'mdx',
-//     fields: {
-//         title: {
-//             type: 'string',
-//             required: true,
-//         },
-//         description: {
-//             type: 'string',
-//             required: true,
-//         },
-//         published: {
-//             type: 'boolean',
-//             default: true,
-//         },
-//         links: {
-//             type: 'nested',
-//             of: LinksProperties,
-//         },
-//         featured: {
-//             type: 'boolean',
-//             default: false,
-//             required: false,
-//         },
-//         component: {
-//             type: 'boolean',
-//             default: false,
-//             required: false,
-//         },
-//         toc: {
-//             type: 'boolean',
-//             default: true,
-//             required: false,
-//         },
-//     },
-//     computedFields,
-// }));
+export const Doc = defineDocumentType(() => ({
+    name: 'Doc',
+    filePathPattern: `**/*.mdx`,
+    contentType: 'mdx',
+    fields: {
+        title: {
+            type: 'string',
+            required: true,
+        },
+        description: {
+            type: 'string',
+            required: true,
+        },
+        // published: {
+        //     type: 'boolean',
+        //     default: true,
+        // },
+        // links: {
+        //     type: 'nested',
+        //     of: LinksProperties,
+        // },
+        // featured: {
+        //     type: 'boolean',
+        //     default: false,
+        //     required: false,
+        // },
+        // component: {
+        //     type: 'boolean',
+        //     default: false,
+        //     required: false,
+        // },
+        // toc: {
+        //     type: 'boolean',
+        //     default: true,
+        //     required: false,
+        // },
+    },
+    computedFields,
+}));
+
+export default makeSource({
+    contentDirPath: './docs',
+    documentTypes: [Doc],
+    mdx: {
+        remarkPlugins: [remarkGfm, codeImport],
+        rehypePlugins: [
+            rehypeSlug,
+            [
+                rehypePrettyCode,
+                {
+                    theme: 'github-dark',
+                    onVisitLine(node) {
+                        if (node.children.length === 0) {
+                            node.children = [{ type: 'text', value: ' ' }];
+                        }
+                    },
+                    onVisitHighlightedLine(node) {
+                        node.properties.className.push('line--highlighted');
+                    },
+                    onVisitHighlightedWord(node) {
+                        node.properties.className.push('word--highlighted');
+                    },
+                },
+            ],
+            [
+                rehypeAutolinkHeadings,
+                {
+                    properties: {
+                        className: ['subheading-anchor'],
+                        ariallabel: 'Link to section',
+                    },
+                },
+            ],
+        ],
+    },
+});
 
 // export default makeSource({
-//     contentDirPath: './content',
+//     contentDirPath: './docs',
 //     documentTypes: [Doc],
 //     mdx: {
 //         remarkPlugins: [remarkGfm, codeImport],
@@ -185,25 +223,27 @@
 //     },
 // });
 
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+// *************************************************
 
-export const Doc = defineDocumentType(() => ({
-    name: 'Doc',
-    filePathPattern: '**/*.mdx',
-    contentType: 'mdx',
-    fields: {
-        title: { type: 'string', required: true },
-        description: { type: 'string', required: false },
-    },
-    computedFields: {
-        slugAsParams: {
-            type: 'string',
-            resolve: (doc) => doc._raw.flattenedPath,
-        },
-    },
-}));
+// import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 
-export default makeSource({
-    contentDirPath: 'docs',
-    documentTypes: [Doc],
-});
+// export const Doc = defineDocumentType(() => ({
+//     name: 'Doc',
+//     filePathPattern: '**/*.mdx',
+//     contentType: 'mdx',
+//     fields: {
+//         title: { type: 'string', required: true },
+//         description: { type: 'string', required: false },
+//     },
+//     computedFields: {
+//         slugAsParams: {
+//             type: 'string',
+//             resolve: (doc) => doc._raw.flattenedPath,
+//         },
+//     },
+// }));
+
+// export default makeSource({
+//     contentDirPath: 'docs',
+//     documentTypes: [Doc],
+// });

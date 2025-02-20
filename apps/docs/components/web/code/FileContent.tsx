@@ -1,3 +1,4 @@
+'use server';
 import fs from 'fs';
 import path from 'path';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
