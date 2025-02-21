@@ -9,6 +9,7 @@ import ComponentExample from './web/Home/ComponentExample';
 import CopyPaste from './web/Home/CopyPaste';
 import Features from './web/Home/Features';
 import Sidebar from './web/layout/Sidebar';
+import ComponentShowcase from './web/code/ComponentShowcase';
 
 export {
     Header,
@@ -22,4 +23,5 @@ export {
     CopyPaste,
     Features,
     Sidebar,
+    ComponentShowcase,
 };

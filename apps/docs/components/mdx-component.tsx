@@ -10,6 +10,16 @@ import { cn } from '@/lib/utils';
 
 import ThemeToggler from '@/components/web/ThemeToggler';
 import { SearchBox } from '@/components';
+import ComponentSource from '@/components/mdx/ComponentSource';
+import ComponetPreview from '@/components/mdx/ComponetPreview';
+import dynamic from 'next/dynamic';
+
+// const ComponentSource = dynamic(
+//     () => import('@/components/mdx/ComponentSource'),
+//     {
+//         ssr: false, // Prevents SSR, ensures it runs only on the client
+//     }
+// );
 
 const components = {
     h1: ({ className, ...props }) => (
@@ -168,17 +178,21 @@ const components = {
     Image,
     SearchBox,
     ThemeToggler,
+    ComponentSource,
+    ComponetPreview,
 };
 
 interface MdxProps {
     code: string;
+    preview?: React.ReactNode;
 }
 
-export function Mdx({ code }: MdxProps) {
+export function Mdx({ code, preview }: MdxProps) {
     const Component = useMDXComponent(code);
 
     return (
         <div className="mdx">
+            {preview} {/* Inject server-rendered ComponentPreview */}
             <Component components={components} />
         </div>
     );
