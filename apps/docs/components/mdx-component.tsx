@@ -12,14 +12,6 @@ import ThemeToggler from '@/components/web/ThemeToggler';
 import { SearchBox } from '@/components';
 import ComponentSource from '@/components/mdx/ComponentSource';
 import ComponetPreview from '@/components/mdx/ComponetPreview';
-import dynamic from 'next/dynamic';
-
-// const ComponentSource = dynamic(
-//     () => import('@/components/mdx/ComponentSource'),
-//     {
-//         ssr: false, // Prevents SSR, ensures it runs only on the client
-//     }
-// );
 
 const components = {
     h1: ({ className, ...props }) => (
@@ -215,7 +207,7 @@ export function Mdx({ code, preview, description }: MdxProps) {
                 components={{
                     ...components,
                     h1: ({ className, ...props }) => (
-                        <>
+                        <div className="mb-16">
                             <h1
                                 className={cn(
                                     'mt-2 scroll-m-20 text-4xl font-bold tracking-tight',
@@ -228,7 +220,7 @@ export function Mdx({ code, preview, description }: MdxProps) {
                                     {description}
                                 </p>
                             )}
-                        </>
+                        </div>
                     ),
                 }}
             />

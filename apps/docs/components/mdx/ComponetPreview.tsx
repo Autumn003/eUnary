@@ -17,34 +17,40 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
     className,
 }) => {
     const [showCode, setShowCode] = useState(false);
+    const [showComponent, setShowComponent] = useState(true);
 
     const showCodeBtnHandler = () => {
-        setShowCode(!showCode);
+        setShowCode(true);
+        setShowComponent(false);
+    };
+    const showComponentBtnHandler = () => {
+        setShowComponent(true);
+        setShowCode(false);
     };
 
     return (
         <div
-            className={cn(
-                'no-scrollbar h-full gap-4 rounded-lg p-4',
-                className
-            )}
+            className={cn('no-scrollbar my-4 h-full rounded-lg p-4', className)}
         >
-            <button
-                onClick={showCodeBtnHandler}
-                className="bg-muted-background mx-4 my-4 cursor-pointer rounded-xl px-3 py-1"
-            >
-                {showCode ? (
-                    <>
-                        <i className="ri-window-line mr-2"></i> Component
-                    </>
-                ) : (
-                    <>
-                        <i className="ri-terminal-box-line"></i> Code
-                    </>
-                )}
-            </button>
-            {!showCode && (
-                <div className="border-muted-background flex min-h-96 items-center justify-center rounded-2xl border p-4">
+            <div className="my-2 flex gap-2">
+                <button
+                    onClick={showComponentBtnHandler}
+                    className={`border-muted-background w-32 cursor-pointer rounded-lg border py-2 ${showComponent && 'bg-muted-background'} transition-colors duration-150`}
+                >
+                    <i className="ri-window-line"></i>{' '}
+                    <span className="text-sm font-semibold">Preview</span>
+                </button>
+                <button
+                    onClick={showCodeBtnHandler}
+                    className={`border-muted-background w-32 cursor-pointer rounded-lg border px-3 py-2 ${showCode && 'bg-muted-background'} transition-colors duration-150`}
+                >
+                    <i className="ri-terminal-box-line"></i>{' '}
+                    <span className="text-sm font-semibold">Code</span>
+                </button>
+            </div>
+
+            {showComponent && (
+                <div className="border-muted-background flex min-h-96 items-center justify-center rounded-lg border p-4">
                     <div className="rounded-lg border p-4">{component}</div>
                 </div>
             )}

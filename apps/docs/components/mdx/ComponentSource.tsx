@@ -28,7 +28,7 @@ const ComponentSource = ({ componentName }: { componentName: string }) => {
 
     if (!code)
         return (
-            <div className="h-96 space-y-4 overflow-hidden rounded-4xl bg-[#1e1e1e] px-4 py-10 md:px-6">
+            <div className="h-96 space-y-4 overflow-hidden rounded-lg bg-[#1e1e1e] px-4 py-10 md:px-6">
                 {[...Array(10)].map((_, index) => (
                     <div
                         key={index}

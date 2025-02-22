@@ -34,13 +34,13 @@ const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
                 className="bg-muted-background mx-4 my-4 cursor-pointer rounded-xl px-3 py-1"
             >
                 {showCode ? (
-                    <>
+                    <div>
                         <i className="ri-window-line mr-2"></i> Component
-                    </>
+                    </div>
                 ) : (
-                    <>
+                    <div>
                         <i className="ri-terminal-box-line"></i> Code
-                    </>
+                    </div>
                 )}
             </button>
             {!showCode && (
