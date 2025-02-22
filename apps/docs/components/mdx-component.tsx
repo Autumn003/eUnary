@@ -206,7 +206,7 @@ const components = {
     }: React.ComponentProps<typeof TabsTrigger>) => (
         <TabsTrigger
             className={cn(
-                'text-secondary-foreground data-[state=active]:border-b-primary-foreground data-[state=active]:text-primary-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none',
+                'text-secondary-foreground data-[state=active]:border-b-primary-foreground data-[state=active]:text-primary-foreground relative h-9 cursor-pointer rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none',
                 className
             )}
             {...props}
