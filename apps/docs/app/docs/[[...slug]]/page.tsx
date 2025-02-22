@@ -28,10 +28,8 @@ export default async function DocPage({ params }: DocPageProps) {
     }
 
     return (
-        <main className="container mx-auto">
-            <h1>{doc.title}</h1>
-            <p>{doc.description}</p>
-            <Mdx code={doc.body.code} />
+        <main className="prose container">
+            <Mdx code={doc.body.code} description={doc.description} />
         </main>
     );
 }

@@ -28,29 +28,13 @@ const ComponentSource = ({ componentName }: { componentName: string }) => {
 
     if (!code)
         return (
-            <div>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
-                <p>Loading...</p>
+            <div className="h-96 space-y-4 overflow-hidden rounded-4xl bg-[#1e1e1e] px-4 py-10 md:px-6">
+                {[...Array(10)].map((_, index) => (
+                    <div
+                        key={index}
+                        className="bg-muted-foreground/30 h-4 w-full animate-pulse rounded-full"
+                    ></div>
+                ))}
             </div>
         );
 

@@ -14,8 +14,8 @@ export default function CodeShowcase({ code }: { code: string }) {
     };
 
     return (
-        <div className="no-scrollbar h-96 w-full overflow-auto rounded-4xl bg-[#1E1E1E] p-4 text-white md:p-6">
-            <div className="flex">
+        <div className="custom-scrollbar h-96 w-full overflow-auto rounded-lg bg-[#1E1E1E] p-4 text-white md:p-6">
+            <div className="relative flex">
                 <SyntaxHighlighter
                     language="tsx"
                     style={vscDarkPlus}
@@ -30,7 +30,7 @@ export default function CodeShowcase({ code }: { code: string }) {
                     {code}
                 </SyntaxHighlighter>
                 <button
-                    className="sticky top-0 cursor-pointer self-start rounded-xl p-2 transition-all duration-200 hover:bg-stone-800"
+                    className="sticky top-0 ml-auto cursor-pointer self-start rounded-xl p-2 transition-all duration-200 hover:bg-stone-800"
                     onClick={copyBtnHandler}
                 >
                     {copied ? (

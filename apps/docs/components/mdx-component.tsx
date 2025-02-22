@@ -160,7 +160,7 @@ const components = {
     pre: ({ className, ...props }) => (
         <pre
             className={cn(
-                'mt-6 mb-4 overflow-x-auto rounded-lg border bg-black py-4',
+                'border-muted-foreground mt-6 mb-4 overflow-x-auto rounded-lg border bg-[#1e1e1e] py-4',
                 className
             )}
             {...props}
@@ -169,9 +169,26 @@ const components = {
     code: ({ className, ...props }) => (
         <code
             className={cn(
-                'relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm',
+                'relative px-4 py-[0.2rem] font-mono text-sm',
                 className
             )}
+            {...props}
+        />
+    ),
+    Step: ({ className, ...props }: React.ComponentProps<'h3'>) => (
+        <div
+            className={cn(
+                'font-heading relative mt-8 scroll-m-20 font-semibold tracking-tight',
+                className
+            )}
+        >
+            <div className="bg-muted-background absolute -left-8 h-7 w-1.5 rounded-r"></div>
+            <h3 {...props} />
+        </div>
+    ),
+    Steps: ({ ...props }) => (
+        <div
+            className="[&>h3]:step steps border-muted-background mb-12 border-l pl-8 [counter-reset:step]"
             {...props}
         />
     ),
@@ -184,16 +201,37 @@ const components = {
 
 interface MdxProps {
     code: string;
+    description: string;
     preview?: React.ReactNode;
 }
 
-export function Mdx({ code, preview }: MdxProps) {
+export function Mdx({ code, preview, description }: MdxProps) {
     const Component = useMDXComponent(code);
 
     return (
         <div className="mdx">
             {preview} {/* Inject server-rendered ComponentPreview */}
-            <Component components={components} />
+            <Component
+                components={{
+                    ...components,
+                    h1: ({ className, ...props }) => (
+                        <>
+                            <h1
+                                className={cn(
+                                    'mt-2 scroll-m-20 text-4xl font-bold tracking-tight',
+                                    className
+                                )}
+                                {...props}
+                            />
+                            {description && (
+                                <p className="text-secondary-foreground mt-2">
+                                    {description}
+                                </p>
+                            )}
+                        </>
+                    ),
+                }}
+            />
         </div>
     );
 }
