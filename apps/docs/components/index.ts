@@ -10,6 +10,7 @@ import CopyPaste from './web/Home/CopyPaste';
 import Features from './web/Home/Features';
 import Sidebar from './web/layout/Sidebar';
 import ComponentShowcase from './web/code/ComponentShowcase';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/tabs';
 
 export {
     Header,
@@ -24,4 +25,8 @@ export {
     Features,
     Sidebar,
     ComponentShowcase,
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
 };

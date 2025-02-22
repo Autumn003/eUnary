@@ -8,19 +8,33 @@ description: Usage and examples of the button component
 
 <ComponetPreview name="ThemeToggler" component={<ThemeToggler/>} className="p-0 mb-20"/>
 
-This is the button component documentation.
+### Installation
 
+<Tabs defaultValue="cli">
+<TabsList >
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
 
+<TabsContent value="cli">
+<Steps>
+<Step>
+    Run the following command
+</Step>
 ```bash
-npx shadcn@latest add alert
+    npx shadcn@latest add alert
 ```
+</Steps>
+    
+</TabsContent>
 
+<TabsContent value="manual">
 <Steps>
 <Step>
     This is step 1
 </Step>
 ```bash
-npx shadcn@latest add alert
+    npx shadcn@latest add alert
 ```
 
 <Step>
@@ -30,11 +44,6 @@ npx shadcn@latest add alert
 <ComponetPreview name="ThemeToggler" component={<ThemeToggler/>} className="p-0"/>
 
 </Steps>
+</TabsContent>
+</Tabs>
 
-
-
-```tsx
-import { Button } from '@/components/ui/button';
-
-<Button>Click me</Button>;
-```

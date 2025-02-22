@@ -9,7 +9,8 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { cn } from '@/lib/utils';
 
 import ThemeToggler from '@/components/web/ThemeToggler';
-import { SearchBox } from '@/components';
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 import ComponentSource from '@/components/mdx/ComponentSource';
 import ComponetPreview from '@/components/mdx/ComponetPreview';
 
@@ -184,8 +185,46 @@ const components = {
             {...props}
         />
     ),
+    Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
+        <Tabs className={cn('relative mt-6 w-full', className)} {...props} />
+    ),
+    TabsList: ({
+        className,
+        ...props
+    }: React.ComponentProps<typeof TabsList>) => (
+        <TabsList
+            className={cn(
+                'border-muted-background w-full justify-start rounded-none border-b bg-transparent p-0',
+                className
+            )}
+            {...props}
+        />
+    ),
+    TabsTrigger: ({
+        className,
+        ...props
+    }: React.ComponentProps<typeof TabsTrigger>) => (
+        <TabsTrigger
+            className={cn(
+                'text-secondary-foreground data-[state=active]:border-b-primary-foreground data-[state=active]:text-primary-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none',
+                className
+            )}
+            {...props}
+        />
+    ),
+    TabsContent: ({
+        className,
+        ...props
+    }: React.ComponentProps<typeof TabsContent>) => (
+        <TabsContent
+            className={cn(
+                'relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold',
+                className
+            )}
+            {...props}
+        />
+    ),
     Image,
-    SearchBox,
     ThemeToggler,
     ComponentSource,
     ComponetPreview,
