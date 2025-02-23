@@ -11,6 +11,7 @@ import Features from './web/Home/Features';
 import Sidebar from './web/layout/Sidebar';
 import ComponentShowcase from './web/code/ComponentShowcase';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/tabs';
+import CopyBtn from './CopyBtn';
 
 export {
     Header,
@@ -29,4 +30,5 @@ export {
     TabsContent,
     TabsList,
     TabsTrigger,
+    CopyBtn,
 };
