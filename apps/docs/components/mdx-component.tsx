@@ -8,17 +8,21 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { cn } from '@/lib/utils';
 
-import ThemeToggler from '@/components/web/theme-toggler';
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
-import ComponentSource from '@/components/mdx/component-source';
-import ComponetPreview from '@/components/mdx/componet-preview';
+import {
+    ThemeToggler,
+    ComponentSource,
+    ComponentPreview,
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from '@/components';
 
 const components = {
     h1: ({ className, ...props }) => (
         <h1
             className={cn(
-                'mt-2 scroll-m-20 text-4xl font-bold tracking-tight',
+                'mt-2 scroll-m-20 text-4xl font-bold tracking-tight text-red-400',
                 className
             )}
             {...props}
@@ -120,7 +124,13 @@ const components = {
         ...props
     }: React.HTMLAttributes<HTMLTableElement>) => (
         <div className="my-6 w-full overflow-y-auto">
-            <table className={cn('w-full', className)} {...props} />
+            <table
+                className={cn(
+                    'w-full border-collapse border border-gray-300',
+                    className
+                )}
+                {...props}
+            />
         </div>
     ),
     tr: ({
@@ -128,7 +138,10 @@ const components = {
         ...props
     }: React.HTMLAttributes<HTMLTableRowElement>) => (
         <tr
-            className={cn('even:bg-muted m-0 border-t p-0', className)}
+            className={cn(
+                'even:bg-muted-background m-0 border-t p-0',
+                className
+            )}
             {...props}
         />
     ),
@@ -227,7 +240,7 @@ const components = {
     Image,
     ThemeToggler,
     ComponentSource,
-    ComponetPreview,
+    ComponentPreview,
 };
 
 interface MdxProps {

@@ -12,6 +12,8 @@ import Sidebar from './web/layout/sidebar';
 import ComponentShowcase from './web/code/component-showcase';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/tabs';
 import CopyBtn from './web/copy-btn';
+import ComponentPreview from './mdx/component-preview';
+import ComponentSource from './mdx/component-source';
 
 export {
     Header,
@@ -31,4 +33,6 @@ export {
     TabsList,
     TabsTrigger,
     CopyBtn,
+    ComponentPreview,
+    ComponentSource,
 };
