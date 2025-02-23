@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import CodeShowcase from '../web/code/CodeShowcase';
+import CodeShowcase from '../web/code/code-showcase';
 
 const ComponentSource = ({ componentName }: { componentName: string }) => {
     const [code, setCode] = useState<string | null>(null);

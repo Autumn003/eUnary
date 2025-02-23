@@ -1,5 +1,5 @@
-import FileContent from '../code/FileContent';
-import ThemeToggler from '../ThemeToggler';
+import FileContent from '../code/file-content';
+import ThemeToggler from '../theme-toggler';
 
 const ComponentExample = () => {
     return (

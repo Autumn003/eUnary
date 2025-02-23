@@ -8,11 +8,11 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import { cn } from '@/lib/utils';
 
-import ThemeToggler from '@/components/web/ThemeToggler';
+import ThemeToggler from '@/components/web/theme-toggler';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
-import ComponentSource from '@/components/mdx/ComponentSource';
-import ComponetPreview from '@/components/mdx/ComponetPreview';
+import ComponentSource from '@/components/mdx/component-source';
+import ComponetPreview from '@/components/mdx/componet-preview';
 
 const components = {
     h1: ({ className, ...props }) => (

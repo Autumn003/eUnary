@@ -1,5 +1,5 @@
 import { ThemeToggler } from '@/components';
-import ComponentShowcase from '@/components/web/code/ComponentShowcase';
+import ComponentShowcase from '@/components/web/code/component-showcase';
 import { getFileContent } from '@/lib/getFileContent';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import CodeShowcase from './CodeShowcase';
+import CodeShowcase from './code-showcase';
 import 'remixicon/fonts/remixicon.css';
 
 interface ComponentShowcaseProps {

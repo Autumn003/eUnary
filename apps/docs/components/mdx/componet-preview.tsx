@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import ComponentSource from './ComponentSource';
+import ComponentSource from './component-source';
 import 'remixicon/fonts/remixicon.css';
 
 interface ComponentShowcaseProps {
