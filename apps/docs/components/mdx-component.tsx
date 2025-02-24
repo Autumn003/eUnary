@@ -126,7 +126,7 @@ const components = {
         <div className="my-6 w-full overflow-y-auto">
             <table
                 className={cn(
-                    'w-full border-collapse border border-gray-300',
+                    'border-muted-background w-full border-collapse border',
                     className
                 )}
                 {...props}
@@ -139,7 +139,7 @@ const components = {
     }: React.HTMLAttributes<HTMLTableRowElement>) => (
         <tr
             className={cn(
-                'even:bg-muted-background m-0 border-t p-0',
+                'even:bg-muted-background border-muted-background m-0 border-t p-0',
                 className
             )}
             {...props}
@@ -148,7 +148,7 @@ const components = {
     th: ({ className, ...props }) => (
         <th
             className={cn(
-                'border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
+                'border-muted-foreground border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
                 className
             )}
             {...props}
@@ -157,7 +157,7 @@ const components = {
     td: ({ className, ...props }) => (
         <td
             className={cn(
-                'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
+                'border-muted-foreground border px-4 py-3 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
                 className
             )}
             {...props}
@@ -175,7 +175,7 @@ const components = {
     code: ({ className, ...props }) => (
         <code
             className={cn(
-                'relative px-4 py-[0.2rem] font-mono text-sm',
+                'relative rounded px-4 py-1.5 font-mono text-sm',
                 className
             )}
             {...props}
@@ -276,6 +276,7 @@ export function Mdx({ code, preview, description }: MdxProps) {
                     ),
                 }}
             />
+            {/* <Component components={components} /> */}
         </div>
     );
 }

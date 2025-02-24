@@ -4,6 +4,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+    body {
+        background-color: hsl(var(--primary-background));
+        color: hsl(var(--primary-foreground));
+    }
+
+    .dark body {
+        background-color: hsl(var(--primary-background));
+        color: hsl(var(--primary-foreground));
+    }
+}
+
 @theme {
     --color-primary-background: hsl(var(--primary-background));
     --color-secondary-background: hsl(var(--secondary-background));

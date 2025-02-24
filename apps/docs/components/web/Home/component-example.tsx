@@ -20,7 +20,7 @@ const ComponentExample = () => {
                 <div className="relative col-span-2 md:col-span-1">
                     <div className="absolute -inset-1 rounded-[40px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 opacity-30 blur-xl"></div>
                     <div className="col-span-2 rounded-[28px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 p-1 shadow-2xl drop-shadow-2xl md:col-span-1">
-                        <FileContent filePath="components/web/ThemeToggler.tsx" />
+                        <FileContent filePath="components/web/theme-toggler.tsx" />
                     </div>
                 </div>
             </div>

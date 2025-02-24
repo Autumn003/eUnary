@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 import { Mdx } from '@/components/mdx-component';
-// import '@/styles/mdx.css';
 
 interface DocPageProps {
     params: {
@@ -28,7 +27,7 @@ export default async function DocPage({ params }: DocPageProps) {
     }
 
     return (
-        <main className="prose container">
+        <main className="container">
             <Mdx code={doc.body.code} description={doc.description} />
         </main>
     );
