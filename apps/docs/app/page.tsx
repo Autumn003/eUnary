@@ -14,7 +14,6 @@ export default function page() {
             <AutoScrollingGallery />
             <ComponentExample />
             <Features />
-            {/* testing commit */}
         </div>
     );
 }
