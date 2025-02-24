@@ -16,13 +16,14 @@ import {
     TabsContent,
     TabsList,
     TabsTrigger,
+    CopyBtn,
 } from '@/components';
 
 const components = {
     h1: ({ className, ...props }) => (
         <h1
             className={cn(
-                'mt-2 scroll-m-20 text-4xl font-bold tracking-tight text-red-400',
+                'mt-2 scroll-m-20 text-4xl font-bold tracking-tight',
                 className
             )}
             {...props}
@@ -163,15 +164,53 @@ const components = {
             {...props}
         />
     ),
-    pre: ({ className, ...props }) => (
-        <pre
-            className={cn(
-                'border-muted-foreground mt-6 mb-4 overflow-x-auto rounded-lg border bg-[#1e1e1e] py-4',
+    // pre: ({ className, ___rawstring___, ...props }) => {
+    //     console.log("pre prop: ", props);
+    //     return (
+    //         <div className={cn(
+    //             'relative border-muted-foreground mt-6 mb-4 overflow-x-auto rounded-lg border bg-[#1e1e1e] py-4',
+    //             className
+    //         )}>
+    //             <pre
+
+    //                 {...props}
+    //             />{
+    //                 ___rawstring___ &&
+    //                 <CopyBtn content={___rawstring___} className='absolute top-2 right-2' />
+    //             }
+    //         </div>
+    //     )
+    // },
+    pre: ({ className, children, ...props }) => {
+        // Function to extract text from nested children
+        const extractText = (node) => {
+            if (typeof node === 'string') {
+                return node;
+            }
+            if (React.isValidElement(node) && node.props.children) {
+                return React.Children.toArray(node.props.children).map(extractText).join('');
+            }
+            return '';
+        };
+
+        // Extract text from children
+        const codeText = React.Children.toArray(children).map(extractText).join('');
+
+        return (
+            <div className={cn(
+                'relative flex border-muted-foreground max-h-64 mt-6 mb-4 py-3 h-full overflow-auto rounded-lg border bg-[#1e1e1e]',
                 className
-            )}
-            {...props}
-        />
-    ),
+            )}>
+                <pre className='w-full py-1 overflow-auto no-scrollbar' {...props}>{children}</pre>
+                {codeText && (
+                    <div className='sticky top-0 right-2 w-fit z-20 bg-transparent'>
+                        <CopyBtn content={codeText} className="" />
+                    </div>
+
+                )}
+            </div>
+        );
+    },
     code: ({ className, ...props }) => (
         <code
             className={cn(
