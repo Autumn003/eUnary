@@ -12,7 +12,7 @@ export default function docsLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="container grid grid-cols-10">
+        <div className="grid grid-cols-10 lg:container">
             <div className="fixed top-14 col-span-1 hidden h-[calc(100vh-3.5rem)] shrink-0 lg:sticky lg:col-span-2 lg:block lg:self-start">
                 <Sidebar />
             </div>

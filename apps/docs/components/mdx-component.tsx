@@ -171,25 +171,35 @@ const components = {
                 return node;
             }
             if (React.isValidElement(node) && node.props.children) {
-                return React.Children.toArray(node.props.children).map(extractText).join('');
+                return React.Children.toArray(node.props.children)
+                    .map(extractText)
+                    .join('');
             }
             return '';
         };
 
         // Extract text from children
-        const codeText = React.Children.toArray(children).map(extractText).join('');
+        const codeText = React.Children.toArray(children)
+            .map(extractText)
+            .join('');
 
         return (
-            <div className={cn(
-                'relative flex border-muted-foreground max-h-64 mt-6 mb-4 py-3 h-full overflow-auto rounded-lg border bg-[#1e1e1e]',
-                className
-            )}>
-                <pre className='w-full py-1 overflow-auto no-scrollbar' {...props}>{children}</pre>
+            <div
+                className={cn(
+                    'border-muted-foreground relative my-4 flex h-full max-h-64 overflow-auto rounded-lg border bg-[#1e1e1e] py-3',
+                    className
+                )}
+            >
+                <pre
+                    className="no-scrollbar w-full overflow-auto py-1"
+                    {...props}
+                >
+                    {children}
+                </pre>
                 {codeText && (
-                    <div className='sticky top-0 right-2 w-fit z-20 bg-transparent'>
+                    <div className="sticky top-0 right-2 z-20 w-fit bg-transparent">
                         <CopyBtn content={codeText} className="" />
                     </div>
-
                 )}
             </div>
         );
@@ -206,7 +216,7 @@ const components = {
     Step: ({ className, ...props }: React.ComponentProps<'h3'>) => (
         <div
             className={cn(
-                'font-heading relative mt-8 scroll-m-20 font-semibold tracking-tight',
+                'font-heading relative mt-10 mb-6 scroll-m-20 font-semibold tracking-tight',
                 className
             )}
         >
