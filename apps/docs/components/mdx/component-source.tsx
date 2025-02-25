@@ -90,7 +90,7 @@ const ComponentSource = ({
                             {collapsible && (
                                 <button
                                     onClick={buttonHandler}
-                                    className="cursor-pointer rounded-xl bg-neutral-800 px-3 py-2 text-sm font-semibold transition-colors duration-150 hover:bg-neutral-800/60"
+                                    className="cursor-pointer rounded-lg bg-neutral-800 px-3 py-2 text-sm font-semibold transition-colors duration-150 hover:bg-neutral-800/60"
                                 >
                                     {isOpened ? 'Collapse' : 'Expand'}
                                 </button>

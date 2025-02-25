@@ -21,7 +21,7 @@ const CopyBtn = ({
         <div>
             <button
                 className={cn(
-                    'cursor-pointer rounded-xl p-2 transition-all duration-200 hover:bg-stone-800',
+                    'cursor-pointer rounded-xl p-2 text-neutral-300 transition-all duration-200 hover:bg-stone-800',
                     className
                 )}
                 onClick={copyBtnHandler}
