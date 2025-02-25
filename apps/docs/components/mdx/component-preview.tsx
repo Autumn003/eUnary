@@ -43,7 +43,7 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
                 </TabsContent>
 
                 <TabsContent value="code">
-                    <ComponentSource componentName={name} />
+                    <ComponentSource componentName={name} className="" />
                 </TabsContent>
             </Tabs>
         </div>

@@ -164,23 +164,6 @@ const components = {
             {...props}
         />
     ),
-    // pre: ({ className, ___rawstring___, ...props }) => {
-    //     console.log("pre prop: ", props);
-    //     return (
-    //         <div className={cn(
-    //             'relative border-muted-foreground mt-6 mb-4 overflow-x-auto rounded-lg border bg-[#1e1e1e] py-4',
-    //             className
-    //         )}>
-    //             <pre
-
-    //                 {...props}
-    //             />{
-    //                 ___rawstring___ &&
-    //                 <CopyBtn content={___rawstring___} className='absolute top-2 right-2' />
-    //             }
-    //         </div>
-    //     )
-    // },
     pre: ({ className, children, ...props }) => {
         // Function to extract text from nested children
         const extractText = (node) => {
@@ -315,7 +298,6 @@ export function Mdx({ code, preview, description }: MdxProps) {
                     ),
                 }}
             />
-            {/* <Component components={components} /> */}
         </div>
     );
 }
