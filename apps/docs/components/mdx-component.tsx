@@ -17,6 +17,7 @@ import {
     TabsList,
     TabsTrigger,
     CopyBtn,
+    ExploreComponents,
 } from '@/components';
 
 const components = {
@@ -273,6 +274,7 @@ const components = {
     ThemeToggler,
     ComponentSource,
     ComponentPreview,
+    ExploreComponents,
 };
 
 interface MdxProps {

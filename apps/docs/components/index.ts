@@ -14,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/tabs';
 import CopyBtn from './web/copy-btn';
 import ComponentPreview from './mdx/component-preview';
 import ComponentSource from './mdx/component-source';
+import ExploreComponents from './web/explore-components';
 
 export {
     Header,
@@ -35,4 +36,5 @@ export {
     CopyBtn,
     ComponentPreview,
     ComponentSource,
+    ExploreComponents,
 };
