@@ -1,12 +1,7 @@
 import { cn } from '@/lib/utils';
 import ComponentSource from './component-source';
 import 'remixicon/fonts/remixicon.css';
-import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from '@/components';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 
 interface ComponentShowcaseProps {
     component: React.ReactNode;
@@ -19,18 +14,23 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
     name,
     className,
 }) => {
-
     return (
         <div
             className={cn('no-scrollbar my-4 h-full rounded-lg p-4', className)}
         >
             <Tabs defaultValue="preview">
-                <TabsList className='my-2 gap-4'>
-                    <TabsTrigger value="preview" className='data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background w-32 cursor-pointer rounded-lg border py-2  transition-colors duration-150 text-secondary-foreground'>
+                <TabsList className="my-2 gap-4">
+                    <TabsTrigger
+                        value="preview"
+                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer rounded-lg border py-2 transition-colors duration-150"
+                    >
                         <i className="ri-window-line"></i>{' '}
                         <span className="text-sm font-semibold">Preview</span>
                     </TabsTrigger>
-                    <TabsTrigger value="code" className='data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer rounded-lg border py-2  transition-colors duration-150'>
+                    <TabsTrigger
+                        value="code"
+                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer rounded-lg border py-2 transition-colors duration-150"
+                    >
                         <i className="ri-terminal-box-line"></i>{' '}
                         <span className="text-sm font-semibold">Code</span>
                     </TabsTrigger>
@@ -43,7 +43,11 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
                 </TabsContent>
 
                 <TabsContent value="code">
-                    <ComponentSource componentName={name} className="" />
+                    <ComponentSource
+                        componentName={name}
+                        className="max-h-96 overflow-auto"
+                        collapsible={false}
+                    />
                 </TabsContent>
             </Tabs>
         </div>
