@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
-// const nextConfig = {
-
-// };
-
-// export default nextConfig;
 
 import { withContentlayer } from 'next-contentlayer';
 
-export default withContentlayer({});
+const nextConfig = {
+    experimental: {
+        turbo: {
+            webpack: true, // Use Webpack where necessary
+        },
+    },
+};
+
+export default withContentlayer(nextConfig);
