@@ -20,6 +20,6 @@
         "next.config.js",
         ".next/types/**/*.ts",
         ".contentlayer/generated"
-    ],
+, "docs/theme-toggler.mdx"    ],
     "exclude": ["node_modules"]
 }

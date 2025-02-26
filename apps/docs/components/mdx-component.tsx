@@ -281,10 +281,12 @@ interface MdxProps {
     code: string;
     description: string;
     preview?: React.ReactNode;
+    fileContent: string;
 }
 
-export function Mdx({ code, preview, description }: MdxProps) {
+export function Mdx({ code, preview, description, fileContent }: MdxProps) {
     const Component = useMDXComponent(code);
+
 
     return (
         <div className="mdx">
@@ -292,6 +294,12 @@ export function Mdx({ code, preview, description }: MdxProps) {
             <Component
                 components={{
                     ...components,
+                    ComponentSource: (props) => (
+                        <ComponentSource {...props} fileContent={fileContent} />
+                    ),
+                    ComponentPreview: (props) => (
+                        <ComponentPreview {...props} fileContent={fileContent} />
+                    ),
                     h1: ({ className, ...props }) => (
                         <div className="mb-16">
                             <h1
@@ -313,3 +321,28 @@ export function Mdx({ code, preview, description }: MdxProps) {
         </div>
     );
 }
+
+// export function Mdx({ code, preview, description, fileContent }) {
+//     const Component = useMDXComponent(code);
+
+//     return (
+//         <div className="mdx">
+//             {preview}
+//             <Component
+//                 components={{
+//                     ...components,
+//                     ComponentSource: (props) => (
+//                         <ComponentSource {...props} fileContent={fileContent} />
+//                     ),
+//                     h1: ({ className, ...props }) => (
+//                         <div className="mb-16">
+//                             <h1 className={cn("mt-2 scroll-m-20 text-4xl font-bold tracking-tight", className)} {...props} />
+//                             {description && <p className="text-secondary-foreground mt-2">{description}</p>}
+//                         </div>
+//                     ),
+//                 }}
+//             />
+//         </div>
+//     );
+// }
+

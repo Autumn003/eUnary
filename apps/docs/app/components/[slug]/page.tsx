@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { allDocs } from 'contentlayer/generated';
 import { Mdx } from '@/components/mdx-component';
+import { getFileContent } from '@/lib/getFileContent';
 
 interface DocPageProps {
     params: {
@@ -15,7 +16,6 @@ async function getDocFromParams({ params }: DocPageProps) {
     if (!doc) {
         return null;
     }
-
     return doc;
 }
 
@@ -26,9 +26,11 @@ export default async function DocPage({ params }: DocPageProps) {
         notFound();
     }
 
+    const fileContent = await getFileContent(`components/ui/${doc.slugAsParams}.tsx`);
+
     return (
         <main className="container">
-            <Mdx code={doc.body.code} description={doc.description} />
+            <Mdx code={doc.body.code} description={doc.description} fileContent={fileContent} />
         </main>
     );
 }

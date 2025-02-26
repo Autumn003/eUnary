@@ -5,14 +5,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 
 interface ComponentShowcaseProps {
     component: React.ReactNode;
-    name: string;
     className: string;
+    fileContent: string
 }
 
 const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
     component,
-    name,
     className,
+    fileContent
 }) => {
     return (
         <div
@@ -44,7 +44,7 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
 
                 <TabsContent value="code">
                     <ComponentSource
-                        componentName={name}
+                        fileContent={fileContent}
                         className="max-h-96 overflow-auto"
                         collapsible={false}
                     />
