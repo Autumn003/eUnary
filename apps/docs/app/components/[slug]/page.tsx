@@ -4,13 +4,12 @@ import { Mdx } from '@/components/mdx-component';
 
 interface DocPageProps {
     params: {
-        slug: string[];
+        slug: string;
     };
 }
 
 async function getDocFromParams({ params }: DocPageProps) {
-    const slug = params.slug?.join('/') || '';
-    const doc = allDocs.find((doc) => doc.slugAsParams === slug);
+    const doc = allDocs.find((doc) => doc.slugAsParams === params.slug);
 
     if (!doc) {
         return null;
