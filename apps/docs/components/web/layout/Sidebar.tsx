@@ -8,6 +8,11 @@ const Sidebar = () => {
         { title: 'Add Utils', target: 'docs/add-utils' },
         { title: 'CLI', target: 'docs/cli' },
     ];
+
+    const sortedItem = [...items].sort((a, b) =>
+        a.title.localeCompare(b.title)
+    );
+
     return (
         <div className="h-full">
             <div className="custom-scrollbar flex h-full flex-col overflow-auto py-6 pr-6 text-[15px] lg:py-8">
@@ -25,7 +30,7 @@ const Sidebar = () => {
                 </div>
                 <div className="my-2 flex flex-col">
                     <h4 className="my-2 font-semibold">Components</h4>
-                    {items.map((item, index) => (
+                    {sortedItem.map((item, index) => (
                         <Link
                             key={index}
                             href={`/components/${item.name}`}

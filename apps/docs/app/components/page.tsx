@@ -5,9 +5,12 @@ import { items } from './comp.json';
 import { motion } from 'motion/react';
 
 export default function ShowcasePage() {
+    const sortedItems = [...items].sort((a, b) =>
+        a.title.localeCompare(b.title)
+    );
     return (
         <div className="no-scrollbar grid grid-cols-2 gap-4 overflow-auto">
-            {items.map((item, index) => (
+            {sortedItems.map((item, index) => (
                 <Link
                     key={index}
                     href={`/components/${item.name}`}
