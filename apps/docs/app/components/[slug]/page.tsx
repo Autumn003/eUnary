@@ -26,11 +26,21 @@ export default async function DocPage({ params }: DocPageProps) {
         notFound();
     }
 
-    const fileContent = await getFileContent(`components/ui/${doc.slugAsParams}.tsx`);
+    const fileContent = await getFileContent(
+        `components/ui/${doc.slugAsParams}.tsx`
+    );
+    const demoFileContent = await getFileContent(
+        `demo/${doc.slugAsParams}.tsx`
+    );
 
     return (
         <main className="container">
-            <Mdx code={doc.body.code} description={doc.description} fileContent={fileContent} />
+            <Mdx
+                code={doc.body.code}
+                description={doc.description}
+                fileContent={fileContent}
+                demoFileContent={demoFileContent}
+            />
         </main>
     );
 }

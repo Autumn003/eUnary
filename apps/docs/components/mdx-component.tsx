@@ -282,11 +282,17 @@ interface MdxProps {
     description: string;
     preview?: React.ReactNode;
     fileContent: string;
+    demoFileContent: string;
 }
 
-export function Mdx({ code, preview, description, fileContent }: MdxProps) {
+export function Mdx({
+    code,
+    preview,
+    description,
+    fileContent,
+    demoFileContent,
+}: MdxProps) {
     const Component = useMDXComponent(code);
-
 
     return (
         <div className="mdx">
@@ -298,7 +304,10 @@ export function Mdx({ code, preview, description, fileContent }: MdxProps) {
                         <ComponentSource {...props} fileContent={fileContent} />
                     ),
                     ComponentPreview: (props) => (
-                        <ComponentPreview {...props} fileContent={fileContent} />
+                        <ComponentPreview
+                            {...props}
+                            fileContent={demoFileContent}
+                        />
                     ),
                     h1: ({ className, ...props }) => (
                         <div className="mb-16">
@@ -345,4 +354,3 @@ export function Mdx({ code, preview, description, fileContent }: MdxProps) {
 //         </div>
 //     );
 // }
-
