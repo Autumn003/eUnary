@@ -30,7 +30,7 @@ export default async function DocPage({ params }: DocPageProps) {
         `components/ui/${doc.slugAsParams}.tsx`
     );
     const demoFileContent = await getFileContent(
-        `demo/${doc.slugAsParams}.tsx`
+        `demo/${doc.slugAsParams}-demo.tsx`
     );
 
     return (

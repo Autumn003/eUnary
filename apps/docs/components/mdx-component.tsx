@@ -20,6 +20,8 @@ import {
     ExploreComponents,
 } from '@/components';
 
+import { ThemeTogglerDemo } from '@/demo';
+
 const components = {
     h1: ({ className, ...props }) => (
         <h1
@@ -187,21 +189,21 @@ const components = {
         return (
             <div
                 className={cn(
-                    'border-muted-foreground relative my-4 flex h-full max-h-64 overflow-auto rounded-lg border bg-[#1e1e1e] py-3',
+                    'border-muted-foreground custom-scrollbar relative my-4 flex h-full max-h-96 overflow-auto rounded-lg border bg-[#1e1e1e] py-3',
                     className
                 )}
             >
+                {codeText && (
+                    <div className="absolute top-2 right-2 z-20 my-auto">
+                        <CopyBtn content={codeText} className="" />
+                    </div>
+                )}
                 <pre
-                    className="no-scrollbar w-full overflow-auto py-1"
+                    className="custom-scrollbar w-full overflow-auto py-1"
                     {...props}
                 >
                     {children}
                 </pre>
-                {codeText && (
-                    <div className="sticky top-0 right-2 z-20 w-fit bg-transparent">
-                        <CopyBtn content={codeText} className="" />
-                    </div>
-                )}
             </div>
         );
     },
@@ -211,6 +213,12 @@ const components = {
                 'relative rounded px-4 py-1.5 font-mono text-sm',
                 className
             )}
+            {...props}
+        />
+    ),
+    Callout: ({ className, ...props }) => (
+        <span
+            className={cn('bg-muted-background rounded-lg py-1', className)}
             {...props}
         />
     ),
@@ -275,6 +283,7 @@ const components = {
     ComponentSource,
     ComponentPreview,
     ExploreComponents,
+    ThemeTogglerDemo,
 };
 
 interface MdxProps {
@@ -330,27 +339,3 @@ export function Mdx({
         </div>
     );
 }
-
-// export function Mdx({ code, preview, description, fileContent }) {
-//     const Component = useMDXComponent(code);
-
-//     return (
-//         <div className="mdx">
-//             {preview}
-//             <Component
-//                 components={{
-//                     ...components,
-//                     ComponentSource: (props) => (
-//                         <ComponentSource {...props} fileContent={fileContent} />
-//                     ),
-//                     h1: ({ className, ...props }) => (
-//                         <div className="mb-16">
-//                             <h1 className={cn("mt-2 scroll-m-20 text-4xl font-bold tracking-tight", className)} {...props} />
-//                             {description && <p className="text-secondary-foreground mt-2">{description}</p>}
-//                         </div>
-//                     ),
-//                 }}
-//             />
-//         </div>
-//     );
-// }

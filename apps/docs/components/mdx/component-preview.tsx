@@ -6,13 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 interface ComponentShowcaseProps {
     component: React.ReactNode;
     className: string;
-    fileContent: string
+    fileContent: string;
 }
 
 const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
     component,
     className,
-    fileContent
+    fileContent,
 }) => {
     return (
         <div
@@ -22,16 +22,16 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
                 <TabsList className="my-2 gap-4">
                     <TabsTrigger
                         value="preview"
-                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer rounded-lg border py-2 transition-colors duration-150"
+                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2 transition-colors duration-150"
                     >
-                        <i className="ri-window-line"></i>{' '}
+                        <i className="ri-window-line text-[17px]"></i>{' '}
                         <span className="text-sm font-semibold">Preview</span>
                     </TabsTrigger>
                     <TabsTrigger
                         value="code"
-                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer rounded-lg border py-2 transition-colors duration-150"
+                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2 transition-colors duration-150"
                     >
-                        <i className="ri-terminal-box-line"></i>{' '}
+                        <i className="ri-code-s-slash-line text-[17px]"></i>{' '}
                         <span className="text-sm font-semibold">Code</span>
                     </TabsTrigger>
                 </TabsList>

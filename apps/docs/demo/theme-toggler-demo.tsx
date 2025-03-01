@@ -2,7 +2,7 @@
 
 import ThemeToggler from '@/components/ui/theme-toggler';
 
-const button = () => {
+const ThemeTogglerDemo = () => {
     return (
         <div>
             <ThemeToggler />
@@ -10,4 +10,4 @@ const button = () => {
     );
 };
 
-export default button;
+export default ThemeTogglerDemo;
