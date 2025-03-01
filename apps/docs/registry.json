@@ -4,15 +4,16 @@
     "homepage": "https://ui.eunary.com",
     "items": [
         {
-            "name": "button",
+            "name": "theme-toggler",
             "type": "registry:ui",
-            "title": "Button",
-            "description": "A simple button component.",
+            "title": "Theme Toggler",
+            "description": "A theme toggler button.",
+            "dependencies": ["remixicon --save"],
             "files": [
                 {
-                    "path": "../../packages/ui/src/button.tsx",
+                    "path": "../docs/components/ui/theme-toggler.tsx",
                     "type": "registry:ui",
-                    "target": "components/ui/button.tsx"
+                    "target": "components/ui/theme-toggler.tsx"
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
