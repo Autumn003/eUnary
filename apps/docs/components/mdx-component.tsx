@@ -194,7 +194,7 @@ const components = {
                 )}
             >
                 {codeText && (
-                    <div className="absolute top-2 right-2 z-20 my-auto">
+                    <div className="absolute top-2 right-2 z-20 my-auto bg-[#1e1e1e]/80">
                         <CopyBtn content={codeText} className="" />
                     </div>
                 )}
