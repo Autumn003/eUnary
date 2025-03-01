@@ -40,13 +40,13 @@ const ComponentSource = ({
             <div
                 ref={containerRef}
                 className={cn(
-                    'custom-scrollbar relative my-4 w-full rounded-lg bg-[#1e1e1e] text-white',
+                    'custom-scrollbar relative my-4 flex w-full flex-col rounded-lg bg-[#1e1e1e] text-white',
                     !isOpened && 'max-h-52 overflow-hidden',
                     isOpened && 'max-h-96 overflow-auto',
                     className
                 )}
             >
-                <div className="sticky top-0 z-20 flex justify-end bg-transparent p-2">
+                <div className="absolute top-2 right-2 z-20 my-auto">
                     <CopyBtn
                         content={fileContent}
                         className="bg-[#1e1e1e]/80"
@@ -68,7 +68,7 @@ const ComponentSource = ({
                 {collapsible && (
                     <div
                         className={cn(
-                            'sticky z-10 flex items-center justify-center bg-gradient-to-b from-zinc-800/30 to-zinc-950/90 p-3',
+                            'absolute z-10 flex items-center justify-center bg-gradient-to-b from-zinc-800/30 to-zinc-950/90 p-3',
                             isOpened
                                 ? 'inset-x-0 bottom-0'
                                 : 'absolute inset-0 top-0'
