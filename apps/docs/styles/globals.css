@@ -97,7 +97,7 @@
     }
 
     .dark {
-        --primary-background: 228, 18%, 5%;
+        --primary-background: 228, 100%, 2%;
         --secondary-background: 33, 100%, 98%;
 
         --muted-background: 255, 7%, 12%;
