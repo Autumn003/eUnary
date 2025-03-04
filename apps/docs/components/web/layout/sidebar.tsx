@@ -3,10 +3,10 @@ import { items } from '@/registry.json';
 
 const Sidebar = () => {
     const installationTabs = [
-        { title: 'Install Next.js', target: 'docs/install-next.js' },
-        { title: 'Install Tailwind.css', target: 'docs/install-tailwind.css' },
-        { title: 'Add Utils', target: 'docs/add-utils' },
-        { title: 'CLI', target: 'docs/cli' },
+        { title: 'Install Next.js', target: 'install-next.js' },
+        { title: 'Install Tailwind.css', target: 'install-tailwind.css' },
+        { title: 'Add Utils', target: 'add-utils' },
+        { title: 'CLI', target: 'cli' },
     ];
 
     const sortedItem = [...items].sort((a, b) =>
@@ -21,7 +21,7 @@ const Sidebar = () => {
                     {installationTabs.map((item, index) => (
                         <Link
                             key={index}
-                            href={`components/${item.target}`}
+                            href={`/docs/${item.target}`}
                             className="text-secondary-foreground hover:text-primary-foreground py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5"
                         >
                             {item.title}
@@ -33,7 +33,7 @@ const Sidebar = () => {
                     {sortedItem.map((item, index) => (
                         <Link
                             key={index}
-                            href={`/components/${item.name}`}
+                            href={`components/${item.name}`}
                             className="text-secondary-foreground hover:text-primary-foreground py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5"
                         >
                             {item.title}
