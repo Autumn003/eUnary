@@ -21,7 +21,7 @@ const Card = ({
     return (
         <div
             className={cn(
-                'group hover:bg-muted-background/50 relative mx-5 w-full rounded-4xl border p-6 transition-colors duration-150',
+                'group hover:bg-muted-background/50 relative max-w-96 min-w-80 rounded-4xl border p-6 transition-colors duration-150',
                 className
             )}
         >
@@ -40,10 +40,7 @@ const Card = ({
                 {subheading}
             </h4>
             <p className="h-24 text-[15px]">{description}</p>
-            <div className="mb-32 text-[15px]">{children}</div>
-            <button className="absolute bottom-0 my-5 w-[86%] rounded-xl bg-gradient-to-r from-violet-600 via-violet-400 to-violet-600 py-3 font-semibold">
-                Click me
-            </button>
+            <div className="text-[15px]">{children}</div>
         </div>
     );
 };

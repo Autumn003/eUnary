@@ -1,14 +1,22 @@
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 const ExploreComponents = ({
     nextComponent,
     recentlyAddedComponent,
+    className,
 }: {
     nextComponent: string;
     recentlyAddedComponent: string;
+    className?: string;
 }) => {
     return (
-        <div className="bg-muted-background/50 my-32 grid grid-cols-4 p-8">
+        <div
+            className={cn(
+                'bg-muted-background/50 my-32 grid grid-cols-4 p-8',
+                className
+            )}
+        >
             <div className="col-span-4 mb-8 sm:col-span-3">
                 <h1 className="mb-2 text-4xl font-bold">
                     Explore more components with Eunary
