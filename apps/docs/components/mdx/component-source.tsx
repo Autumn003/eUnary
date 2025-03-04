@@ -55,12 +55,12 @@ const ComponentSource = ({
                 <SyntaxHighlighter
                     language="tsx"
                     style={vscDarkPlus}
+                    class="custom-scrollbar"
                     customStyle={{
                         borderRadius: '8px',
                         overflow: 'scroll',
                         whiteSpace: 'pre',
                         paddingBottom: '8px',
-                        scrollbarWidth: 'none',
                     }}
                 >
                     {fileContent}
@@ -71,7 +71,7 @@ const ComponentSource = ({
                             'absolute z-10 flex items-center justify-center bg-gradient-to-b from-zinc-800/30 to-zinc-950/90 p-3',
                             isOpened
                                 ? 'inset-x-0 bottom-0'
-                                : 'absolute inset-0 top-0'
+                                : 'absolute inset-0 top-0 left-0'
                         )}
                     >
                         <button
