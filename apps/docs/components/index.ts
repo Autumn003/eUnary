@@ -16,6 +16,7 @@ import ComponentPreview from './mdx/component-preview';
 import ComponentSource from './mdx/component-source';
 import ExploreComponents from './web/explore-components';
 import Card from './ui/card';
+import EunaryProWaiting from './web/eunary-pro-waiting';
 
 export {
     Header,
@@ -39,4 +40,5 @@ export {
     ComponentSource,
     ExploreComponents,
     Card,
+    EunaryProWaiting,
 };
