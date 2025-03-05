@@ -33,7 +33,7 @@ const Sidebar = () => {
                     {sortedItem.map((item, index) => (
                         <Link
                             key={index}
-                            href={`components/${item.name}`}
+                            href={`/components/${item.name}`}
                             className="text-secondary-foreground hover:text-primary-foreground py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5"
                         >
                             {item.title}

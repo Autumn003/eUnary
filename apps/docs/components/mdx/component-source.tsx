@@ -18,8 +18,6 @@ const ComponentSource = ({
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
-    console.log('ComponentSource received fileContent:', fileContent);
-
     if (!fileContent) {
         return (
             <div className="text-red-500">Error: File content not found.</div>
@@ -55,7 +53,7 @@ const ComponentSource = ({
                 <SyntaxHighlighter
                     language="tsx"
                     style={vscDarkPlus}
-                    class="custom-scrollbar"
+                    className="custom-scrollbar"
                     customStyle={{
                         borderRadius: '8px',
                         overflow: 'scroll',

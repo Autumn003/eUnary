@@ -11,11 +11,10 @@ interface DocPageProps {
 async function getDocFromParams({ params }: DocPageProps) {
     const param = await params;
     const doc = allDocs.find(
-        (doc) => doc.slugAsParams === `docs/installations/${param.slug}`
+        (doc) => doc.slugAsParams === `docs/installation/${param.slug}`
     );
 
     if (!doc) {
-        console.log('doc is not found');
         return null;
     }
     return doc;
