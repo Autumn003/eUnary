@@ -8,6 +8,7 @@
             "type": "registry:ui",
             "title": "Theme Toggler",
             "description": "A theme toggler button.",
+            "featured": true,
             "dependencies": ["remixicon --save"],
             "files": [
                 {

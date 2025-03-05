@@ -38,9 +38,12 @@ const Sidebar = () => {
                         <Link
                             key={index}
                             href={`/components/${item.name}`}
-                            className="text-secondary-foreground hover:text-primary-foreground py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5"
+                            className="text-secondary-foreground hover:text-primary-foreground flex items-center gap-2 py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5"
                         >
                             {item.title}
+                            {item.featured && (
+                                <Badge className="px-1 text-xs">New</Badge>
+                            )}
                         </Link>
                     ))}
                 </div>
