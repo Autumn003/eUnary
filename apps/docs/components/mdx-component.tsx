@@ -290,8 +290,8 @@ interface MdxProps {
     code: string;
     description: string;
     preview?: React.ReactNode;
-    fileContent: string;
-    demoFileContent: string;
+    fileContent?: string;
+    demoFileContent?: string;
 }
 
 export function Mdx({

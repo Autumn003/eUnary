@@ -148,3 +148,15 @@
         border-radius: 6px;
     }
 }
+
+@layer utilities {
+    .line--highlighted {
+        @apply bg-zinc-700/50;
+    }
+    .line-highlighted span {
+        @apply relative;
+    }
+    .word--highlighted {
+        @apply rounded-md border-zinc-700/70 bg-zinc-700/50 p-1;
+    }
+}

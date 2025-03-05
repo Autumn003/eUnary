@@ -99,9 +99,15 @@ export default makeSource({
                         }
                     },
                     onVisitHighlightedLine(node) {
+                        if (!node.properties.className) {
+                            node.properties.className = []; // Initialize if undefined
+                        }
                         node.properties.className.push('line--highlighted');
                     },
                     onVisitHighlightedWord(node) {
+                        if (!node.properties.className) {
+                            node.properties.className = []; // Initialize if undefined
+                        }
                         node.properties.className.push('word--highlighted');
                     },
                 },
