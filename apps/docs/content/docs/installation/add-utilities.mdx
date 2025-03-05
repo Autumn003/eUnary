@@ -1,0 +1,71 @@
+---
+title: "Utilities"
+description: Commonly used utilities for using Eunary UI
+---
+
+
+# Add Utilities
+
+<Steps>
+<Step>
+#### Install dependencies
+</Step>
+```bash
+npm i motion clsx tailwind-merge
+```
+
+<Step>
+#### Add util file
+</Step>
+
+<Callout>`lib/utils.ts`</Callout>
+```tsx
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+<Step>
+#### Next.js 15 and React 19 Framer Motion Fix
+</Step>
+
+if you're using <Callout>Next.js 15</Callout> and <Callout>React 19</Callout>, you'll need to the following changes in order to use framer motion (which is now motion), since framer motion is not compatible with React 19 yet.
+
+```bash
+ "dependencies": {
+    "framer-motion": "^12.0.0-alpha.1",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.5"
+  },
+  "overrides": {
+    "framer-motion": {
+      "react": "19.0.0-rc-66855b96-20241106",
+      "react-dom": "19.0.0-rc-66855b96-20241106"
+    }
+  },
+```
+
+if you're using <Callout>motion</Callout> instead of <Callout>framer-motion</Callout>, you can make the following changes:
+
+```bash
+ "dependencies": {
+    "motion": "^12.0.0-alpha.1",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.5"
+  },
+  "overrides": {
+    "motion": {
+      "react": "19.0.0-rc-66855b96-20241106",
+      "react-dom": "19.0.0-rc-66855b96-20241106"
+    }
+  },
+```
+
+</Steps>
