@@ -30,7 +30,7 @@ const Sidebar = () => {
                             <Link
                                 key={index}
                                 href={`/docs/${item.target}`}
-                                className={`hover:text-primary-foreground flex items-center gap-2 py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5 ${isActive ? 'text-primary-foreground font-semibold' : 'text-secondary-foreground'}`}
+                                className={`hover:text-primary-foreground flex items-center gap-2 py-1.5 text-wrap transition-all duration-150 hover:translate-x-1.5 ${isActive ? 'text-primary-foreground font-semibold' : 'text-secondary-foreground'} transition duration-150`}
                             >
                                 {item.title}
                                 {item.featured && (
