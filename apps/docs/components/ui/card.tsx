@@ -79,11 +79,11 @@ const Card = ({
                 </button>
             )}
             {link && (
-                <div className="my-5 w-full cursor-pointer rounded-xl bg-violet-500 from-violet-600 via-violet-500 to-violet-600 py-3 text-center font-semibold text-white transition-colors duration-150 hover:bg-violet-600/90 dark:bg-gradient-to-r dark:hover:from-violet-700/80 dark:hover:via-violet-500/80 dark:hover:to-violet-700/80">
-                    <Link href={linkNavigationPath || ''} className="w-96">
+                <Link href={linkNavigationPath || ''}>
+                    <div className="my-5 w-full cursor-pointer rounded-xl bg-violet-500 from-violet-600 via-violet-500 to-violet-600 py-3 text-center font-semibold text-white transition-colors duration-150 hover:bg-violet-600/90 dark:bg-gradient-to-r dark:hover:from-violet-700/80 dark:hover:via-violet-500/80 dark:hover:to-violet-700/80">
                         {link}
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             )}
         </div>
     );
