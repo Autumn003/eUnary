@@ -11,7 +11,9 @@ interface DocPageProps {
 
 async function getDocFromParams({ params }: DocPageProps) {
     const param = await params;
-    const doc = allDocs.find((doc) => doc.slugAsParams === param.slug);
+    const doc = allDocs.find(
+        (doc) => doc.slugAsParams === `docs/components/${param.slug}`
+    );
 
     if (!doc) {
         return null;
@@ -21,17 +23,14 @@ async function getDocFromParams({ params }: DocPageProps) {
 
 export default async function DocPage({ params }: DocPageProps) {
     const doc = await getDocFromParams({ params });
+    const param = await params;
 
     if (!doc) {
         notFound();
     }
 
-    const fileContent = await getFileContent(
-        `components/ui/${doc.slugAsParams}.tsx`
-    );
-    const demoFileContent = await getFileContent(
-        `demo/${doc.slugAsParams}-demo.tsx`
-    );
+    const fileContent = await getFileContent(`components/ui/${param.slug}.tsx`);
+    const demoFileContent = await getFileContent(`demo/${param.slug}-demo.tsx`);
 
     return (
         <main className="container">
