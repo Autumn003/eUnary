@@ -4,7 +4,7 @@ import { items } from '@/registry.json';
 const Sidebar = () => {
     const installationTabs = [
         { title: 'Install Next.js', target: 'install-nextjs' },
-        { title: 'Install Tailwind.css', target: 'install-tailwindcss' },
+        { title: 'Install Tailwind v4', target: 'tailwind-v4' },
         { title: 'Add Utilities', target: 'add-utilities' },
         { title: 'CLI', target: 'cli' },
     ];
