@@ -144,7 +144,11 @@
     }
 
     .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-        background-color: #525252;
+        background-color: #d1d1d1;
+        border-radius: 6px;
+    }
+    .dark .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+        background-color: #353535;
         border-radius: 6px;
     }
 }
