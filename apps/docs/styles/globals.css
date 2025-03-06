@@ -87,7 +87,7 @@
         --primary-background: 33, 100%, 98%;
         --secondary-background: 228, 18%, 5%;
 
-        --muted-background: 50, 22%, 89%;
+        --muted-background: 20, 6%, 90%;
         --muted-foreground: 216, 12%, 84%;
 
         --primary-foreground: 240, 10%, 4%;
@@ -149,7 +149,6 @@
     }
     .dark .custom-scrollbar:hover::-webkit-scrollbar-thumb {
         background-color: #353535;
-        border-radius: 6px;
     }
 }
 
