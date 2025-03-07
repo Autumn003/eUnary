@@ -18,6 +18,21 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "expandable-card",
+            "type": "registry:ui",
+            "title": "Expandable Card",
+            "description": "An iphone style expandable card.",
+            "featured": true,
+            "files": [
+                {
+                    "path": "../docs/components/ui/expandable-card.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/expandable-card.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }
