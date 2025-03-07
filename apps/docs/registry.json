@@ -25,6 +25,7 @@
             "title": "Expandable Card",
             "description": "An iphone style expandable card.",
             "featured": true,
+            "dependencies": ["motion"],
             "files": [
                 {
                     "path": "../docs/components/ui/expandable-card.tsx",
