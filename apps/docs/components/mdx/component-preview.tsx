@@ -38,7 +38,7 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
 
                 <TabsContent value="preview">
                     <div className="border-muted-background flex min-h-96 items-center justify-center rounded-lg border p-4">
-                        <div className="rounded-lg border p-4">{component}</div>
+                        <div className="">{component}</div>
                     </div>
                 </TabsContent>
 

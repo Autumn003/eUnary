@@ -1,0 +1,79 @@
+---
+title: "Install Tailwind CSS v4"
+description: Install Tailwind CSS v4 with Next.js
+---
+
+# Install Tailwind v4
+
+<Steps>
+<Step>
+#### Create your project
+</Step>
+```bash
+npx create-next-app@latest my-project --typescript --eslint --app
+cd my-project
+```
+
+<Step>
+#### Install Tailwind CSS
+</Step>
+
+Install <Callout>`@tailwindcss/postcss`</Callout> and its peer dependencies.
+
+```bash
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+<Step>
+#### Configure PostCSS Plugins
+</Step>
+
+<Callout>`postcss.config.mjs`</Callout>
+
+```js
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+export default config;
+```
+
+<Step>
+#### Import Tailwind CSS
+</Step>
+
+<Callout>`globals.css`</Callout>
+
+```css
+@import "tailwindcss";
+```
+
+<Step>
+#### Start your build process
+
+</Step>
+
+
+```bash
+npm run dev
+```
+
+<Step>
+#### Start using Tailwind in your project
+
+</Step>
+
+<Callout>`page.tsx`</Callout>
+
+```tsx {3-5} showLineNumbers
+export default function Home() {
+  return (
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+  )
+}
+```
+
+</Steps>

@@ -20,7 +20,7 @@ import {
     ExploreComponents,
 } from '@/components';
 
-import { ThemeTogglerDemo } from '@/demo';
+import { ThemeTogglerDemo, ExpandableCardDemo } from '@/demo';
 
 const components = {
     h1: ({ className, ...props }) => (
@@ -199,7 +199,7 @@ const components = {
                     </div>
                 )}
                 <pre
-                    className="custom-scrollbar w-full overflow-auto py-1"
+                    className="custom-scrollbar w-full overflow-auto px-4 py-1"
                     {...props}
                 >
                     {children}
@@ -210,7 +210,7 @@ const components = {
     code: ({ className, ...props }) => (
         <code
             className={cn(
-                'relative rounded px-4 py-1.5 font-mono text-sm',
+                'relative rounded py-1.5 font-mono text-sm',
                 className
             )}
             {...props}
@@ -218,7 +218,10 @@ const components = {
     ),
     Callout: ({ className, ...props }) => (
         <span
-            className={cn('bg-muted-background rounded-lg py-1', className)}
+            className={cn(
+                'bg-muted-background rounded-lg px-2 py-1',
+                className
+            )}
             {...props}
         />
     ),
@@ -284,6 +287,7 @@ const components = {
     ComponentPreview,
     ExploreComponents,
     ThemeTogglerDemo,
+    ExpandableCardDemo,
 };
 
 interface MdxProps {

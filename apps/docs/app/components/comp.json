@@ -5,6 +5,12 @@
             "title": "Theme Toggler",
             "description": "A theme toggler button",
             "thumbnail": "/media/sample_img_1.webp"
+        },
+        {
+            "name": "expandable-card",
+            "title": "Expandable Card",
+            "description": "An iphone style expandable card",
+            "thumbnail": "/media/sample_img_1.webp"
         }
     ]
 }

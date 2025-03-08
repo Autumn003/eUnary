@@ -54,6 +54,11 @@ export const Doc = defineDocumentType(() => ({
             type: 'string',
             required: true,
         },
+        featured: {
+            type: 'boolean',
+            default: false,
+            required: false,
+        },
         // published: {
         //     type: 'boolean',
         //     default: true,
@@ -61,11 +66,6 @@ export const Doc = defineDocumentType(() => ({
         // links: {
         //     type: 'nested',
         //     of: LinksProperties,
-        // },
-        // featured: {
-        //     type: 'boolean',
-        //     default: false,
-        //     required: false,
         // },
         // component: {
         //     type: 'boolean',

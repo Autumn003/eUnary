@@ -1,0 +1,135 @@
+---
+title: "Expandable Card"
+description: Expandable card from Iphone UI.
+---
+
+# Theme Toggler
+
+<ComponentPreview component={<ExpandableCardDemo />} className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add http://ui.eunary.com/registry/theme-toggler.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Run the following command</Step>
+
+      ```bash
+      npm install remixicon --save
+      ```
+      <Step>Add util file</Step>
+      <Callout>`lib/utils.ts`</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Add the following code in <Callout>`global.css`</Callout> file</Step>
+
+      ```css
+      @import 'tailwindcss';
+
+      @custom-variant dark (&:is(.dark *));
+
+      @layer base {
+          body {
+              background-color: hsl(var(--primary-background));
+              color: hsl(var(--primary-foreground));
+          }
+
+          .dark body {
+              background-color: hsl(var(--primary-background));
+              color: hsl(var(--primary-foreground));
+          }
+      }
+
+      @theme {
+          --color-primary-background: hsl(var(--primary-background));
+          --color-secondary-background: hsl(var(--secondary-background));
+
+          --color-primary-foreground: hsl(var(--primary-foreground));
+          --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+          --color-muted-background: hsl(var(--muted-background));
+          --color-muted-foreground: hsl(var(--muted-foreground));
+
+          --color-destructive-background: hsl(var(--destructive-background));
+
+          --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
+              'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+              'Noto Color Emoji';
+      }
+      
+      @layer base {
+          :root {
+              --primary-background: 33, 100%, 98%;
+              --secondary-background: 228, 18%, 5%;
+
+              --muted-background: 50, 22%, 89%;
+              --muted-foreground: 216, 12%, 84%;
+
+              --primary-foreground: 240, 10%, 4%;
+              --secondary-foreground: 240, 5%, 26%;
+
+              --destructive-background: 0 100% 50%;
+          }
+
+          .dark {
+              --primary-background: 228, 18%, 5%;
+              --secondary-background: 33, 100%, 98%;
+
+              --muted-background: 255, 7%, 12%;
+              --muted-foreground: 210, 18%, 22%;
+
+              --primary-foreground: 0, 0%, 100%;
+              --secondary-foreground: 0, 0%, 63%;
+
+              --destructive-background: 0 63% 31%;
+          }
+      }
+
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>`components/ui/theme-toggler.tsx`</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+
+### Props
+
+Use the following props to customize the tooltip.
+
+| Prop            | Type                     | Description                                  |
+| :-------------- | :----------------------- | :------------------------------------------- |
+| `labelKey`      | string                   | The config or data key to use for the labelafdffsd  fklasjcaj ashsklh. |
+| `nameKey`       | string                   | The config or data key to use for the name.  |
+| `indicator`     | `dot` `line` or `dashed` | The indicator style for the tooltip.         |
+| `hideLabel`     | boolean                  | Whether to hide the label.                   |
+| `hideIndicator` | boolean                  | Whether to hide the indicator.               |
+
+
+<ExploreComponents nextComponent="next-component" recentlyAddedComponent="recent-component"/>

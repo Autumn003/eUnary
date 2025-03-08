@@ -1,0 +1,88 @@
+---
+title: "CLI"
+description: Installing Eunary UI with the CLI
+---
+
+
+# CLI
+
+
+### init
+
+Use the <Callout>`init`</Callout> command to initialize configuration and dependencies for a new project.
+
+The <Callout>`init`</Callout> command installs dependencies, adds the <Callout>`cn`</Callout> util and configures CSS variables for the project.
+
+```bash
+npx shadcn@latest init
+```
+
+### Options
+
+```bash
+Usage: shadcn init [options] [components...]
+
+initialize your project and install dependencies
+
+Arguments:
+  components         the components to add or a url to the component.
+
+Options:
+  -y, --yes           skip confirmation prompt. (default: true)
+  -d, --defaults,     use default configuration. (default: false)
+  -f, --force         force overwrite of existing configuration. (default: false)
+  -c, --cwd <cwd>     the working directory. defaults to the current directory. (default: "/Users/shadcn/Desktop")
+  -s, --silent        mute output. (default: false)
+  --src-dir           use the src directory when creating a new project. (default: false)
+  --no-src-dir        do not use the src directory when creating a new project.
+  --css-variables     use css variables for theming. (default: true)
+  --no-css-variables  do not use css variables for theming.
+  -h, --help          display help for command
+```
+
+### Add
+
+Use the <Callout>add</Callout> command to add components and dependencies to your project.
+
+```bash
+npx shadcn@latest add [component]
+```
+
+
+### Options
+
+```bash
+Usage: shadcn add [options] [components...]
+
+add a component to your project
+
+Arguments:
+  components         the components to add or a url to the component.
+
+Options:
+  -y, --yes           skip confirmation prompt. (default: false)
+  -o, --overwrite     overwrite existing files. (default: false)
+  -c, --cwd <cwd>     the working directory. defaults to the current directory. (default: "/Users/shadcn/Desktop")
+  -a, --all           add all available components (default: false)
+  -p, --path <path>   the path to add the component to.
+  -s, --silent        mute output. (default: false)
+  --src-dir           use the src directory when creating a new project. (default: false)
+  --no-src-dir        do not use the src directory when creating a new project.
+  --css-variables     use css variables for theming. (default: true)
+  --no-css-variables  do not use css variables for theming.
+  -h, --help          display help for command
+```
+
+### Installation through CLI
+
+You can install Eunary UI components through the CLI. Use the following command structure:
+
+```bash
+npx shadcn@latest add https://ui.eunary.com/registry/[component].json
+```
+
+Adds a new component to your project.
+
+```bash
+npx shadcn@latest add https://ui.eunary.com/registry/theme-toggler.json
+```

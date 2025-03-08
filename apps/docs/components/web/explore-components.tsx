@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Badge } from '@/components';
 
 const ExploreComponents = ({
     nextComponent,
@@ -28,9 +29,7 @@ const ExploreComponents = ({
             </div>
             <div className="col-span-4 my-5 flex flex-col gap-8 px-8 sm:p-0 md:flex-row md:items-end md:gap-4 lg:col-span-3">
                 <div className="relative flex w-full flex-col gap-[2px] sm:w-52">
-                    <span className="w-fit rounded-md border border-emerald-700 bg-emerald-200 px-2 text-sm text-emerald-700 dark:border-emerald-500 dark:bg-emerald-300/10 dark:text-emerald-500">
-                        New
-                    </span>
+                    <Badge>New</Badge>
                     <Link
                         href={`/components/${recentlyAddedComponent}`}
                         className="border-secondary-background text-primary-background bg-secondary-background w-full rounded-lg border px-2 py-4 text-center text-sm font-semibold sm:w-52 sm:px-4"

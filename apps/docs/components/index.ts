@@ -17,6 +17,7 @@ import ComponentSource from './mdx/component-source';
 import ExploreComponents from './web/explore-components';
 import Card from './ui/card';
 import EunaryProWaiting from './web/eunary-pro-waiting';
+import Badge from './web/badge';
 
 export {
     Header,
@@ -41,4 +42,5 @@ export {
     ExploreComponents,
     Card,
     EunaryProWaiting,
+    Badge,
 };
