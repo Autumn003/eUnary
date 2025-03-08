@@ -6,7 +6,7 @@
   "author": "Hemant Sharma <hemant.develop@gmail.com>",
   "description": "A theme toggler button.",
   "dependencies": [
-    "remixicon --save"
+    "remixicon"
   ],
   "files": [
     {

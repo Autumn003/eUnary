@@ -8,7 +8,7 @@
             "type": "registry:ui",
             "title": "Theme Toggler",
             "description": "A theme toggler button.",
-            "dependencies": ["remixicon --save"],
+            "dependencies": ["remixicon"],
             "files": [
                 {
                     "path": "../docs/components/ui/theme-toggler.tsx",
