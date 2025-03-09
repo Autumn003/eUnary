@@ -133,7 +133,7 @@ const Button = ({ children }: { children: string }) => {
         <div>
             <button
                 className="h-12 w-48 cursor-pointer rounded-[14px] bg-white/60 font-semibold text-stone-900 backdrop-blur transition-all duration-150 hover:bg-white/90"
-                onClick={() => alert('alerttt')}
+                onClick={() => alert(`${children} button clicked`)}
             >
                 {children}
             </button>
