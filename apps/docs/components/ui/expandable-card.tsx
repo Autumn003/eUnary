@@ -3,8 +3,25 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
-const ExpandableCard = () => {
+interface cardProps {
+    title: string;
+    subtitle: string;
+    backgroundImage: string;
+    contextImage: string;
+    description: string;
+    className?: string;
+}
+
+const ExpandableCard = ({
+    title,
+    subtitle,
+    backgroundImage,
+    contextImage,
+    description,
+    className,
+}: cardProps) => {
     const [isHovered, setIsHovered] = useState(false);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -29,7 +46,11 @@ const ExpandableCard = () => {
                     ? { width: 500, height: 300 }
                     : { width: 300, height: 400 }
             }
-            className="group relative h-64 w-[28rem] overflow-hidden rounded-4xl bg-[url(/media/shoes.jpg)] bg-cover bg-center"
+            className={cn(
+                `group relative h-64 w-[28rem] overflow-hidden rounded-4xl bg-cover bg-center`,
+                className
+            )}
+            style={{ backgroundImage: `url(${backgroundImage})` }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={handleMouseLeave}
             onMouseMove={handleMouseMove}
@@ -56,7 +77,7 @@ const ExpandableCard = () => {
                         className="col-span-1 m-4 h-32 w-32"
                     >
                         <Image
-                            src="/media/shoe.jpg"
+                            src={contextImage}
                             alt="bg-image"
                             width={200}
                             height={200}
@@ -74,10 +95,10 @@ const ExpandableCard = () => {
                         className="col-span-2 m-4 flex flex-col justify-center"
                     >
                         <h3 className="text-xl font-semibold text-stone-400">
-                            Nike Air 3
+                            {title}
                         </h3>
                         <h2 className="my-2 text-2xl font-bold text-white">
-                            $249
+                            {subtitle}
                         </h2>
                         <motion.p
                             initial={{ opacity: 0 }}
@@ -86,8 +107,7 @@ const ExpandableCard = () => {
                             }
                             className="text-sm text-stone-200"
                         >
-                            Jordan Air Jordan 1 High OG "Shadow 2.0" Sneakers -
-                            Grey
+                            {description}
                         </motion.p>
                     </motion.div>
                 </div>
