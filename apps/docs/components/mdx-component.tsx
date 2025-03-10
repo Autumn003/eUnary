@@ -127,7 +127,7 @@ const components = {
         className,
         ...props
     }: React.HTMLAttributes<HTMLTableElement>) => (
-        <div className="my-6 w-full overflow-y-auto">
+        <div className="mt-4 mb-10 w-full overflow-y-auto">
             <table
                 className={cn(
                     'border-muted-background w-full border-collapse border',

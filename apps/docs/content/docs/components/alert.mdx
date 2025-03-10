@@ -51,20 +51,38 @@ description: A callout alert for user attention.
   </TabsContent>
 </Tabs>
 
-
+### Examples
 
 ### Props
 
-Use the following props to customize the tooltip.
+<br/>
+<Callout>`Alert`</Callout>
 
 | Prop                | Type                     | Description                                        |
 | :------------------ | :----------------------- | :------------------------------------------------- |
-| `title`             | string                   | The title of the card.                             |
-| `subtitle`          | string                   | The sub-title of the card.                         |
-| `description`       | string                   | The description of your card item.                 |
-| `backgroundImage`   | string                   | URL of your background image.                      |
-| `contextImage`      | string                   | URL of your product image.                         |
-| `className`         | string                   | The CSS class to be applied to the card.           |
+| `variant`           | `default` `processing` `error` `success`| Choose the variant of the alert.|
+| `delay`             | Number                   | Disappearing time of the alert                     |
+| `className`         | string                   | The CSS class to be applied to the alert.          |
+| `children`          | React.ReactNode          | The child elements to be rendered within the alert.|
+
+
+
+<Callout>`AlertTitle`</Callout>
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| `children`          | React.ReactNode          | The child elements to be rendered within the title.|
+| `className`         | string                   | The CSS class to be applied to the alert title.    |
+
+
+<Callout>`AlertDescription`</Callout>
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| `children`          | React.ReactNode          | The child elements to be rendered within the description.|
+| `className`         | string                   | The CSS class to be applied to the alert description.|
+
+
 
 
 <ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>

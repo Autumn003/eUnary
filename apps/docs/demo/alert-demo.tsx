@@ -13,12 +13,12 @@ const AlertDemo = () => {
     };
 
     return (
-        <div className="flex h-screen w-screen flex-col items-center justify-center">
+        <div className="">
             {showAlert ? (
-                <Alert variant="processing" delay={5000}>
+                <Alert variant="success" delay={5000}>
                     <AlertTitle>Success</AlertTitle>
                     <AlertDescription>
-                        This is Alert description. Click on croxx button to
+                        This is Alert description. Click on cross button to
                         close alert
                     </AlertDescription>
                 </Alert>
