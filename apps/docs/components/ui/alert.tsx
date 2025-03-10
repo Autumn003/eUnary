@@ -1,4 +1,5 @@
 'use client';
+
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -10,7 +11,7 @@ const alertVariants = cva(
     {
         variants: {
             variant: {
-                default: 'bg-neutral-500/30 border-neutral-400',
+                default: 'bg-neutral-400/20 border-neutral-400/30',
                 success:
                     'bg-emerald-400/20 border-emerald-400/30 text-emerald-400',
                 error: 'bg-red-400/20 border-red-400/30 text-red-400',
