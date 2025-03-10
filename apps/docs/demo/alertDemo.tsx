@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
-export default function Page() {
+const AlertDemo = () => {
     return (
         <div className="flex h-screen w-screen flex-col items-center justify-center">
             <Alert variant="processing" delay={5000}>
@@ -12,4 +12,6 @@ export default function Page() {
             </Alert>
         </div>
     );
-}
+};
+
+export default AlertDemo;

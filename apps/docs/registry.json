@@ -34,6 +34,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "alert",
+            "type": "registry:ui",
+            "title": "Alert",
+            "description": "A callout alert for user attention.",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/alert.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/alert.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

@@ -11,6 +11,12 @@
             "title": "Expandable Card",
             "description": "An iphone style expandable card",
             "thumbnail": "/media/expandable-card.png"
+        },
+        {
+            "name": "alert",
+            "title": "Alert",
+            "description": "A callout alert for user attention",
+            "thumbnail": "/media/expandable-card.png"
         }
     ]
 }

@@ -1,0 +1,70 @@
+---
+title: "Alert"
+description: A callout alert for user attention.
+---
+
+# Alert
+
+<ComponentPreview component={<AlertDemo />} className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/alert.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Run the following command</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge
+      ```
+      <Step>Add util file</Step>
+      <Callout>`lib/utils.ts`</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>`components/ui/alert.tsx`</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+
+### Props
+
+Use the following props to customize the tooltip.
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| `title`             | string                   | The title of the card.                             |
+| `subtitle`          | string                   | The sub-title of the card.                         |
+| `description`       | string                   | The description of your card item.                 |
+| `backgroundImage`   | string                   | URL of your background image.                      |
+| `contextImage`      | string                   | URL of your product image.                         |
+| `className`         | string                   | The CSS class to be applied to the card.           |
+
+
+<ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>
