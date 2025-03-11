@@ -20,7 +20,12 @@ import {
     ExploreComponents,
 } from '@/components';
 
-import { ThemeTogglerDemo, ExpandableCardDemo, AlertDemo } from '@/demo';
+import {
+    ThemeTogglerDemo,
+    ExpandableCardDemo,
+    AlertDemo,
+    AlertErrorDemo,
+} from '@/demo';
 
 const components = {
     h1: ({ className, ...props }) => (
@@ -289,6 +294,7 @@ const components = {
     ThemeTogglerDemo,
     ExpandableCardDemo,
     AlertDemo,
+    AlertErrorDemo,
 };
 
 interface MdxProps {
