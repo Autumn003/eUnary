@@ -25,6 +25,8 @@ import {
     ExpandableCardDemo,
     AlertDemo,
     AlertErrorDemo,
+    AlertDefaultDemo,
+    AlertProcessDemo,
 } from '@/demo';
 
 const components = {
@@ -295,6 +297,8 @@ const components = {
     ExpandableCardDemo,
     AlertDemo,
     AlertErrorDemo,
+    AlertDefaultDemo,
+    AlertProcessDemo,
 };
 
 interface MdxProps {
