@@ -1,19 +1,36 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import ComponentSource from './component-source';
 import 'remixicon/fonts/remixicon.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
+import { useEffect, useState } from 'react';
+import { getFileContent } from '@/lib/getFileContent';
 
 interface ComponentShowcaseProps {
     component: React.ReactNode;
     className: string;
-    fileContent: string;
+    // fileContent: string;
+    fileName: string;
 }
 
 const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
     component,
     className,
-    fileContent,
+    // fileContent,
+    fileName,
 }) => {
+    const [fileContent, setFileContent] = useState<string>('');
+    console.log('fiel: ', fileName);
+
+    useEffect(() => {
+        const getFileData = async () => {
+            const content = await getFileContent(`demo/${fileName}-demo.tsx`);
+            setFileContent(content);
+        };
+        getFileData();
+    }, [fileName]);
+
     return (
         <div
             className={cn('no-scrollbar my-4 h-full rounded-lg p-4', className)}
