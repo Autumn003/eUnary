@@ -30,7 +30,6 @@ export default async function DocPage({ params }: DocPageProps) {
     }
 
     const fileContent = await getFileContent(`components/ui/${param.slug}.tsx`);
-    const demoFileContent = await getFileContent(`demo/${param.slug}-demo.tsx`);
 
     return (
         <main className="container">
@@ -38,7 +37,6 @@ export default async function DocPage({ params }: DocPageProps) {
                 code={doc.body.code}
                 description={doc.description}
                 fileContent={fileContent}
-                demoFileContent={demoFileContent}
             />
         </main>
     );

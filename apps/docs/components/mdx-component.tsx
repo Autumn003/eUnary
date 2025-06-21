@@ -306,16 +306,9 @@ interface MdxProps {
     description: string;
     preview?: React.ReactNode;
     fileContent?: string;
-    demoFileContent?: string;
 }
 
-export function Mdx({
-    code,
-    preview,
-    description,
-    fileContent,
-    demoFileContent,
-}: MdxProps) {
+export function Mdx({ code, preview, description, fileContent }: MdxProps) {
     const Component = useMDXComponent(code);
 
     return (
@@ -328,10 +321,7 @@ export function Mdx({
                         <ComponentSource {...props} fileContent={fileContent} />
                     ),
                     ComponentPreview: (props) => (
-                        <ComponentPreview
-                            {...props}
-                            fileContent={demoFileContent}
-                        />
+                        <ComponentPreview {...props} />
                     ),
                     h1: ({ className, ...props }) => (
                         <div className="mb-16">
