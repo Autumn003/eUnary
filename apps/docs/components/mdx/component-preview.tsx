@@ -2,26 +2,23 @@
 
 import { cn } from '@/lib/utils';
 import ComponentSource from './component-source';
-import 'remixicon/fonts/remixicon.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
 import { useEffect, useState } from 'react';
 import { getFileContent } from '@/lib/getFileContent';
+import { AppWindowMac, CodeXml } from 'lucide-react';
 
-interface ComponentShowcaseProps {
+interface ComponentPreviewProps {
     component: React.ReactNode;
     className: string;
-    // fileContent: string;
     fileName: string;
 }
 
-const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
+const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     component,
     className,
-    // fileContent,
     fileName,
 }) => {
     const [fileContent, setFileContent] = useState<string>('');
-    console.log('fiel: ', fileName);
 
     useEffect(() => {
         const getFileData = async () => {
@@ -41,14 +38,14 @@ const ComponentPreview: React.FC<ComponentShowcaseProps> = ({
                         value="preview"
                         className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2 transition-colors duration-150"
                     >
-                        <i className="ri-window-line text-[17px]"></i>{' '}
+                        <AppWindowMac className="h-5" />
                         <span className="text-sm font-semibold">Preview</span>
                     </TabsTrigger>
                     <TabsTrigger
                         value="code"
                         className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2 transition-colors duration-150"
                     >
-                        <i className="ri-code-s-slash-line text-[17px]"></i>{' '}
+                        <CodeXml className="h-5" />
                         <span className="text-sm font-semibold">Code</span>
                     </TabsTrigger>
                 </TabsList>

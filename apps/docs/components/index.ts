@@ -9,7 +9,6 @@ import ComponentExample from './web/Home/component-example';
 import CopyPaste from './web/Home/copy-paste';
 import Features from './web/Home/features';
 import Sidebar from './web/layout/sidebar';
-import ComponentShowcase from './web/code/component-showcase';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/tabs';
 import CopyBtn from './web/copy-btn';
 import ComponentPreview from './mdx/component-preview';
@@ -31,7 +30,6 @@ export {
     CopyPaste,
     Features,
     Sidebar,
-    ComponentShowcase,
     Tabs,
     TabsContent,
     TabsList,
