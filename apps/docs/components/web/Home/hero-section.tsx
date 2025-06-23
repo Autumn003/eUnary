@@ -38,7 +38,7 @@ const HeroSection = () => {
                         </motion.span>
                     </AnimatePresence>
                 </h1>
-                <p className="dark:text-secondary-foreground antialiase relative mb-8 max-w-2xl text-left text-sm leading-relaxed tracking-wide text-neutral-400 sm:text-lg sm:tracking-wider">
+                <p className="dark:text-secondary-foreground antialiase relative mb-8 max-w-2xl text-left text-sm leading-relaxed tracking-wide text-neutral-400 sm:text-base sm:tracking-wider">
                     Copy paste beautifully crafted, accessible components into
                     your projects. Fully styled, animated, and ready to use with
                     your favorite frameworks.
