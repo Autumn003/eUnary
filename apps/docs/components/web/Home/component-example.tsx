@@ -1,7 +1,5 @@
 import ExpandableCard from '@/components/ui/expandable-card';
 import FileContent from '../code/file-content';
-import ThemeToggler from '../theme-toggler';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const ComponentExample = () => {
     return (
