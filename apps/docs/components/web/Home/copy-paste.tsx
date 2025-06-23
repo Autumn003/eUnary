@@ -34,10 +34,10 @@ const CopyPaste = () => {
     return (
         <div className="container grid grid-cols-2 sm:my-24">
             <div className="col-span-2 my-20 text-center">
-                <h3 className="mb-5 text-xl font-semibold">
+                <h3 className="mb-5 text-xl font-semibold sm:text-4xl">
                     As simple as copy and paste
                 </h3>
-                <p className="text-secondary-foreground">
+                <p className="text-secondary-foreground mx-auto max-w-2xl">
                     Just drop the code into your ui folder and start using the
                     components in your projects. It’s that easy!
                 </p>
