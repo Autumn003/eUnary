@@ -1,5 +1,7 @@
+import ExpandableCard from '@/components/ui/expandable-card';
 import FileContent from '../code/file-content';
 import ThemeToggler from '../theme-toggler';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const ComponentExample = () => {
     return (
@@ -15,12 +17,19 @@ const ComponentExample = () => {
                         Customize Your Component
                     </h1>
 
-                    <ThemeToggler />
+                    <ExpandableCard
+                        title="Nike Air 3"
+                        subtitle="$249"
+                        description='Jordan Air Jordan 1 High OG "Shadow 2.0" Sneakers - Grey'
+                        backgroundImage="/media/shoes.jpg"
+                        contextImage="/media/shoe.jpg"
+                        className="hidden md:block"
+                    />
                 </div>
                 <div className="relative col-span-2 md:col-span-1">
                     <div className="absolute -inset-1 rounded-[40px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 opacity-30 blur-xl"></div>
                     <div className="col-span-2 rounded-[28px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 p-1 shadow-2xl drop-shadow-2xl md:col-span-1">
-                        <FileContent filePath="components/web/theme-toggler.tsx" />
+                        <FileContent filePath="components/ui/expandable-card.tsx" />
                     </div>
                 </div>
             </div>
