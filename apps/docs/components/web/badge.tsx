@@ -11,7 +11,7 @@ const Badge = ({
         <div>
             <div
                 className={cn(
-                    'w-fit rounded-md border border-emerald-700 bg-emerald-200 px-2 text-sm text-emerald-700 dark:border-emerald-500 dark:bg-emerald-300/10 dark:text-emerald-500',
+                    'w-fit rounded-md border border-purple-500 bg-purple-500/20 px-2 text-sm text-purple-500',
                     className
                 )}
             >
