@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import ScrollingMacbook from '@/components/ui/scrolling-macbook';
 
 const HeroSection = () => {
     const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
@@ -45,7 +46,7 @@ const HeroSection = () => {
                 </p>
             </div>
             <div className="z-20 hidden h-[40rem] w-full items-center justify-center text-center xl:flex">
-                <h1 className="text-center">right section</h1>
+                <ScrollingMacbook />
             </div>
         </div>
     );
