@@ -27,6 +27,7 @@ import {
     AlertErrorDemo,
     AlertDefaultDemo,
     AlertProcessDemo,
+    ScrollingMacbookDemo,
 } from '@/demo';
 
 const components = {
@@ -299,6 +300,7 @@ const components = {
     AlertErrorDemo,
     AlertDefaultDemo,
     AlertProcessDemo,
+    ScrollingMacbookDemo,
 };
 
 interface MdxProps {

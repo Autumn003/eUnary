@@ -55,6 +55,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "scrolling-macbook",
+            "type": "registry:ui",
+            "title": "Scrolling Macbook",
+            "description": "A scrolling macbook with hover effect.",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/scrolling-macbook.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/scrolling-macbook.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

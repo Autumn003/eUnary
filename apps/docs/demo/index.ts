@@ -3,6 +3,7 @@ import AlertDemo from './alert-demo';
 import AlertErrorDemo from './alert-error-demo';
 import AlertProcessDemo from './alert-processing-demo';
 import ExpandableCardDemo from './expandable-card-demo';
+import ScrollingMacbookDemo from './scrolling-macbook-demo';
 import ThemeTogglerDemo from './theme-toggler-demo';
 
 export {
@@ -12,4 +13,5 @@ export {
     AlertErrorDemo,
     AlertDefaultDemo,
     AlertProcessDemo,
+    ScrollingMacbookDemo,
 };

@@ -17,6 +17,12 @@
             "title": "Alert",
             "description": "A callout alert for user attention",
             "thumbnail": "/media/expandable-card.png"
+        },
+        {
+            "name": "scrolling-macbook",
+            "title": "Scrolling Macbook",
+            "description": "Scrolling macbook with hover effect",
+            "thumbnail": "/media/expandable-card.png"
         }
     ]
 }
