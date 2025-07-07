@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import ScrollingMacbook from '@/components/ui/scrolling-macbook';
+import Image from 'next/image';
 
 const HeroSection = () => {
     const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
@@ -47,12 +48,7 @@ const HeroSection = () => {
             </div>
             <div className="z-20 hidden h-[40rem] w-full items-center justify-center text-center xl:flex">
                 <ScrollingMacbook className="flex flex-col items-center justify-center">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 text-sm font-bold text-white">
-                        EU
-                    </div>
-                    <p className="mt-1 text-xs font-light text-white/80">
-                        ui.eunary.com
-                    </p>
+                    <div className="h-full w-full bg-[url(/media/mc-drk.png)] bg-cover bg-center"></div>
                 </ScrollingMacbook>
             </div>
         </div>

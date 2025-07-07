@@ -1,5 +1,11 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import {
+    delay,
+    motion,
+    useScroll,
+    useSpring,
+    useTransform,
+} from 'motion/react';
 import { cn } from '@/lib/utils';
 
 interface MacbookScrollProps {
@@ -104,7 +110,7 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
             className="relative isolate z-20 mx-auto flex justify-center"
         >
             <motion.div
-                className="relative isolate [perspective:1000px]"
+                className="group relative isolate [perspective:1000px]"
                 onHoverStart={handleHoverStart}
                 onHoverEnd={handleHoverEnd}
                 initial={{ opacity: 0 }}
@@ -116,7 +122,16 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
                     className="absolute bottom-[calc(100%-0.0625rem)] h-[8.5rem] w-[13rem] origin-bottom translate-x-3 rounded-t border-2 border-gray-600 px-0.5 py-1 shadow-[inset_0_0_0_2px_theme(colors.black/75%)] [--screen-off-color:theme(colors.gray.900)] [--screen-on-color:theme(colors.gray.600)] [perspective:65px] [transform-style:preserve-3d] before:absolute before:inset-[-0.0625rem] before:z-10 before:rounded-[inherit] before:bg-gradient-to-b before:from-black/40 before:from-[0.0625rem] before:to-black/80 before:transition-opacity before:duration-1000 before:group-hover:opacity-0 before:group-hover:duration-500 after:absolute after:inset-x-[-1px] after:top-0 after:-z-10 after:h-[0.125rem] after:[transform:rotateX(90deg)_translateY(-1px)] after:rounded-t-full after:bg-gray-500"
                 >
                     {/* Webcam notch */}
-                    <div className="absolute inset-y-0 right-[46%] z-40 h-1 w-6 rounded-b-xs bg-black/70" />
+                    <motion.div
+                        animate={{
+                            opacity: isHovered ? 0 : 1,
+                            transition: {
+                                delay: isHovered ? 0 : 0.2,
+                                duration: 0.01,
+                            },
+                        }}
+                        className="absolute inset-y-0 right-[46%] z-50 h-1 w-6 rounded-b-xs bg-black/75"
+                    />
 
                     {/* Top glow effect */}
                     <motion.div
