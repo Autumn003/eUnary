@@ -4,7 +4,7 @@
             "name": "theme-toggler",
             "title": "Theme Toggler",
             "description": "A theme toggler button",
-            "thumbnail": "/media/sample_img_1.webp"
+            "thumbnail": "/media/theme.jpg"
         },
         {
             "name": "expandable-card",
@@ -16,13 +16,13 @@
             "name": "alert",
             "title": "Alert",
             "description": "A callout alert for user attention",
-            "thumbnail": "/media/expandable-card.png"
+            "thumbnail": "/media/alert.png"
         },
         {
             "name": "scrolling-macbook",
             "title": "Scrolling Macbook",
             "description": "Scrolling macbook with hover effect",
-            "thumbnail": "/media/expandable-card.png"
+            "thumbnail": "/media/scrolling-macbook.png"
         }
     ]
 }
