@@ -167,7 +167,7 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
                         transition={springTransition}
                         className={cn(
                             className,
-                            'absolute inset-0 z-40 h-full w-full rounded-sm bg-cyan-400/10'
+                            'absolute inset-0 z-40 h-full w-full overflow-hidden rounded-sm bg-cyan-400/10'
                         )}
                     >
                         {children}
