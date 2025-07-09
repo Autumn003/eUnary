@@ -32,7 +32,7 @@ description: Scrolling Macbook with hover effect.
       npm install motion clsx tailwind-merge
       ```
       <Step>Add util file</Step>
-      <Callout>`lib/utils.ts`</Callout>
+      <Callout>lib/utils.ts</Callout>
 
       ```tsx
       import { ClassValue, clsx } from 'clsx';
@@ -44,7 +44,7 @@ description: Scrolling Macbook with hover effect.
       ```
 
       <Step>Copy the source code</Step>
-      <Callout>`components/ui/scrolling-macbook.tsx`</Callout>
+      <Callout>components/ui/scrolling-macbook.tsx</Callout>
      
       <ComponentSource className="" collapsible={true}/>
     </Steps>
@@ -59,12 +59,8 @@ Use the following props to customize the tooltip.
 
 | Prop                | Type                     | Description                                        |
 | :------------------ | :----------------------- | :------------------------------------------------- |
-| `title`             | string                   | The title of the card.                             |
-| `subtitle`          | string                   | The sub-title of the card.                         |
-| `description`       | string                   | The description of your card item.                 |
-| `backgroundImage`   | string                   | URL of your background image.                      |
-| `contextImage`      | string                   | URL of your product image.                         |
-| `className`         | string                   | The CSS class to be applied to the card.           |
+| <Callout>children</Callout>          | <Callout>React.ReactNode</Callout>          | The child elements to be rendered on the macbook display.|
+| <Callout>className</Callout>         | <Callout>string</Callout>                   | The CSS class to be applied to the card.           |
 
 
 <ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>

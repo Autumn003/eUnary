@@ -227,7 +227,7 @@ const components = {
     Callout: ({ className, ...props }) => (
         <span
             className={cn(
-                'bg-muted-background rounded-lg px-2 py-1',
+                'rounded-lg bg-[#ededed] px-2 py-1 font-mono text-sm dark:bg-[#27272a]',
                 className
             )}
             {...props}
