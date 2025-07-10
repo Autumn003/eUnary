@@ -9,7 +9,6 @@
             "title": "Theme Toggler",
             "description": "A theme toggler button.",
             "dependencies": ["remixicon"],
-            "featured": true,
             "files": [
                 {
                     "path": "../docs/components/ui/theme-toggler.tsx",
