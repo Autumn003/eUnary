@@ -28,7 +28,7 @@
             "name": "flip-words",
             "title": "Flip Words",
             "description": "A component to flip words with a smooth transition effect.",
-            "thumbnail": "/media/scrolling-macbook.png"
+            "thumbnail": "/media/flip-words.png"
         }
     ]
 }
