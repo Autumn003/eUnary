@@ -11,7 +11,7 @@ interface FlipwordsProps {
 }
 
 export const FlipWords = ({
-    words = ['Eunary', 'Beautiful', 'Elegant', 'Aesthetic', 'Sleek'],
+    words = ['Modern', 'Beautiful', 'Elegant', 'Aesthetic', 'Sleek'],
     duration = 3000,
     className,
 }: FlipwordsProps) => {
