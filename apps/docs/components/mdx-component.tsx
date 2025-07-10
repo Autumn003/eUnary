@@ -28,6 +28,8 @@ import {
     AlertDefaultDemo,
     AlertProcessDemo,
     ScrollingMacbookDemo,
+    FlipWordsDemo,
+    FlipWordsDemo2,
 } from '@/demo';
 
 const components = {
@@ -301,6 +303,8 @@ const components = {
     AlertDefaultDemo,
     AlertProcessDemo,
     ScrollingMacbookDemo,
+    FlipWordsDemo,
+    FlipWordsDemo2,
 };
 
 interface MdxProps {

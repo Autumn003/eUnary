@@ -23,6 +23,12 @@
             "title": "Scrolling Macbook",
             "description": "Scrolling macbook with hover effect",
             "thumbnail": "/media/scrolling-macbook.png"
+        },
+        {
+            "name": "flip-words",
+            "title": "Flip Words",
+            "description": "A component to flip words with a smooth transition effect.",
+            "thumbnail": "/media/scrolling-macbook.png"
         }
     ]
 }

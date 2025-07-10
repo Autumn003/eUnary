@@ -76,6 +76,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "flip-words",
+            "type": "registry:ui",
+            "title": "Flip Words",
+            "description": "A component to flip words with a smooth transition effect.",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/flip-words.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/flip-words.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

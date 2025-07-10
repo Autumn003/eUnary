@@ -1,0 +1,69 @@
+---
+title: "Flip Words"
+description: A component to flip words with a smooth transition effect.
+---
+
+# Flip Words
+
+<ComponentPreview component={<FlipWordsDemo />} fileName="flip-words" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/flip-words.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Run the following command</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/flip-words.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+### Examples
+
+<ComponentPreview component={<FlipWordsDemo2 />} fileName="flip-words-2" className="p-0 mb-20" />
+
+
+### Props
+
+Use the following props to customize the fliping words.
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>words</Callout>          | <Callout>string[]</Callout>          | Array of words to be displayed. |
+| <Callout>className</Callout>         | <Callout>string</Callout>         | The CSS class to be applied to the card.           |
+| <Callout>duration</Callout>         | <Callout>number</Callout>         | Interval duration in milliseconds between word transitions.           |
+
+<ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>
