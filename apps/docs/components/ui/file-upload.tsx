@@ -134,7 +134,7 @@ export const FileUpload = ({
     return (
         <div className="w-full" {...getRootProps()}>
             <motion.div
-                className="group/file relative block w-full cursor-pointer overflow-hidden rounded-lg"
+                className="group relative block w-full cursor-pointer overflow-hidden rounded-lg"
                 initial="initial"
                 whileHover="animate"
             >
@@ -247,42 +247,44 @@ export const FileUpload = ({
                             ))}
                         </AnimatePresence>
                         {!selectedFiles.length && (
-                            <motion.div
-                                variants={mainVariant}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 300,
-                                    damping: 20,
-                                }}
-                                className="relative flex h-28 w-32 justify-center rounded-xl bg-neutral-200 inset-shadow-sm shadow-[0px_10px_50px_rgba(0,0,0,0.1)] inset-shadow-neutral-400 dark:bg-neutral-900 dark:inset-shadow-neutral-600"
-                                style={customMaskStyle}
-                            >
+                            <div className="transition-discrete duration-200 group-hover:drop-shadow-[0px_10px_25px_rgba(35,228,255,0.15)]">
                                 <motion.div
-                                    variants={parentVariant}
-                                    className="absolute inset-0 flex items-center justify-center"
+                                    variants={mainVariant}
+                                    transition={{
+                                        type: 'spring',
+                                        stiffness: 300,
+                                        damping: 20,
+                                    }}
+                                    className="relative flex h-28 w-32 justify-center rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-900 dark:inset-shadow-neutral-600"
+                                    style={customMaskStyle}
                                 >
                                     <motion.div
-                                        variants={childVariant}
-                                        className="absolute bottom-0 mx-1 h-20 w-26 rounded-lg bg-sky-300 dark:bg-cyan-700"
-                                    />
-                                    <motion.div
-                                        variants={childVariant}
-                                        className="absolute bottom-0 mx-1 h-18 w-28 rounded-lg bg-cyan-300 dark:bg-cyan-400"
-                                    />
+                                        variants={parentVariant}
+                                        className="absolute inset-0 flex items-center justify-center"
+                                    >
+                                        <motion.div
+                                            variants={childVariant}
+                                            className="absolute bottom-0 mx-1 h-20 w-26 rounded-lg bg-sky-200 dark:bg-cyan-700"
+                                        />
+                                        <motion.div
+                                            variants={childVariant}
+                                            className="absolute bottom-0 mx-1 h-18 w-28 rounded-lg bg-cyan-200 dark:bg-cyan-400"
+                                        />
+                                    </motion.div>
+                                    <div className="absolute bottom-0 h-16 w-full rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-800 dark:inset-shadow-neutral-600">
+                                        {isDragActive && (
+                                            <motion.p
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                className="flex h-full flex-col items-center justify-center text-sm text-neutral-600"
+                                            >
+                                                Drop
+                                                <IconArrowBarDown className="h-4 w-4" />
+                                            </motion.p>
+                                        )}
+                                    </div>
                                 </motion.div>
-                                <div className="absolute bottom-0 h-16 w-full rounded-xl bg-neutral-200 inset-shadow-sm inset-shadow-neutral-400 dark:bg-neutral-800 dark:inset-shadow-neutral-600">
-                                    {isDragActive && (
-                                        <motion.p
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            className="flex h-full flex-col items-center justify-center text-sm text-neutral-600"
-                                        >
-                                            Drop
-                                            <IconArrowBarDown className="h-4 w-4" />
-                                        </motion.p>
-                                    )}
-                                </div>
-                            </motion.div>
+                            </div>
                         )}
                     </div>
                 </label>
@@ -295,7 +297,7 @@ export function GridPattern() {
     const columns = 41;
     const rows = 11;
     return (
-        <div className="flex shrink-0 scale-105 flex-wrap items-center justify-center gap-x-px gap-y-px bg-gray-100 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] dark:bg-neutral-900">
+        <div className="flex shrink-0 scale-105 flex-wrap items-center justify-center gap-px bg-gray-100 dark:bg-neutral-900">
             {Array.from({ length: rows }).map((_, row) =>
                 Array.from({ length: columns }).map((_, col) => {
                     const index = row * columns + col;
