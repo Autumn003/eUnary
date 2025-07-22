@@ -29,6 +29,12 @@
             "title": "Flip Words",
             "description": "A component to flip words with a smooth transition effect.",
             "thumbnail": "/media/flip-words.png"
+        },
+        {
+            "name": "file-upload",
+            "title": "File Upload",
+            "description": "A file upload component with drag and drop support.",
+            "thumbnail": "/media/flip-words.png"
         }
     ]
 }

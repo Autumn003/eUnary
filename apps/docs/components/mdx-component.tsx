@@ -30,6 +30,7 @@ import {
     ScrollingMacbookDemo,
     FlipWordsDemo,
     FlipWordsDemo2,
+    FileUploadDemo,
 } from '@/demo';
 
 const components = {
@@ -305,6 +306,7 @@ const components = {
     ScrollingMacbookDemo,
     FlipWordsDemo,
     FlipWordsDemo2,
+    FileUploadDemo,
 };
 
 interface MdxProps {

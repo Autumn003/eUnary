@@ -96,6 +96,29 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "file-upload",
+            "type": "registry:ui",
+            "title": "File Upload",
+            "description": "A file upload component with drag-and-drop support.",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge",
+                "react-dropzone",
+                "@tabler/icons-react"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/file-upload.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/file-upload.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

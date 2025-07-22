@@ -1,0 +1,64 @@
+---
+title: "File Upload"
+description: A component to upload files with drag-and-drop support and file preview.
+---
+
+# Flip Words
+
+<ComponentPreview component={<FileUploadDemo />} fileName="file-upload" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/file-upload.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Run the following command</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge react-dropzone @tabler/icons-react
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/file-upload.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+### Props
+
+Use the following props to customize the fliping words.
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>onChange</Callout>          | <Callout>(files: File[]) => void</Callout>          | Callback function that is called when files are uploaded or dropped. |
+| <Callout>multiple</Callout>         | <Callout>boolean</Callout>         | Whether multiple files can be selected and uploaded at once. Defaults to false. |
+
+<ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>
