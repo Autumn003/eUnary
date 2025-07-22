@@ -134,7 +134,7 @@ export const FileUpload = ({
     return (
         <div className="w-full" {...getRootProps()}>
             <motion.div
-                className="group relative block w-full cursor-pointer overflow-hidden rounded-lg"
+                className="group relative block w-full cursor-pointer overflow-hidden rounded-lg border border-dashed border-neutral-300 dark:border-neutral-700"
                 initial="initial"
                 whileHover="animate"
             >
@@ -153,7 +153,7 @@ export const FileUpload = ({
                 </div>
                 <label htmlFor="file-upload" className="cursor-pointer">
                     <div className="relative mx-auto flex h-full w-full max-w-xl flex-col items-center p-10">
-                        <div className="my-10 flex flex-col items-center justify-center">
+                        <div className="my-10 flex flex-col items-center justify-center text-center">
                             <p className="relative font-sans text-base font-bold text-neutral-700 dark:text-neutral-300">
                                 Upload file
                             </p>
