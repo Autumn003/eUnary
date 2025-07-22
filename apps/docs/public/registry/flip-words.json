@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-words",
+  "type": "registry:ui",
+  "title": "Flip Words",
+  "author": "Hemant Sharma <hemant.develop@gmail.com>",
+  "description": "A component to flip words with a smooth transition effect.",
+  "dependencies": [
+    "class-variance-authority",
+    "motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "../docs/components/ui/flip-words.tsx",
+      "content": "'use client';\r\n\r\nimport React, { useEffect, useState } from 'react';\r\nimport { AnimatePresence, motion } from 'motion/react';\r\nimport { cn } from '@/lib/utils';\r\n\r\ninterface FlipwordsProps {\r\n    words?: string[];\r\n    duration?: number;\r\n    className?: string;\r\n}\r\n\r\nexport const FlipWords = ({\r\n    words = ['Modern', 'Beautiful', 'Elegant', 'Aesthetic', 'Sleek'],\r\n    duration = 3000,\r\n    className,\r\n}: FlipwordsProps) => {\r\n    const [currentWord, setCurrentWord] = useState(0);\r\n\r\n    useEffect(() => {\r\n        const interval = setInterval(() => {\r\n            setCurrentWord((prevWord) => (prevWord + 1) % words.length);\r\n        }, duration);\r\n\r\n        return () => clearInterval(interval);\r\n    }, []);\r\n\r\n    return (\r\n        <AnimatePresence mode=\"wait\">\r\n            <motion.p\r\n                key={currentWord}\r\n                className={cn('inline-block h-fit py-2', className)}\r\n                initial={{ opacity: 0, y: 10 }}\r\n                animate={{ opacity: 1, y: 0 }}\r\n                exit={{\r\n                    opacity: 0,\r\n                    y: -20,\r\n                    scale: 1.2,\r\n                    filter: 'blur(8px)',\r\n                }}\r\n                transition={{\r\n                    type: 'spring',\r\n                    stiffness: 100,\r\n                    damping: 20,\r\n                }}\r\n            >\r\n                {words[currentWord]}\r\n            </motion.p>\r\n        </AnimatePresence>\r\n    );\r\n};\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/flip-words.tsx"
+    }
+  ]
+}
