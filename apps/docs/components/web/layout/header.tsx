@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div className="bg-primary-background relative">
-            <div className="bg-primary-background/30 fixed top-0 left-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 px-8 backdrop-blur-md lg:grid">
+            <div className="bg-primary-background/30 border-muted-background fixed top-0 left-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 border-b px-8 backdrop-blur-md lg:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
                         src="/media/logo-dark.jpg"
@@ -165,7 +165,7 @@ export default function Header() {
                     </div>
                 </div>
             ) : (
-                <div className="bg-primary-background/30 fixed top-0 z-50 flex w-full items-center justify-between p-4 backdrop-blur-md transition-all duration-400 lg:hidden">
+                <div className="bg-primary-background/30 border-muted-background fixed top-0 z-50 flex w-full items-center justify-between border-b p-4 backdrop-blur-md transition-all duration-400 lg:hidden">
                     <Link
                         href="/"
                         className="col-span-2 flex items-center gap-2"
