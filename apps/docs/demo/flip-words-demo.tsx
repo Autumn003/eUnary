@@ -2,7 +2,7 @@ import { FlipWords } from '@/components/ui/flip-words';
 
 const FlipWordsDemo = () => {
     return (
-        <div className="dark:text-primary-foreground text-secondary-foreground relative mb-6 max-w-4xl text-left text-4xl font-bold md:text-7xl">
+        <div className="dark:text-primary-foreground text-secondary-foreground relative mb-6 max-w-4xl p-12 text-left text-4xl font-bold md:text-7xl">
             Build your website with Eunary{' '}
             <FlipWords
                 words={['modern', 'fast', 'elegant', 'aesthetic', 'sleek']}

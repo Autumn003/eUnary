@@ -39,7 +39,7 @@ const ComponentSource = ({
                 ref={containerRef}
                 className={cn(
                     'custom-scrollbar relative my-4 flex w-full flex-col rounded-lg bg-[#1e1e1e] text-white',
-                    !isOpened && 'max-h-52 overflow-hidden',
+                    !isOpened && 'max-h-64 overflow-hidden',
                     isOpened && 'max-h-96 overflow-auto',
                     className
                 )}
