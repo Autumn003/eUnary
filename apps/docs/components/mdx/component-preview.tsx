@@ -52,7 +52,9 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
 
                 <TabsContent value="preview">
                     <div className="border-muted-background flex min-h-96 items-center justify-center rounded-lg border p-4">
-                        <div className="">{component}</div>
+                        <div className="flex w-full items-center justify-center">
+                            {component}
+                        </div>
                     </div>
                 </TabsContent>
 
