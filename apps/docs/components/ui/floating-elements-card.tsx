@@ -1,9 +1,4 @@
 import { cn } from '@/lib/utils';
-import {
-    IconBrandGithub,
-    IconBrandLinkedin,
-    IconBrandX,
-} from '@tabler/icons-react';
 import { motion } from 'motion/react';
 
 const SPRING_CONFIG = {
@@ -71,38 +66,6 @@ const createIconVariant = (x: number, y: number, rotate: number) => ({
     },
 });
 
-// Icon configuration with modern colors
-const iconConfigs = [
-    {
-        variant: createIconVariant(-180, -120, -30),
-        icon: <IconBrandLinkedin className="h-10 w-10 text-blue-400" />,
-        key: 'linkedin',
-    },
-    {
-        variant: createIconVariant(-65, -160, -15),
-        icon: (
-            <IconBrandX className="h-10 w-10 text-neutral-800 dark:text-neutral-50" />
-        ),
-        key: 'x',
-    },
-    {
-        variant: createIconVariant(65, -160, 15),
-        icon: (
-            <p className="bg-gradient-to-br from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-3xl font-bold text-transparent">
-                EU
-            </p>
-        ),
-        key: 'custom',
-    },
-    {
-        variant: createIconVariant(180, -120, 30),
-        icon: (
-            <IconBrandGithub className="h-10 w-10 text-neutral-600 dark:text-neutral-300" />
-        ),
-        key: 'github',
-    },
-];
-
 // Card configuration with modern styling
 const cardConfigs = [
     { width: 'w-[27rem]', zIndex: 'z-20', hasContent: true },
@@ -110,17 +73,40 @@ const cardConfigs = [
     { width: 'w-[23rem]', zIndex: 'z-0', hasContent: false },
 ];
 
-const baseCardClasses =
-    'absolute h-[25rem] rounded-3xl border dark:border-neutral-700/50 border-neutral-300/50 bg-gradient-to-br dark:from-neutral-800/90 dark:to-neutral-900/90 from-neutral-50 to-neutral-100 backdrop-blur-xl shadow-xl shadow-neutral-900/25';
+type iconLink = {
+    icon: React.ReactNode;
+    link: string;
+};
 
-const iconBaseClasses =
-    'absolute flex h-22 w-22 items-center justify-center rounded-full bg-gradient-to-br from-white dark:from-neutral-700 to-slate-100 dark:to-neutral-800 border border-slate-200 dark:border-neutral-600/50 shadow-lg shadow-neutral-900/50 dark:shadow-neutral-600/50 backdrop-blur-sm';
-
-export const FloatingElementsCard = ({
-    children,
-}: {
+interface Props {
     children: React.ReactNode;
-}) => {
+    icons: iconLink[];
+}
+
+export const FloatingElementsCard = ({ children, icons = [] }: Props) => {
+    const iconConfigs = [
+        {
+            variant: createIconVariant(-180, -120, -30),
+            ...icons[0],
+            key: '0',
+        },
+        {
+            variant: createIconVariant(-65, -160, -15),
+            ...icons[1],
+            key: '1',
+        },
+        {
+            variant: createIconVariant(65, -160, 15),
+            ...icons[2],
+            key: '2',
+        },
+        {
+            variant: createIconVariant(180, -120, 30),
+            ...icons[3],
+            key: '3',
+        },
+    ].filter(Boolean);
+
     return (
         <motion.div
             initial="initial"
@@ -136,7 +122,7 @@ export const FloatingElementsCard = ({
                         key={`card-${index}`}
                         variants={cardVariants[index]}
                         className={cn(
-                            baseCardClasses,
+                            'absolute h-[25rem] rounded-3xl border border-neutral-300/50 bg-gradient-to-br from-neutral-50 to-neutral-100 shadow-[0_0_10px_2px_rgba(83,83,83,0.15)] backdrop-blur-xl group-hover:shadow-[0_-5px_10px_2px_rgba(83,83,83,0.15)] dark:border-neutral-700/50 dark:from-neutral-800/90 dark:to-neutral-900/90',
                             config.width,
                             config.zIndex,
                             config.hasContent ? 'p-4' : ''
@@ -151,14 +137,18 @@ export const FloatingElementsCard = ({
                 className="relative inset-0 flex items-center justify-center gap-6"
                 variants={iconParentVariant}
             >
-                {iconConfigs.map((config) => (
-                    <motion.div
-                        key={config.key}
-                        className={cn(iconBaseClasses)}
-                        variants={config.variant}
+                {iconConfigs.map(({ icon, link, variant, key }) => (
+                    <motion.a
+                        href={link || 'https://ui.eunary.com'}
+                        target="_blank"
+                        key={key}
+                        className={cn(
+                            'absolute flex h-22 w-22 items-center justify-center rounded-full border border-slate-200 bg-gradient-to-br from-white to-slate-100 shadow-lg shadow-neutral-900/50 backdrop-blur-sm dark:border-neutral-600/50 dark:from-neutral-700 dark:to-neutral-800 dark:shadow-neutral-600/50'
+                        )}
+                        variants={variant}
                     >
-                        {config.icon}
-                    </motion.div>
+                        {icon}
+                    </motion.a>
                 ))}
             </motion.div>
             <div className="absolute bottom-0 z-50 hidden h-24 w-full bg-gradient-to-t from-white to-transparent group-hover:block dark:from-black"></div>
