@@ -2,8 +2,6 @@ import {
     IconBrandGithub,
     IconBrandLinkedin,
     IconBrandX,
-    IconMail,
-    IconTemplate,
 } from '@tabler/icons-react';
 import { motion } from 'motion/react';
 
@@ -33,9 +31,11 @@ const cardChildVariant1 = {
 const cardChildVariant2 = {
     initial: {
         y: 0,
+        scale: 0.9,
     },
     animate: {
         y: 190,
+        scale: 1,
         transition: {
             type: 'spring',
             stiffness: 500,
@@ -47,9 +47,11 @@ const cardChildVariant2 = {
 const cardChildVariant3 = {
     initial: {
         y: 0,
+        scale: 0.9,
     },
     animate: {
         y: 170,
+        scale: 1,
         transition: {
             type: 'spring',
             stiffness: 500,
@@ -167,7 +169,7 @@ export const FloatingElementsCard = ({
         <motion.div
             initial="initial"
             whileHover="animate"
-            className="group relative flex h-[34rem] w-[30rem] flex-col items-center justify-center gap-4 overflow-hidden px-20"
+            className="group relative flex h-[30rem] w-[32rem] flex-col items-center justify-center gap-4 overflow-hidden px-20"
         >
             <motion.div
                 variants={cardParentVariant}
@@ -175,42 +177,18 @@ export const FloatingElementsCard = ({
             >
                 <motion.div
                     variants={cardChildVariant1}
-                    className="absolute z-20 h-[25rem] w-[27rem] rounded-t-3xl border border-neutral-300 bg-neutral-50 p-4 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
+                    className="absolute z-20 h-[25rem] w-[27rem] rounded-3xl border border-neutral-300 bg-neutral-50 p-4 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
                 >
-                    {/* {children} */}
-                    <div>
-                        <div className="mb-2 bg-green-200">
-                            <p className="my-2 text-center">
-                                Lorem ipsum sit amet, consectetur adipisicing
-                                elit.
-                            </p>
-                            <div className="grid grid-cols-3 gap-2">
-                                <div className="col-span-1 h-28 w-28 rounded-[16px] bg-neutral-200"></div>
-                                <div className="col-span-2">fvfdkjk</div>
-                            </div>
-                        </div>
-                        <div className="bg-blue-200">
-                            <div className="grid grid-cols-3 gap-2">
-                                <div className="col-span-2">fvfdkjk</div>
-                                <div className="col-span-1 h-28 w-28 rounded-[16px] bg-neutral-200"></div>
-                            </div>
-                            <p className="my-2 text-center">
-                                Lorem ipsum sit amet, consectetur adipisicing
-                                elit.
-                            </p>
-                        </div>
-                    </div>
+                    {children}
                 </motion.div>
 
                 <motion.div
                     variants={cardChildVariant2}
-                    initial={{ y: 40 }}
                     className="absolute z-10 h-[25rem] w-[25rem] rounded-3xl border border-neutral-300 bg-neutral-50 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
                 ></motion.div>
 
                 <motion.div
                     variants={cardChildVariant3}
-                    initial={{ y: 80 }}
                     className="absolute z-0 h-[25rem] w-[23rem] rounded-3xl border border-neutral-300 bg-neutral-50 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
                 ></motion.div>
             </motion.div>
@@ -220,7 +198,7 @@ export const FloatingElementsCard = ({
                 variants={papa}
             >
                 <motion.div
-                    className="absolute flex h-22 w-22 items-center justify-center rounded-full bg-neutral-50 shadow-[-5px_-5px_10px_0_rgb(255,255,255),5px_5px_10px_0_rgba(82,82,82,0.25)]"
+                    className="absolute flex h-22 w-22 items-center justify-center rounded-full bg-neutral-50 shadow-[-5px_-5px_10px_0_rgb(255,255,255),5px_5px_10px_0_rgba(82,82,82,0.25)] hover:scale-105"
                     variants={beta1}
                 >
                     <IconBrandLinkedin className="h-10 w-10 text-blue-500" />
@@ -245,9 +223,6 @@ export const FloatingElementsCard = ({
                 >
                     <IconBrandGithub className="h-10 w-10 text-neutral-900" />
                 </motion.div>
-            </motion.div>
-            <motion.div className="absolute bottom-0 z-30 flex h-24 w-full items-center justify-center bg-green-600 font-medium text-white shadow-2xl">
-                title/description goes here
             </motion.div>
         </motion.div>
     );
