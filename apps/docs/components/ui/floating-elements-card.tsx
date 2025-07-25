@@ -1,9 +1,22 @@
+import { cn } from '@/lib/utils';
 import {
     IconBrandGithub,
     IconBrandLinkedin,
     IconBrandX,
 } from '@tabler/icons-react';
 import { motion } from 'motion/react';
+
+const SPRING_CONFIG = {
+    type: 'spring' as const,
+    stiffness: 500,
+    damping: 25,
+};
+
+const ICON_SPRING_CONFIG = {
+    type: 'spring' as const,
+    stiffness: 500,
+    damping: 30,
+};
 
 const cardParentVariant = {
     initial: {},
@@ -14,56 +27,24 @@ const cardParentVariant = {
     },
 };
 
-const cardChildVariant1 = {
-    initial: {
-        y: 0,
-    },
+// Generate card variants dynamically
+const createCardVariant = (yOffset: number, scale = 1) => ({
+    initial: { y: 0, scale: scale === 1 ? undefined : 0.9 },
     animate: {
-        y: 210,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 25,
-        },
+        y: yOffset,
+        scale,
+        transition: SPRING_CONFIG,
     },
-};
+});
 
-const cardChildVariant2 = {
-    initial: {
-        y: 0,
-        scale: 0.9,
-    },
-    animate: {
-        y: 190,
-        scale: 1,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 25,
-        },
-    },
-};
+const cardVariants = [
+    createCardVariant(210),
+    createCardVariant(190, 1),
+    createCardVariant(170, 1),
+];
 
-const cardChildVariant3 = {
-    initial: {
-        y: 0,
-        scale: 0.9,
-    },
-    animate: {
-        y: 170,
-        scale: 1,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 25,
-        },
-    },
-};
-
-const papa = {
-    initial: {
-        y: 0,
-    },
+const iconParentVariant = {
+    initial: { y: 0 },
     animate: {
         transition: {
             staggerChildren: 0.1,
@@ -71,94 +52,69 @@ const papa = {
     },
 };
 
-const beta1 = {
+const createIconVariant = (x: number, y: number, rotate: number) => ({
     initial: {
         y: 0,
         x: 0,
         opacity: 0,
-        blur: '8px',
+        filter: 'blur(8px)',
         scale: 0.5,
     },
     animate: {
-        y: -140,
-        x: -180,
+        y,
+        x,
         opacity: 1,
-        blur: '0px',
+        filter: 'blur(0px)',
         scale: 1,
-        rotate: -30,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 30,
-        },
+        rotate,
+        transition: ICON_SPRING_CONFIG,
     },
-};
-const beta2 = {
-    initial: {
-        y: 0,
-        x: 0,
-        opacity: 0,
-        blur: '8px',
-        scale: 0.5,
+});
+
+// Icon configuration with modern colors
+const iconConfigs = [
+    {
+        variant: createIconVariant(-180, -120, -30),
+        icon: <IconBrandLinkedin className="h-10 w-10 text-blue-400" />,
+        key: 'linkedin',
     },
-    animate: {
-        y: -180,
-        x: -65,
-        opacity: 1,
-        blur: '0px',
-        scale: 1,
-        rotate: -15,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 30,
-        },
+    {
+        variant: createIconVariant(-65, -160, -15),
+        icon: (
+            <IconBrandX className="h-10 w-10 text-neutral-800 dark:text-neutral-50" />
+        ),
+        key: 'x',
     },
-};
-const beta3 = {
-    initial: {
-        y: 0,
-        x: 0,
-        opacity: 0,
-        blur: '8px',
-        scale: 0.5,
+    {
+        variant: createIconVariant(65, -160, 15),
+        icon: (
+            <p className="bg-gradient-to-br from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-3xl font-bold text-transparent">
+                EU
+            </p>
+        ),
+        key: 'custom',
     },
-    animate: {
-        y: -180,
-        x: 65,
-        opacity: 1,
-        blur: '0px',
-        scale: 1,
-        rotate: 15,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 30,
-        },
+    {
+        variant: createIconVariant(180, -120, 30),
+        icon: (
+            <IconBrandGithub className="h-10 w-10 text-neutral-600 dark:text-neutral-300" />
+        ),
+        key: 'github',
     },
-};
-const beta4 = {
-    initial: {
-        y: 0,
-        x: 0,
-        opacity: 0,
-        blur: '8px',
-        scale: 0.5,
-    },
-    animate: {
-        y: -140,
-        x: 180,
-        opacity: 1,
-        blur: '0px',
-        scale: 1,
-        rotate: 30,
-        transition: {
-            type: 'spring',
-            stiffness: 500,
-            damping: 30,
-        },
-    },
-};
+];
+
+// Card configuration with modern styling
+const cardConfigs = [
+    { width: 'w-[27rem]', zIndex: 'z-20', hasContent: true },
+    { width: 'w-[25rem]', zIndex: 'z-10', hasContent: false },
+    { width: 'w-[23rem]', zIndex: 'z-0', hasContent: false },
+];
+
+const baseCardClasses =
+    'absolute h-[25rem] rounded-3xl border dark:border-neutral-700/50 border-neutral-300/50 bg-gradient-to-br dark:from-neutral-800/90 dark:to-neutral-900/90 from-neutral-50 to-neutral-100 backdrop-blur-xl shadow-xl shadow-neutral-900/25';
+
+const iconBaseClasses =
+    'absolute flex h-22 w-22 items-center justify-center rounded-full bg-gradient-to-br from-white dark:from-neutral-700 to-slate-100 dark:to-neutral-800 border border-slate-200 dark:border-neutral-600/50 shadow-lg shadow-neutral-900/50 dark:shadow-neutral-600/50 backdrop-blur-sm';
 
 export const FloatingElementsCard = ({
     children,
@@ -175,55 +131,37 @@ export const FloatingElementsCard = ({
                 variants={cardParentVariant}
                 className="relative flex items-center justify-center"
             >
-                <motion.div
-                    variants={cardChildVariant1}
-                    className="absolute z-20 h-[25rem] w-[27rem] rounded-3xl border border-neutral-300 bg-neutral-50 p-4 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
-                >
-                    {children}
-                </motion.div>
-
-                <motion.div
-                    variants={cardChildVariant2}
-                    className="absolute z-10 h-[25rem] w-[25rem] rounded-3xl border border-neutral-300 bg-neutral-50 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
-                ></motion.div>
-
-                <motion.div
-                    variants={cardChildVariant3}
-                    className="absolute z-0 h-[25rem] w-[23rem] rounded-3xl border border-neutral-300 bg-neutral-50 drop-shadow-[0_0_8px_rgba(82,82,82,0.6)]"
-                ></motion.div>
+                {cardConfigs.map((config, index) => (
+                    <motion.div
+                        key={`card-${index}`}
+                        variants={cardVariants[index]}
+                        className={cn(
+                            baseCardClasses,
+                            config.width,
+                            config.zIndex,
+                            config.hasContent ? 'p-4' : ''
+                        )}
+                    >
+                        {config.hasContent && children}
+                    </motion.div>
+                ))}
             </motion.div>
 
             <motion.div
                 className="relative inset-0 flex items-center justify-center gap-6"
-                variants={papa}
+                variants={iconParentVariant}
             >
-                <motion.div
-                    className="absolute flex h-22 w-22 items-center justify-center rounded-full bg-neutral-50 shadow-[-5px_-5px_10px_0_rgb(255,255,255),5px_5px_10px_0_rgba(82,82,82,0.25)] hover:scale-105"
-                    variants={beta1}
-                >
-                    <IconBrandLinkedin className="h-10 w-10 text-blue-500" />
-                </motion.div>
-                <motion.div
-                    className="absolute flex h-22 w-22 items-center justify-center rounded-full bg-neutral-50 shadow-[-5px_-5px_10px_0_rgb(255,255,255),5px_5px_10px_0_rgba(82,82,82,0.25)]"
-                    variants={beta2}
-                >
-                    <IconBrandX className="h-10 w-10 text-neutral-900" />
-                </motion.div>
-                <motion.div
-                    className="absolute flex h-22 w-22 items-center justify-center rounded-full bg-neutral-50 shadow-[-5px_-5px_10px_0_rgb(255,255,255),5px_5px_10px_0_rgba(82,82,82,0.25)]"
-                    variants={beta3}
-                >
-                    <p className="bg-gradient-to-br from-fuchsia-500 to-indigo-600 bg-clip-text text-3xl font-semibold text-transparent">
-                        EU
-                    </p>
-                </motion.div>
-                <motion.div
-                    className="absolute flex h-22 w-22 items-center justify-center rounded-full bg-neutral-50 shadow-[-5px_-5px_10px_0_rgb(255,255,255),5px_5px_10px_0_rgba(82,82,82,0.25)]"
-                    variants={beta4}
-                >
-                    <IconBrandGithub className="h-10 w-10 text-neutral-900" />
-                </motion.div>
+                {iconConfigs.map((config) => (
+                    <motion.div
+                        key={config.key}
+                        className={cn(iconBaseClasses)}
+                        variants={config.variant}
+                    >
+                        {config.icon}
+                    </motion.div>
+                ))}
             </motion.div>
+            <div className="absolute bottom-0 z-50 hidden h-24 w-full bg-gradient-to-t from-white to-transparent group-hover:block dark:from-black"></div>
         </motion.div>
     );
 };
