@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 const SPRING_CONFIG = {
     type: 'spring' as const,
@@ -138,17 +139,22 @@ export const FloatingElementsCard = ({ children, icons = [] }: Props) => {
                 variants={iconParentVariant}
             >
                 {iconConfigs.map(({ icon, link, variant, key }) => (
-                    <motion.a
-                        href={link || 'https://ui.eunary.com'}
-                        target="_blank"
+                    <motion.div
                         key={key}
-                        className={cn(
-                            'absolute flex h-22 w-22 items-center justify-center rounded-full border border-slate-200 bg-gradient-to-br from-white to-slate-100 shadow-lg shadow-neutral-900/50 backdrop-blur-sm dark:border-neutral-600/50 dark:from-neutral-700 dark:to-neutral-800 dark:shadow-neutral-600/50'
-                        )}
+                        className="absolute"
                         variants={variant}
                     >
-                        {icon}
-                    </motion.a>
+                        <Link
+                            href={link || 'https://ui.eunary.com'}
+                            target="_blank"
+                            className={cn(
+                                'flex h-22 w-22 items-center justify-center rounded-full border border-slate-200 bg-gradient-to-br from-white to-slate-100 shadow-lg shadow-neutral-900/50 backdrop-blur-sm dark:border-neutral-600/50 dark:from-neutral-700 dark:to-neutral-800 dark:shadow-neutral-600/50',
+                                'origin-center transition-all duration-200 ease-out hover:scale-110'
+                            )}
+                        >
+                            {icon}
+                        </Link>
+                    </motion.div>
                 ))}
             </motion.div>
             <div className="absolute bottom-0 z-50 hidden h-24 w-full bg-gradient-to-t from-white to-transparent group-hover:block dark:from-black"></div>
