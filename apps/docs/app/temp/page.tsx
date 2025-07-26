@@ -1,5 +1,6 @@
 'use client';
 
+import { Abc } from '@/components/ui/abc';
 import { FloatingElementsCard } from '@/components/ui/floating-elements-card';
 import {
     IconBrandGithub,
@@ -39,7 +40,7 @@ const icons = [
 const Temp = () => {
     return (
         <div className="flex h-screen w-full items-center justify-center bg-white dark:bg-black">
-            <FloatingElementsCard icons={icons}>
+            <Abc>
                 <div className="mb-3">
                     <a href="https://x.com/Hemantsh03">
                         <div className="mb-3 rounded-full bg-gradient-to-r from-slate-100 to-slate-200 p-1 text-center text-sm font-semibold text-slate-700 shadow-sm transition-shadow hover:shadow-md dark:from-neutral-700/80 dark:to-neutral-800 dark:text-neutral-300 dark:shadow-neutral-700">
@@ -111,7 +112,7 @@ const Temp = () => {
                 <p className="my-3 text-center text-sm font-semibold text-neutral-500/50">
                     Specialized in creating modern web applications.
                 </p>
-            </FloatingElementsCard>
+            </Abc>
         </div>
     );
 };
