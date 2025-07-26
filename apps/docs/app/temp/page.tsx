@@ -1,8 +1,6 @@
 'use client';
 
 import { FloatingElementsCard } from '@/components/ui/floating-elements-card';
-import Image from 'next/image';
-import Link from 'next/link';
 import {
     IconBrandGithub,
     IconBrandLinkedin,
@@ -22,11 +20,9 @@ const icons = [
     },
     {
         icon: (
-            <Image
+            <img
                 src="/media/logo-dark.jpg"
                 alt="logo"
-                width={20}
-                height={20}
                 className="h-10 w-10 rounded-lg"
             />
         ),
@@ -45,18 +41,16 @@ const Temp = () => {
         <div className="flex h-screen w-full items-center justify-center bg-white dark:bg-black">
             <FloatingElementsCard icons={icons}>
                 <div className="mb-3">
-                    <Link href="https://x.com/Hemantsh03">
+                    <a href="https://x.com/Hemantsh03">
                         <div className="mb-3 rounded-full bg-gradient-to-r from-slate-100 to-slate-200 p-1 text-center text-sm font-semibold text-slate-700 shadow-sm transition-shadow hover:shadow-md dark:from-neutral-700/80 dark:to-neutral-800 dark:text-neutral-300 dark:shadow-neutral-700">
                             @hemantsh03
                         </div>
-                    </Link>
+                    </a>
                     <div className="flex gap-3">
                         <div className="h-27 w-27">
-                            <Image
+                            <img
                                 src="/media/character.png"
                                 alt="logo"
-                                width={80}
-                                height={80}
                                 className="h-27 w-27 rounded-2xl object-cover shadow-md"
                             />
                         </div>
@@ -107,11 +101,9 @@ const Temp = () => {
                         </div>
                     </div>
                     <div className="h-27 w-27">
-                        <Image
+                        <img
                             src="/media/logo-dark.jpg"
                             alt="logo"
-                            width={80}
-                            height={80}
                             className="h-27 w-27 rounded-2xl shadow-md dark:invert"
                         />
                     </div>

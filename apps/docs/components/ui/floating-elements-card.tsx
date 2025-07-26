@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import Link from 'next/link';
 
 const SPRING_CONFIG = {
     type: 'spring' as const,
@@ -144,7 +143,7 @@ export const FloatingElementsCard = ({ children, icons = [] }: Props) => {
                         className="absolute"
                         variants={variant}
                     >
-                        <Link
+                        <a
                             href={link || 'https://ui.eunary.com'}
                             target="_blank"
                             className={cn(
@@ -153,7 +152,7 @@ export const FloatingElementsCard = ({ children, icons = [] }: Props) => {
                             )}
                         >
                             {icon}
-                        </Link>
+                        </a>
                     </motion.div>
                 ))}
             </motion.div>
