@@ -31,6 +31,7 @@ import {
     FlipWordsDemo,
     FlipWordsDemo2,
     FileUploadDemo,
+    FloatingElementsCardDemo,
 } from '@/demo';
 
 const components = {
@@ -307,6 +308,7 @@ const components = {
     FlipWordsDemo,
     FlipWordsDemo2,
     FileUploadDemo,
+    FloatingElementsCardDemo,
 };
 
 interface MdxProps {

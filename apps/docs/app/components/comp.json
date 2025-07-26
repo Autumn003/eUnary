@@ -35,6 +35,12 @@
             "title": "File Upload",
             "description": "A file upload component with drag and drop support.",
             "thumbnail": "/media/file-upload.png"
+        },
+        {
+            "name": "floating-elements-card",
+            "title": "Floating Elements Card",
+            "description": "A card with floating elements appears arround the content on hover.",
+            "thumbnail": "/media/floating-elements-card.png"
         }
     ]
 }

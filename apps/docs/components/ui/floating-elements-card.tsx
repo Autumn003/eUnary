@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
@@ -66,7 +68,7 @@ const createIconVariant = (x: number, y: number, rotate: number) => ({
     },
 });
 
-// Card configuration with modern styling
+// Card configuration
 const cardConfigs = [
     { width: 'w-[27rem]', zIndex: 'z-20', hasContent: true },
     { width: 'w-[25rem]', zIndex: 'z-10', hasContent: false },

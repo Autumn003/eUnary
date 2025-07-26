@@ -119,6 +119,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "floating-elements-card",
+            "type": "registry:ui",
+            "title": "Floating Elements Card",
+            "description": "A card with floating elements appears arround the content on hover",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/floating-elements-card.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/floating-elements-card.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }
