@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useCallback, useState } from 'react';
 
 interface Notification {
@@ -23,14 +23,23 @@ const TRANSITION = {
 // Animation variants
 const containerVariants = {
     initial: {
-        scale: 1,
+        scale: 1.1,
         y: 0,
     },
     animate: {
-        scale: 0.9,
+        scale: [1.1, 1.07, 1.08],
         y: 10,
         transition: {
             staggerChildren: 0.01,
+        },
+    },
+    collapse: {
+        scale: 1,
+        y: 0,
+        transition: {
+            delay: 0.3, // Delay to allow additional notifications to collapse first
+            staggerChildren: 0.01,
+            staggerDirection: -1,
         },
     },
 };
@@ -39,15 +48,24 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
     '0': {
         initial: {
             y: -10,
-            scale: 0.8,
+            scale: 0.9,
             opacity: 0.7,
             filter: 'blur(1px)',
         },
         animate: {
             y: 70,
-            scale: 1,
+            scale: 0.95,
             opacity: 1,
             filter: 'blur(0px)',
+            transition: {
+                ...TRANSITION,
+            },
+        },
+        collapse: {
+            y: -10,
+            scale: 0.9,
+            opacity: 0.7,
+            filter: 'blur(1px)',
             transition: {
                 ...TRANSITION,
             },
@@ -56,15 +74,24 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
     '1': {
         initial: {
             y: -20,
-            scale: 0.7,
+            scale: 0.8,
             opacity: 0.4,
-            filter: 'blur(2px)',
+            filter: 'blur(1px)',
         },
         animate: {
             y: 140,
-            scale: 1,
+            scale: 0.95,
             opacity: 1,
             filter: 'blur(0px)',
+            transition: {
+                ...TRANSITION,
+            },
+        },
+        collapse: {
+            y: -20,
+            scale: 0.8,
+            opacity: 0.4,
+            filter: 'blur(1px)',
             transition: {
                 ...TRANSITION,
             },
@@ -72,9 +99,15 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
     },
     '2': {
         initial: {
-            scale: 0.9,
+            scale: 1,
         },
         animate: {
+            scale: 0.95,
+            transition: {
+                ...TRANSITION,
+            },
+        },
+        collapse: {
             scale: 1,
             transition: {
                 ...TRANSITION,
@@ -111,14 +144,65 @@ const additionalNotificationVariants = {
         opacity: 0,
         y: -20,
         scale: 0.8,
+        filter: 'blur(2px)',
     },
     visible: {
         opacity: 1,
         y: 0,
-        scale: 1,
+        scale: 0.97,
+        filter: 'blur(0px)',
         transition: {
             duration: 0.3,
-            ease: 'easeOut',
+            ease: 'easeInOut',
+        },
+    },
+    exit: {
+        opacity: 0,
+        y: -20,
+        scale: 0.8,
+        filter: 'blur(2px)',
+        transition: {
+            duration: 0.2,
+            ease: 'easeIn',
+        },
+    },
+};
+
+// Container variants for staggered animations
+const additionalContainerVariants = {
+    hidden: {
+        transition: {
+            staggerChildren: 0.05,
+            staggerDirection: 1,
+        },
+    },
+    visible: {
+        transition: {
+            staggerChildren: 0.05,
+            staggerDirection: 1,
+        },
+    },
+    exit: {
+        transition: {
+            staggerChildren: 0.03,
+            staggerDirection: -1,
+        },
+    },
+};
+
+const showMoreButtonVariants = {
+    hidden: {
+        opacity: 0,
+        transition: {
+            delay: 0.1,
+            duration: 0.2,
+        },
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            delay: 0.2,
+            duration: 0.2,
         },
     },
 };
@@ -128,16 +212,50 @@ export default function IOSNotificationStack({
 }: NotificationProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [showAll, setShowAll] = useState(false);
+    const [isCollapsing, setIsCollapsing] = useState(false);
 
     const toggleExpanded = useCallback(() => {
-        setIsExpanded((prev) => !prev);
-        setShowAll(false);
-    }, []);
+        if (isExpanded) {
+            // Start collapse sequence
+            setIsCollapsing(true);
+
+            // First hide additional notifications if they're showing
+            if (showAll) {
+                setShowAll(false);
+                // Wait for additional notifications to collapse, then collapse main stack
+                setTimeout(() => {
+                    setIsExpanded(false);
+                    setIsCollapsing(false);
+                }, 300); // Duration of additional notifications exit animation
+            } else {
+                // No additional notifications, collapse main stack directly
+                setIsExpanded(false);
+                setIsCollapsing(false);
+            }
+        } else {
+            // Expand
+            setIsExpanded(true);
+            setIsCollapsing(false);
+        }
+    }, [isExpanded, showAll]);
 
     const collapseStack = useCallback(() => {
-        setShowAll(false);
-        setIsExpanded(false);
-    }, []);
+        setIsCollapsing(true);
+
+        // First hide additional notifications if they're showing
+        if (showAll) {
+            setShowAll(false);
+            // Wait for additional notifications to collapse, then collapse main stack
+            setTimeout(() => {
+                setIsExpanded(false);
+                setIsCollapsing(false);
+            }, 300);
+        } else {
+            // No additional notifications, collapse main stack directly
+            setIsExpanded(false);
+            setIsCollapsing(false);
+        }
+    }, [showAll]);
 
     const toggleShowAll = useCallback((e: any) => {
         e.stopPropagation();
@@ -155,20 +273,33 @@ export default function IOSNotificationStack({
     );
 
     const visibleNotifications = notifications.slice(-3);
-    const additionalNotifications = showAll ? notifications.slice(0, -3) : [];
+    const additionalNotifications = notifications.slice(0, -3);
+
+    // Determine animation state for container
+    const getContainerAnimationState = () => {
+        if (isCollapsing && !showAll) {
+            return 'collapse';
+        }
+        return isExpanded ? 'animate' : 'initial';
+    };
 
     return (
-        <div className="flex min-h-screen items-center justify-center p-8">
+        <div className="">
             <motion.div
                 initial="initial"
-                animate={isExpanded ? 'animate' : 'initial'}
+                animate={getContainerAnimationState()}
                 variants={containerVariants}
-                className="relative flex flex-col items-center justify-center gap-2"
+                exit="collapse"
+                className="relative flex h-[30rem] flex-col gap-2 overflow-auto"
+                style={{
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                }}
             >
                 {/* Header */}
                 <motion.div
                     variants={headerVariants}
-                    className="flex w-full items-center justify-between px-2 text-white"
+                    className="sticky flex w-full items-center justify-between px-2 text-white"
                 >
                     <span className="font-medium">Notifications</span>
                     <motion.button
@@ -209,7 +340,7 @@ export default function IOSNotificationStack({
                                         String(index) as '0' | '1' | '2'
                                     ]
                                 }
-                                className={`absolute top-0 left-0 h-16 w-72 rounded-2xl bg-white px-3 py-2 shadow-lg ${
+                                className={`absolute top-0 left-0 h-16 w-72 rounded-2xl bg-white/70 px-3 py-2 shadow-lg backdrop-blur-lg ${
                                     index === 2
                                         ? 'z-20'
                                         : index === 1
@@ -234,9 +365,10 @@ export default function IOSNotificationStack({
                     {isExpanded && notifications.length > 3 && (
                         <motion.div
                             className="mt-2 flex"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2 }}
+                            variants={showMoreButtonVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
                         >
                             <button
                                 className="mr-2 ml-auto text-sm font-medium text-white transition-colors"
@@ -249,46 +381,44 @@ export default function IOSNotificationStack({
                         </motion.div>
                     )}
 
-                    {/* Additional Notifications */}
-                    {isExpanded &&
-                        showAll &&
-                        additionalNotifications.length > 0 && (
-                            <motion.div
-                                className="mt-4 space-y-2"
-                                initial="hidden"
-                                animate="visible"
-                                variants={{
-                                    visible: {
-                                        transition: {
-                                            staggerChildren: 0.1,
-                                        },
-                                    },
-                                }}
-                            >
-                                {additionalNotifications.map(
-                                    (notification, index) => (
-                                        <motion.div
-                                            key={`additional-${notification.id}-${index}`}
-                                            variants={
-                                                additionalNotificationVariants
-                                            }
-                                            className="h-16 w-72 rounded-2xl bg-white px-3 py-2 shadow-lg"
-                                            style={{
-                                                boxShadow:
-                                                    '0 4px 20px rgba(0, 0, 0, 0.15)',
-                                            }}
-                                        >
-                                            <div className="text-sm leading-tight font-semibold text-gray-900">
-                                                {notification.title}
-                                            </div>
-                                            <p className="mt-1 line-clamp-2 text-xs leading-tight text-gray-600">
-                                                {notification.description}
-                                            </p>
-                                        </motion.div>
-                                    )
-                                )}
-                            </motion.div>
-                        )}
+                    {/* Additional Notifications with AnimatePresence */}
+                    <AnimatePresence mode="wait">
+                        {isExpanded &&
+                            showAll &&
+                            additionalNotifications.length > 0 && (
+                                <motion.div
+                                    key="additional-notifications"
+                                    className="mt-4 space-y-2"
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                    variants={additionalContainerVariants}
+                                >
+                                    {additionalNotifications.map(
+                                        (notification, index) => (
+                                            <motion.div
+                                                key={`additional-${notification.id}-${index}`}
+                                                variants={
+                                                    additionalNotificationVariants
+                                                }
+                                                className="h-16 w-72 rounded-2xl bg-white px-3 py-2 shadow-lg"
+                                                style={{
+                                                    boxShadow:
+                                                        '0 4px 20px rgba(0, 0, 0, 0.15)',
+                                                }}
+                                            >
+                                                <div className="text-sm leading-tight font-semibold text-gray-900">
+                                                    {notification.title}
+                                                </div>
+                                                <p className="mt-1 line-clamp-2 text-xs leading-tight text-gray-600">
+                                                    {notification.description}
+                                                </p>
+                                            </motion.div>
+                                        )
+                                    )}
+                                </motion.div>
+                            )}
+                    </AnimatePresence>
                 </div>
             </motion.div>
         </div>
