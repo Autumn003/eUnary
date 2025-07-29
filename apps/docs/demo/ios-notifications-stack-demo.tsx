@@ -3,43 +3,51 @@ import { IOSNotificationsStack } from '@/components/ui/ios-notifications-stack';
 const notifications = [
     {
         id: 1,
-        title: 'New Message',
+        title: '🎧 New Music Drop',
         description:
-            'You have received a new message from John Doe about the project update.',
+            'Your favorite artist just released a new track. Listen now!',
     },
     {
         id: 2,
-        title: 'Calendar Reminder',
-        description: 'Your meeting with the design team starts in 15 minutes.',
+        title: '🎉 You’ve Hit a Streak!',
+        description:
+            'You’ve completed your tasks 5 days in a row. Keep it going!',
     },
     {
         id: 3,
-        title: 'System Update',
+        title: '🔥 Trending Now',
         description:
-            'iOS 18.2 is now available. Update now to get the latest features.',
+            'A post you liked is going viral! See what people are saying.',
     },
     {
         id: 4,
-        title: 'Email Notification',
+        title: '🕹️ Game Night Invite',
         description:
-            'You have 5 unread emails in your inbox. Check them out now.',
+            'Your friends are online and ready to play. Join the party now!',
     },
     {
         id: 5,
-        title: 'App Update',
+        title: '📸 New Tagged Photo',
         description:
-            'Instagram has been updated with new features and bug fixes.',
+            'You’ve been tagged in a photo by Sarah. Tap to check it out!',
     },
     {
         id: 6,
-        title: 'Weather Alert',
+        title: '🚀 Boost Your Profile',
         description:
-            "Rain expected in your area this afternoon. Don't forget your umbrella!",
+            'You’re just 2 steps away from completing your profile. Let’s finish it!',
     },
     {
         id: 7,
-        title: 'Security Notice',
-        description: 'New login detected from Chrome on Windows. Was this you?',
+        title: '📦 Package Delivered',
+        description:
+            'Your order from Nike was delivered. Tap to view the delivery photo.',
+    },
+    {
+        id: 8,
+        title: '💬 3 New Comments',
+        description:
+            'People are loving your recent post. See what they’re saying!',
     },
 ];
 
@@ -48,9 +56,8 @@ const IOSNotificationsStackDemo = () => {
         <div className="relative flex h-full w-full flex-col items-center justify-center">
             <IOSNotificationsStack
                 notifications={notifications}
-                className="rounded-4xl bg-[url(/media/iphone15-light.jpg)] bg-cover bg-center bg-no-repeat p-6 dark:bg-[url(/media/iphone15-dark.jpg)]"
+                className="from bg-gradient-to-br from-sky-300/60 via-cyan-200/50 to-indigo-200 px-8 py-6 dark:from-blue-950/10 dark:via-fuchsia-950/30 dark:to-slate-950"
             />
-            <div className="absolute bottom-1 h-1.25 w-28 rounded-full bg-neutral-800 dark:bg-neutral-300" />
         </div>
     );
 };

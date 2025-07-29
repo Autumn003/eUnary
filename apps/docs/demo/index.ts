@@ -7,6 +7,7 @@ import FileUploadDemo from './file-upload-demo';
 import FlipWordsDemo2 from './flip-words-2-demo';
 import FlipWordsDemo from './flip-words-demo';
 import { FloatingElementsCardDemo } from './floating-elements-card-demo';
+import IOSNotificationsStackDemo2 from './ios-notifications-stack-2-demo';
 import IOSNotificationsStackDemo from './ios-notifications-stack-demo';
 import ScrollingMacbookDemo from './scrolling-macbook-demo';
 import ThemeTogglerDemo from './theme-toggler-demo';
@@ -24,4 +25,5 @@ export {
     FileUploadDemo,
     FloatingElementsCardDemo,
     IOSNotificationsStackDemo,
+    IOSNotificationsStackDemo2,
 };
