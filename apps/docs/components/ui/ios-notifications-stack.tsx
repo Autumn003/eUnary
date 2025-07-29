@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCallback, useState } from 'react';
 
@@ -11,6 +12,7 @@ interface Notification {
 
 interface NotificationProps {
     notifications: Notification[];
+    className?: string;
 }
 
 // Shared transition config
@@ -49,14 +51,10 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
         initial: {
             y: -10,
             scale: 0.9,
-            opacity: 0.7,
-            filter: 'blur(1px)',
         },
         animate: {
             y: 70,
             scale: 0.95,
-            opacity: 1,
-            filter: 'blur(0px)',
             transition: {
                 ...TRANSITION,
             },
@@ -64,8 +62,6 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
         collapse: {
             y: -10,
             scale: 0.9,
-            opacity: 0.7,
-            filter: 'blur(1px)',
             transition: {
                 ...TRANSITION,
             },
@@ -75,14 +71,10 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
         initial: {
             y: -20,
             scale: 0.8,
-            opacity: 0.4,
-            filter: 'blur(1px)',
         },
         animate: {
             y: 140,
             scale: 0.95,
-            opacity: 1,
-            filter: 'blur(0px)',
             transition: {
                 ...TRANSITION,
             },
@@ -90,8 +82,6 @@ const notificationVariants: Record<'0' | '1' | '2', any> = {
         collapse: {
             y: -20,
             scale: 0.8,
-            opacity: 0.4,
-            filter: 'blur(1px)',
             transition: {
                 ...TRANSITION,
             },
@@ -209,6 +199,7 @@ const showMoreButtonVariants = {
 
 export default function IOSNotificationStack({
     notifications,
+    className,
 }: NotificationProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [showAll, setShowAll] = useState(false);
@@ -272,8 +263,8 @@ export default function IOSNotificationStack({
         [toggleExpanded]
     );
 
-    const visibleNotifications = notifications.slice(-3);
-    const additionalNotifications = notifications.slice(0, -3);
+    const visibleNotifications = notifications.slice(0, 3);
+    const additionalNotifications = notifications.slice(3);
 
     // Determine animation state for container
     const getContainerAnimationState = () => {
@@ -284,7 +275,7 @@ export default function IOSNotificationStack({
     };
 
     return (
-        <div className="">
+        <div className={cn('relative', className)}>
             <motion.div
                 initial="initial"
                 animate={getContainerAnimationState()}
@@ -299,11 +290,13 @@ export default function IOSNotificationStack({
                 {/* Header */}
                 <motion.div
                     variants={headerVariants}
-                    className="sticky flex w-full items-center justify-between px-2 text-white"
+                    className="flex w-full items-center justify-between px-2 text-white"
                 >
-                    <span className="font-medium">Notifications</span>
+                    <span className="font-medium text-neutral-700 dark:text-neutral-400">
+                        Notifications
+                    </span>
                     <motion.button
-                        className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/30 focus:ring-2 focus:ring-white/50 focus:outline-none disabled:opacity-50"
+                        className="rounded-full bg-white/50 px-3 py-1 text-sm font-medium text-neutral-600 backdrop-blur-lg transition-colors duration-200 hover:bg-white/30 disabled:opacity-50 dark:bg-black/50 dark:text-neutral-300"
                         variants={collapseButtonVariants}
                         initial="hidden"
                         animate={isExpanded ? 'visible' : 'hidden'}
@@ -340,21 +333,21 @@ export default function IOSNotificationStack({
                                         String(index) as '0' | '1' | '2'
                                     ]
                                 }
-                                className={`absolute top-0 left-0 h-16 w-72 rounded-2xl bg-white/70 px-3 py-2 shadow-lg backdrop-blur-lg ${
+                                className={`absolute top-0 left-0 h-16 w-72 rounded-2xl bg-white/50 px-3 py-2 text-neutral-900 shadow-lg backdrop-blur-lg dark:bg-black/50 dark:text-white ${
                                     index === 2
                                         ? 'z-20'
                                         : index === 1
-                                          ? 'z-10'
-                                          : 'z-0'
+                                          ? 'z-0'
+                                          : 'z-10'
                                 }`}
                                 style={{
                                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
                                 }}
                             >
-                                <div className="text-sm leading-tight font-semibold text-gray-900">
+                                <div className="text-sm leading-tight font-semibold text-neutral-900 dark:text-neutral-100">
                                     {notification.title}
                                 </div>
-                                <p className="mt-1 line-clamp-2 text-xs leading-tight text-gray-600">
+                                <p className="mt-1 line-clamp-2 text-xs leading-tight text-neutral-600 dark:text-neutral-400">
                                     {notification.description}
                                 </p>
                             </motion.div>
@@ -371,7 +364,7 @@ export default function IOSNotificationStack({
                             exit="hidden"
                         >
                             <button
-                                className="mr-2 ml-auto text-sm font-medium text-white transition-colors"
+                                className="mr-2 ml-auto text-sm font-medium text-neutral-700 transition-colors dark:text-neutral-400"
                                 onClick={toggleShowAll}
                             >
                                 {showAll
@@ -401,16 +394,16 @@ export default function IOSNotificationStack({
                                                 variants={
                                                     additionalNotificationVariants
                                                 }
-                                                className="h-16 w-72 rounded-2xl bg-white px-3 py-2 shadow-lg"
+                                                className="h-16 w-72 rounded-2xl bg-white/50 px-3 py-2 text-neutral-900 shadow-lg backdrop-blur-lg dark:bg-black/50 dark:text-white"
                                                 style={{
                                                     boxShadow:
                                                         '0 4px 20px rgba(0, 0, 0, 0.15)',
                                                 }}
                                             >
-                                                <div className="text-sm leading-tight font-semibold text-gray-900">
+                                                <div className="text-sm leading-tight font-semibold text-neutral-900 dark:text-neutral-100">
                                                     {notification.title}
                                                 </div>
-                                                <p className="mt-1 line-clamp-2 text-xs leading-tight text-gray-600">
+                                                <p className="mt-1 line-clamp-2 text-xs leading-tight text-neutral-600 dark:text-neutral-400">
                                                     {notification.description}
                                                 </p>
                                             </motion.div>
