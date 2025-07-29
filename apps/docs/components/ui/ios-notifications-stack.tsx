@@ -197,7 +197,7 @@ const showMoreButtonVariants = {
     },
 };
 
-export const IOSNotificationStack = ({
+export const IOSNotificationsStack = ({
     notifications,
     className,
 }: NotificationProps) => {
