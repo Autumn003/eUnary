@@ -197,10 +197,10 @@ const showMoreButtonVariants = {
     },
 };
 
-export default function IOSNotificationStack({
+export const IOSNotificationStack = ({
     notifications,
     className,
-}: NotificationProps) {
+}: NotificationProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [showAll, setShowAll] = useState(false);
     const [isCollapsing, setIsCollapsing] = useState(false);
@@ -416,4 +416,4 @@ export default function IOSNotificationStack({
             </motion.div>
         </div>
     );
-}
+};
