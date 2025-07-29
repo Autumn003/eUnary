@@ -140,6 +140,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "ios-notifications-stack",
+            "type": "registry:ui",
+            "title": "IOS Notifications Stack",
+            "description": "Animated iOS-style notification stack with expandable and collapsible layers",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/ios-notifications-stack.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/ios-notifications-stack.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

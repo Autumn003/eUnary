@@ -41,6 +41,12 @@
             "title": "Floating Elements Card",
             "description": "A card with floating elements appears arround the content on hover.",
             "thumbnail": "/media/floating-elements-card.png"
+        },
+        {
+            "name": "ios-notifications-stack",
+            "title": "IOS Notifications Stack",
+            "description": "Animated iOS-style notification stack with expandable and collapsible layers.",
+            "thumbnail": "/media/ios-notifications-stack.png"
         }
     ]
 }

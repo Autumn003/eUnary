@@ -1,0 +1,64 @@
+---
+title: "IOS Notifications Stack"
+description: Animated iOS-style notification stack with expandable and collapsible layers.
+---
+
+# IOS Notifications Stack
+
+<ComponentPreview component={<IOSNotificationsStackDemo />} fileName="ios-notifications-stack" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/ios-notifications-stack.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/ios-notifications-stack.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+### Props
+
+Use the following props to customize the floating elements and card content.
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>className</Callout>         | <Callout>string</Callout>                   | The CSS class to be applied to the card.           |
+| <Callout>notifications</Callout>         | <Callout>`{ id: number, title: string; description: string }[]`</Callout>         | Array of notification objects containing a title and description to be displayed in the notification. |
+
+<ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>

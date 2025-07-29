@@ -32,7 +32,7 @@ import {
     FlipWordsDemo2,
     FileUploadDemo,
     FloatingElementsCardDemo,
-    IOSNotificationStackDemo,
+    IOSNotificationsStackDemo,
 } from '@/demo';
 
 const components = {
@@ -310,7 +310,7 @@ const components = {
     FlipWordsDemo2,
     FileUploadDemo,
     FloatingElementsCardDemo,
-    IOSNotificationStackDemo,
+    IOSNotificationsStackDemo,
 };
 
 interface MdxProps {
