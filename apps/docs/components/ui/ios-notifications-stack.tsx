@@ -275,7 +275,7 @@ export const IOSNotificationsStack = ({
     };
 
     return (
-        <div className={cn('relative', className)}>
+        <div className={cn('relative overflow-hidden', className)}>
             <motion.div
                 initial="initial"
                 animate={getContainerAnimationState()}
