@@ -122,9 +122,8 @@ export const FileUpload = ({
         }, 300);
     };
 
-    const { getRootProps, isDragActive } = useDropzone({
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
         multiple,
-        noClick: true,
         onDrop: handleFileChange,
         onDropRejected: (error) => {
             console.log(error);
@@ -138,166 +137,155 @@ export const FileUpload = ({
                 initial="initial"
                 whileHover="animate"
             >
-                <input
-                    type="file"
-                    className="hidden"
-                    id="file-upload"
-                    multiple={multiple}
-                    onChange={(e) => {
-                        handleFileChange(Array.from(e.target.files || []));
-                        e.target.value = '';
-                    }}
-                />
+                <input {...getInputProps()} />
                 <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
                     <GridPattern />
                 </div>
-                <label htmlFor="file-upload" className="cursor-pointer">
-                    <div className="relative mx-auto flex h-full w-full max-w-xl flex-col items-center p-10">
-                        <div className="my-10 flex flex-col items-center justify-center text-center">
-                            <p className="relative font-sans text-base font-bold text-neutral-700 dark:text-neutral-300">
-                                Upload file
-                            </p>
-                            <p className="relative mt-2 font-sans text-base font-normal text-neutral-400 dark:text-neutral-400">
-                                Click or just drag & drop your files here
-                            </p>
-                        </div>
-                        <AnimatePresence mode="popLayout">
-                            {selectedFiles.length > 0 && (
-                                <div className="no-scrollbar max-h-96 w-full overflow-y-auto">
-                                    {selectedFiles.map((file, idx) => (
-                                        <motion.div
-                                            key={file.name + idx}
-                                            initial="initial"
-                                            animate={
-                                                removingFile === file.name
-                                                    ? 'exit'
-                                                    : 'animate'
-                                            }
-                                            exit="exit"
-                                            variants={secondaryVariant}
-                                            layout
-                                            className={cn(
-                                                'relative z-40 mx-auto mt-4 flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-white p-4 inset-shadow-sm inset-shadow-neutral-200 md:h-24 dark:bg-neutral-900 dark:inset-shadow-neutral-700',
-                                                'shadow-sm'
-                                            )}
-                                        >
-                                            <div className="flex w-full items-center justify-between gap-4">
-                                                <motion.p
-                                                    initial={{ opacity: 0 }}
-                                                    animate={{ opacity: 1 }}
-                                                    layout
-                                                    className="max-w-xs truncate text-base text-neutral-700 dark:text-neutral-300"
-                                                >
-                                                    {file.name}
-                                                </motion.p>
-                                                <button>
-                                                    <motion.p
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: 1 }}
-                                                        layout
-                                                        className="rounded-lg bg-neutral-100 px-1 py-1 text-sm text-neutral-600 dark:bg-neutral-800 dark:text-white"
-                                                        onClick={(e) =>
-                                                            handleRemoveFile(
-                                                                file,
-                                                                e
-                                                            )
-                                                        }
-                                                    >
-                                                        <IconX className="h-4 w-4" />
-                                                    </motion.p>
-                                                </button>
-                                            </div>
-
-                                            <div className="mt-2 flex w-full flex-col items-start justify-between gap-2 text-sm text-neutral-600 md:flex-row md:items-center dark:text-neutral-400">
-                                                <div className="flex items-center gap-2 text-xs">
-                                                    <motion.p
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: 1 }}
-                                                        layout
-                                                        className="rounded-md border border-dashed border-neutral-300 px-1 py-0.5 dark:border-neutral-600"
-                                                    >
-                                                        {file.type}
-                                                    </motion.p>
-
-                                                    <motion.p
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: 1 }}
-                                                        layout
-                                                        className="rounded-md border border-dashed border-neutral-300 px-1 py-0.5 dark:border-neutral-600"
-                                                    >
-                                                        {(
-                                                            file.size /
-                                                            (1024 * 1024)
-                                                        ).toFixed(2)}{' '}
-                                                        MB
-                                                    </motion.p>
-                                                </div>
-                                                <motion.p
-                                                    initial={{ opacity: 0 }}
-                                                    animate={{ opacity: 1 }}
-                                                    layout
-                                                >
-                                                    modified:{' '}
-                                                    {new Date(file.lastModified)
-                                                        .toLocaleDateString(
-                                                            'en-GB',
-                                                            {
-                                                                day: '2-digit',
-                                                                month: 'short',
-                                                                year: 'numeric',
-                                                            }
-                                                        )
-                                                        .replace(/\//g, ' ')
-                                                        .replace(/,/g, ',')}
-                                                </motion.p>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            )}
-                        </AnimatePresence>
-                        {!selectedFiles.length && (
-                            <div className="transition-discrete duration-200 group-hover:drop-shadow-[0px_10px_25px_rgba(35,228,255,0.15)]">
-                                <motion.div
-                                    variants={mainVariant}
-                                    transition={{
-                                        type: 'spring',
-                                        stiffness: 300,
-                                        damping: 20,
-                                    }}
-                                    className="relative flex h-28 w-32 justify-center rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-900 dark:inset-shadow-neutral-600"
-                                    style={customMaskStyle}
-                                >
+                <div className="relative mx-auto flex h-full w-full max-w-xl flex-col items-center p-10">
+                    <div className="my-10 flex flex-col items-center justify-center text-center">
+                        <p className="relative font-sans text-base font-bold text-neutral-700 dark:text-neutral-300">
+                            Upload file
+                        </p>
+                        <p className="relative mt-2 font-sans text-base font-normal text-neutral-400 dark:text-neutral-400">
+                            Click or just drag & drop your files here
+                        </p>
+                    </div>
+                    <AnimatePresence mode="popLayout">
+                        {selectedFiles.length > 0 && (
+                            <div className="no-scrollbar max-h-96 w-full overflow-y-auto">
+                                {selectedFiles.map((file, idx) => (
                                     <motion.div
-                                        variants={parentVariant}
-                                        className="absolute inset-0 flex items-center justify-center"
+                                        key={file.name + idx}
+                                        initial="initial"
+                                        animate={
+                                            removingFile === file.name
+                                                ? 'exit'
+                                                : 'animate'
+                                        }
+                                        exit="exit"
+                                        variants={secondaryVariant}
+                                        layout
+                                        className={cn(
+                                            'relative z-40 mx-auto mt-4 flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-white p-4 inset-shadow-sm inset-shadow-neutral-200 md:h-24 dark:bg-neutral-900 dark:inset-shadow-neutral-700',
+                                            'shadow-sm'
+                                        )}
                                     >
-                                        <motion.div
-                                            variants={childVariant}
-                                            className="absolute bottom-0 mx-1 h-20 w-26 rounded-lg bg-sky-200 dark:bg-cyan-700"
-                                        />
-                                        <motion.div
-                                            variants={childVariant}
-                                            className="absolute bottom-0 mx-1 h-18 w-28 rounded-lg bg-cyan-200 dark:bg-cyan-400"
-                                        />
-                                    </motion.div>
-                                    <div className="absolute bottom-0 h-16 w-full rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-800 dark:inset-shadow-neutral-600">
-                                        {isDragActive && (
+                                        <div className="flex w-full items-center justify-between gap-4">
                                             <motion.p
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
-                                                className="flex h-full flex-col items-center justify-center text-sm text-neutral-600"
+                                                layout
+                                                className="max-w-xs truncate text-base text-neutral-700 dark:text-neutral-300"
                                             >
-                                                Drop
-                                                <IconArrowBarDown className="h-4 w-4" />
+                                                {file.name}
                                             </motion.p>
-                                        )}
-                                    </div>
-                                </motion.div>
+                                            <button>
+                                                <motion.p
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    layout
+                                                    className="rounded-lg bg-neutral-100 px-1 py-1 text-sm text-neutral-600 dark:bg-neutral-800 dark:text-white"
+                                                    onClick={(e) =>
+                                                        handleRemoveFile(
+                                                            file,
+                                                            e
+                                                        )
+                                                    }
+                                                >
+                                                    <IconX className="h-4 w-4" />
+                                                </motion.p>
+                                            </button>
+                                        </div>
+
+                                        <div className="mt-2 flex w-full flex-col items-start justify-between gap-2 text-sm text-neutral-600 md:flex-row md:items-center dark:text-neutral-400">
+                                            <div className="flex items-center gap-2 text-xs">
+                                                <motion.p
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    layout
+                                                    className="rounded-md border border-dashed border-neutral-300 px-1 py-0.5 dark:border-neutral-600"
+                                                >
+                                                    {file.type}
+                                                </motion.p>
+
+                                                <motion.p
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    layout
+                                                    className="rounded-md border border-dashed border-neutral-300 px-1 py-0.5 dark:border-neutral-600"
+                                                >
+                                                    {(
+                                                        file.size /
+                                                        (1024 * 1024)
+                                                    ).toFixed(2)}{' '}
+                                                    MB
+                                                </motion.p>
+                                            </div>
+                                            <motion.p
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                layout
+                                            >
+                                                modified:{' '}
+                                                {new Date(file.lastModified)
+                                                    .toLocaleDateString(
+                                                        'en-GB',
+                                                        {
+                                                            day: '2-digit',
+                                                            month: 'short',
+                                                            year: 'numeric',
+                                                        }
+                                                    )
+                                                    .replace(/\//g, ' ')
+                                                    .replace(/,/g, ',')}
+                                            </motion.p>
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
                         )}
-                    </div>
-                </label>
+                    </AnimatePresence>
+                    {!selectedFiles.length && (
+                        <div className="transition-discrete duration-200 group-hover:drop-shadow-[0px_10px_25px_rgba(35,228,255,0.15)]">
+                            <motion.div
+                                variants={mainVariant}
+                                transition={{
+                                    type: 'spring',
+                                    stiffness: 300,
+                                    damping: 20,
+                                }}
+                                className="relative flex h-28 w-32 justify-center rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-900 dark:inset-shadow-neutral-600"
+                                style={customMaskStyle}
+                            >
+                                <motion.div
+                                    variants={parentVariant}
+                                    className="absolute inset-0 flex items-center justify-center"
+                                >
+                                    <motion.div
+                                        variants={childVariant}
+                                        className="absolute bottom-0 mx-1 h-20 w-26 rounded-lg bg-sky-200 dark:bg-cyan-700"
+                                    />
+                                    <motion.div
+                                        variants={childVariant}
+                                        className="absolute bottom-0 mx-1 h-18 w-28 rounded-lg bg-cyan-200 dark:bg-cyan-400"
+                                    />
+                                </motion.div>
+                                <div className="absolute bottom-0 h-16 w-full rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-800 dark:inset-shadow-neutral-600">
+                                    {isDragActive && (
+                                        <motion.p
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            className="flex h-full flex-col items-center justify-center text-sm text-neutral-600"
+                                        >
+                                            Drop
+                                            <IconArrowBarDown className="h-4 w-4" />
+                                        </motion.p>
+                                    )}
+                                </div>
+                            </motion.div>
+                        </div>
+                    )}
+                </div>
             </motion.div>
         </div>
     );
