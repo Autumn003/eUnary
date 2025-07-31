@@ -145,7 +145,7 @@ export default function SearchBox({
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.1 }}
                     className={cn(
-                        'bg-primary-background text-secondary-foreground border-muted-background flex h-90 w-[35rem] flex-col rounded-xl border transition-all duration-300',
+                        'bg-primary-background text-secondary-foreground border-muted-background flex h-90 w-[35rem] flex-col rounded-xl border pb-2 transition-all duration-300',
                         className
                     )}
                     ref={boxRef}
@@ -168,7 +168,7 @@ export default function SearchBox({
                         </button>
                     </div>
 
-                    <div className="flex h-full flex-col overflow-y-auto px-2 py-4">
+                    <div className="custom-scrollbar flex h-full flex-col overflow-y-auto px-2 py-4">
                         {!hasResults && searchQuery && (
                             <div className="flex h-full items-center justify-center">
                                 <p className="text-secondary-foreground">
