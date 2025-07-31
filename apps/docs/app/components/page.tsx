@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { items } from './comp.json';
+import { items } from '@/comp.json';
 import { motion } from 'motion/react';
 
 export default function ShowcasePage() {
