@@ -1,4 +1,4 @@
-import AutoScrollingGallery from './web/Home/autoscrolling-gallery';
+import UIShowcase from './web/Home/ui-shocase';
 import Footer from './web/layout/footer';
 import Header from './web/layout/header';
 import SearchBox from './web/search-box';
@@ -22,7 +22,7 @@ export {
     Header,
     SearchBox,
     ThemeToggler,
-    AutoScrollingGallery,
+    UIShowcase,
     Footer,
     HeroSection,
     FileContent,

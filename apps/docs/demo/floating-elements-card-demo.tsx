@@ -36,7 +36,7 @@ const icons = [
 
 export const FloatingElementsCardDemo = () => {
     return (
-        <div className="flex h-[30rem] w-full items-center justify-center bg-white dark:bg-black">
+        <div className="flex h-[34rem] w-full items-center justify-center bg-white dark:bg-black">
             <FloatingElementsCard icons={icons}>
                 <div className="mb-3">
                     <a href="https://x.com/Hemantsh03">

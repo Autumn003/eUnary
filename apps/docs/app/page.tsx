@@ -1,5 +1,5 @@
 import {
-    AutoScrollingGallery,
+    UIShowcase,
     ComponentExample,
     CopyPaste,
     Features,
@@ -11,7 +11,7 @@ export default function page() {
         <div>
             <HeroSection />
             <CopyPaste />
-            <AutoScrollingGallery />
+            <UIShowcase />
             <ComponentExample />
             <Features />
         </div>
