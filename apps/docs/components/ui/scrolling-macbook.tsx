@@ -1,11 +1,7 @@
+'use client';
+
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import {
-    delay,
-    motion,
-    useScroll,
-    useSpring,
-    useTransform,
-} from 'motion/react';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 interface MacbookScrollProps {
