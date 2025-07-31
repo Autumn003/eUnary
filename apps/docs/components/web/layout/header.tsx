@@ -184,14 +184,18 @@ export default function Header() {
                 </div>
             )}
 
+            {/* Overlay to block ALL interactions when search is open */}
             {isDialogOpen && (
-                <div className="bg-primary-background/30 fixed inset-0 z-40 backdrop-blur-md"></div>
+                <div
+                    className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm"
+                    onClick={() => setIsDialogOpen(false)}
+                />
             )}
 
             <SearchBox
                 isDialogOpen={isDialogOpen}
                 setIsDialogOpen={setIsDialogOpen}
-                className="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2"
+                className="fixed top-1/2 left-1/2 z-[70] -translate-x-1/2 -translate-y-1/2"
             />
         </div>
     );

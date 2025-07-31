@@ -60,25 +60,6 @@ export default function SearchBox({
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                boxRef.current &&
-                !boxRef.current.contains(event.target as Node)
-            ) {
-                setIsDialogOpen(false);
-            }
-        };
-
-        if (isDialogOpen) {
-            document.addEventListener('click', handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [isDialogOpen, setIsDialogOpen]);
-
-    useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
             if (
                 (event.ctrlKey || event.metaKey) &&
@@ -113,6 +94,20 @@ export default function SearchBox({
         }
     }, [isDialogOpen]);
 
+    // Prevent body scroll when dialog is open
+    useEffect(() => {
+        if (isDialogOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        // Cleanup function to restore scroll when component unmounts
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isDialogOpen]);
+
     const components = [...items].sort((a, b) =>
         a.title.localeCompare(b.title)
     );
@@ -145,7 +140,7 @@ export default function SearchBox({
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.1 }}
                     className={cn(
-                        'bg-primary-background text-secondary-foreground border-muted-background flex h-90 w-[35rem] flex-col rounded-xl border pb-2 transition-all duration-300',
+                        'bg-primary-background text-secondary-foreground border-muted-background flex h-90 w-[35rem] flex-col rounded-xl border pb-2 shadow-2xl transition-all duration-300',
                         className
                     )}
                     ref={boxRef}
