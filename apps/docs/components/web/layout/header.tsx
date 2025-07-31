@@ -191,7 +191,7 @@ export default function Header() {
             <SearchBox
                 isDialogOpen={isDialogOpen}
                 setIsDialogOpen={setIsDialogOpen}
-                className="fixed top-[33%] left-[50%] z-50 -translate-x-1/2"
+                className="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2"
             />
         </div>
     );
