@@ -57,7 +57,7 @@ const itemVariants = {
 
 export default function UIShowcase() {
     return (
-        <div className="min-h-screen overflow-hidden bg-gradient-to-br from-black via-neutral-900 to-neutral-950/50 text-white">
+        <div className="from-primary-background min-h-screen overflow-hidden bg-gradient-to-br via-cyan-100/60 to-gray-200 dark:from-black dark:via-neutral-900 dark:to-neutral-950/50">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"></div>
@@ -73,7 +73,7 @@ export default function UIShowcase() {
                     transition={{ duration: 0.8 }}
                     className="mb-16 text-center"
                 >
-                    <h1 className="mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-6xl font-bold text-transparent">
+                    <h1 className="to mb-6 bg-gradient-to-r from-gray-100 via-gray-500 to-gray-800 bg-clip-text text-6xl font-bold text-transparent dark:from-white dark:via-gray-200 dark:to-gray-400">
                         <FlipWords
                             words={[
                                 'Modern',
@@ -87,7 +87,7 @@ export default function UIShowcase() {
                         <br />
                         UI Components
                     </h1>
-                    <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-300">
+                    <p className="text-secondary-foreground mx-auto max-w-2xl leading-relaxed">
                         Discover a collection of beautifully crafted,
                         interactive UI components built with React, Framer
                         Motion, and modern design principles.
