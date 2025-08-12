@@ -1,43 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
-// Add custom styles for animations
-const styles = `
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  .animate-spin-slow {
-    animation: spin-slow 8s linear infinite;
-  }
-`;
-
-// Inject styles
-if (typeof document !== 'undefined') {
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = styles;
-    document.head.appendChild(styleSheet);
-}
 import { FlipWords } from '@/components/ui/flip-words';
 import Link from 'next/link';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+
 const HeroSection = () => {
-    const words = ['modern', 'fast', 'elegant', 'aesthetic', 'sleek'];
-
-    const [currentWord, setCurrentWord] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentWord((prevWord) => (prevWord + 1) % words.length);
-        }, 2000);
-
-        return () => clearInterval(interval);
-    }, []);
-
     return (
-        <div className="relative container flex items-center bg-[url(/media/whirl.svg)] bg-cover bg-center bg-no-repeat">
+        <div className="relative container flex flex-col items-center bg-[url(/media/whirl.svg)] bg-cover bg-center bg-no-repeat py-16 xl:flex-row xl:py-0">
             <div className="bg-primary-background/30 absolute inset-0 z-10 backdrop-blur-lg" />
-            <div className="z-20 flex h-full w-full flex-col items-start justify-center px-8 xl:px-0">
+            <div className="z-20 flex h-full w-full flex-col items-start justify-center xl:px-0">
                 <div className="dark:text-primary-foreground text-secondary-foreground mb-6 max-w-4xl text-left text-4xl font-bold md:text-7xl">
                     Build your website with Eunary{' '}
                     <FlipWords
@@ -61,56 +33,68 @@ const HeroSection = () => {
             {/* Attractive Hero Visual */}
             <div className="z-20 hidden h-[40rem] w-full items-center justify-center xl:flex">
                 <div className="relative flex h-full w-full items-center justify-center">
-                    {/* Floating Orbs */}
-                    <div className="absolute inset-0">
-                        <div className="absolute top-20 left-10 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-violet-400 to-purple-600 opacity-20 blur-xl"></div>
-                        <div className="absolute top-32 right-20 h-24 w-24 animate-bounce rounded-full bg-gradient-to-r from-sky-400 to-cyan-600 opacity-30 blur-lg delay-1000"></div>
-                        <div className="absolute bottom-40 left-20 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-emerald-400 to-teal-600 opacity-25 blur-lg delay-500"></div>
-                        <div className="absolute right-10 bottom-20 h-28 w-28 animate-bounce rounded-full bg-gradient-to-r from-pink-400 to-rose-600 opacity-20 blur-xl delay-700"></div>
-                    </div>
-
                     {/* Central Hero Element */}
                     <div className="relative z-10 flex flex-col items-center justify-center text-center">
                         {/* Glowing Ring */}
                         <div className="relative mb-8">
-                            <div className="border-gradient-to-r animate-spin-slow h-64 w-64 rounded-full border-2 from-violet-400 via-sky-400 to-indigo-600 opacity-30"></div>
-                            <div className="absolute inset-4 h-56 w-56 animate-pulse rounded-full border border-white/20"></div>
+                            <motion.div
+                                initial={{}}
+                                animate={{
+                                    rotate: 360,
+                                    transition: {
+                                        repeat: Infinity,
+                                        duration: 3,
+                                        ease: 'linear',
+                                    },
+                                }}
+                                className="h-64 w-64 rounded-full bg-gradient-to-r from-violet-400 via-sky-400 to-indigo-600 p-1 opacity-30"
+                            >
+                                <div className="bg-primary-background h-full w-full rounded-full"></div>
+                            </motion.div>
+
+                            <div className="absolute inset-4 h-56 w-56 animate-pulse rounded-full border border-violet-500/20 dark:border-violet-300/20"></div>
                             <div className="absolute inset-8 h-48 w-48 rounded-full bg-gradient-to-br from-violet-500/10 via-sky-500/10 to-indigo-500/10 backdrop-blur-sm"></div>
 
                             {/* Center Icon/Logo */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 shadow-2xl">
-                                    <svg
-                                        className="h-12 w-12 animate-pulse text-white"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M13 10V3L4 14h7v7l9-11h-7z"
-                                        />
-                                    </svg>
+                                <div className="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 shadow-2xl">
+                                    {/* Shine overlay */}
+                                    <motion.div
+                                        className="absolute inset-0 rotate-30 -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                        initial={{ x: '-100%' }}
+                                        animate={{ x: '200%' }}
+                                        transition={{
+                                            duration: 2,
+                                            ease: 'easeInOut',
+                                            repeat: Infinity,
+                                            repeatDelay: 1.5,
+                                            delay: 1,
+                                        }}
+                                    />
+
+                                    {/* Logo image */}
+                                    <Image
+                                        src="/media/logo-dark.jpg"
+                                        alt="EU"
+                                        width={100}
+                                        height={100}
+                                        className="relative h-20 w-20 mix-blend-lighten"
+                                    />
                                 </div>
                             </div>
                         </div>
 
                         {/* Action Buttons */}
                         <div className="flex space-x-4">
-                            <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <Link
-                                    href="/components"
-                                    className="relative z-10"
-                                >
-                                    Get Started
-                                </Link>
-                                <div className="absolute inset-0 bg-gradient-to-r from-violet-700 to-indigo-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                            </button>
+                            <Link
+                                href="/components"
+                                className="relative overflow-hidden rounded-full bg-gradient-to-r from-violet-400 to-indigo-400 px-8 py-3 font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:from-violet-600 dark:to-indigo-600"
+                            >
+                                Get Started
+                            </Link>
                             <Link
                                 href="/docs/cli"
-                                className="rounded-full border border-white/20 bg-white/5 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/10"
+                                className="rounded-full border border-indigo-600/20 bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text px-8 py-3 font-semibold text-transparent transition-transform duration-300 hover:scale-105 dark:border-white/20 dark:text-white"
                             >
                                 Installation
                             </Link>
@@ -119,26 +103,26 @@ const HeroSection = () => {
                         {/* Stats or Features */}
                         <div className="mt-12 flex space-x-12 text-center">
                             <div className="group cursor-pointer">
-                                <div className="bg-gradient-to-r from-violet-400 to-sky-400 bg-clip-text text-3xl font-bold text-transparent transition-transform duration-300 group-hover:scale-110">
+                                <div className="bg-gradient-to-r from-fuchsia-400 to-indigo-400 bg-clip-text text-3xl font-bold text-transparent transition-transform duration-300 group-hover:scale-110">
                                     10+
                                 </div>
-                                <div className="text-sm text-white/60">
+                                <div className="text-sm font-semibold text-neutral-400">
                                     Components
                                 </div>
                             </div>
                             <div className="group cursor-pointer">
-                                <div className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-3xl font-bold text-transparent transition-transform duration-300 group-hover:scale-110">
+                                <div className="bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-3xl font-bold text-transparent transition-transform duration-300 group-hover:scale-110">
                                     Copy
                                 </div>
-                                <div className="text-sm text-white/60">
+                                <div className="text-sm font-semibold text-neutral-400">
                                     & Paste
                                 </div>
                             </div>
                             <div className="group cursor-pointer">
-                                <div className="bg-gradient-to-r from-emerald-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent transition-transform duration-300 group-hover:scale-110">
+                                <div className="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-3xl font-bold text-transparent transition-transform duration-300 group-hover:scale-110">
                                     99%
                                 </div>
-                                <div className="text-sm text-white/60">
+                                <div className="text-sm font-semibold text-neutral-400">
                                     Satisfaction
                                 </div>
                             </div>
@@ -146,13 +130,122 @@ const HeroSection = () => {
                     </div>
 
                     {/* Floating Particles */}
-                    <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute top-1/4 left-1/4 h-2 w-2 animate-ping rounded-full bg-white/30 delay-300"></div>
-                        <div className="absolute top-3/4 right-1/4 h-1 w-1 animate-ping rounded-full bg-white/40 delay-700"></div>
-                        <div className="absolute top-1/2 left-1/3 h-1.5 w-1.5 animate-ping rounded-full bg-white/20 delay-1000"></div>
-                        <div className="absolute top-1/3 right-1/3 h-1 w-1 animate-ping rounded-full bg-white/50 delay-500"></div>
-                    </div>
+                    <motion.div
+                        initial={{}}
+                        animate={{
+                            transition: {
+                                staggerChildren: 0.1,
+                            },
+                        }}
+                        className="absolute inset-0 overflow-hidden"
+                    >
+                        <motion.div
+                            initial={{
+                                scale: 1,
+                                opacity: 0.3,
+                            }}
+                            animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.2, 0.8, 0.2],
+                                transition: {
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    delay: 0.5,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                            className="absolute top-1/4 left-1/4 h-1.5 w-1.5 rounded-full bg-white/30"
+                        />
+                        <motion.div
+                            initial={{
+                                scale: 1,
+                                opacity: 0.2,
+                            }}
+                            animate={{
+                                scale: [1, 2.2, 1],
+                                opacity: [0.2, 0.8, 0.2],
+                                transition: {
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    delay: 1.8,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                            className="absolute top-1/2 left-1/3 h-1.5 w-1.5 rounded-full bg-white/20"
+                        />
+                        <motion.div
+                            initial={{
+                                scale: 1,
+                                opacity: 0.5,
+                            }}
+                            animate={{
+                                scale: [1, 1.5, 1],
+                                opacity: [0.5, 0.9, 0.5],
+                                transition: {
+                                    duration: 1.8,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    delay: 0.3,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                            className="absolute top-1/3 right-1/3 h-1 w-1 rounded-full bg-white/50"
+                        />
+                        <motion.div
+                            initial={{
+                                scale: 1,
+                                opacity: 0.25,
+                            }}
+                            animate={{
+                                scale: [1, 1.6, 1],
+                                opacity: [0.25, 0.6, 0.25],
+                                transition: {
+                                    duration: 2.2,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    delay: 2.5,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                            className="absolute top-2/4 left-4/5 h-1 w-1 rounded-full bg-white/30"
+                        />
+                        <motion.div
+                            initial={{
+                                scale: 1,
+                                opacity: 0.15,
+                            }}
+                            animate={{
+                                scale: [1, 2.5, 1],
+                                opacity: [0.15, 0.5, 0.15],
+                                transition: {
+                                    duration: 3.5,
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    delay: 0.1,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                            className="absolute top-1/6 right-1/5 h-0.5 w-0.5 rounded-full bg-white/35"
+                        />
+                    </motion.div>
                 </div>
+            </div>
+
+            <div className="space-4 z-20 flex w-full flex-col gap-4 self-start sm:flex-row xl:hidden">
+                <Link
+                    href="/components"
+                    className="overflow-hidden rounded-full bg-gradient-to-r from-violet-400 to-indigo-400 px-8 py-3 text-center font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:from-violet-600 dark:to-indigo-600"
+                >
+                    Get Started
+                </Link>
+                <Link
+                    href="/docs/cli"
+                    className="rounded-full border border-indigo-600/20 bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text px-8 py-3 text-center font-semibold text-transparent transition-transform duration-300 hover:scale-105 dark:border-white/20 dark:text-white"
+                >
+                    Installation
+                </Link>
             </div>
         </div>
     );
