@@ -48,7 +48,7 @@ const Features = () => {
     ];
 
     return (
-        <section id="features" className="py-24">
+        <section id="features" className="mb-20 py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
                     <h2 className="mb-4 text-xl font-semibold sm:text-4xl">
@@ -83,7 +83,7 @@ const Features = () => {
 
                 {/* Framework Support */}
                 <div className="mt-20 text-center">
-                    <h3 className="text-secondary-foreground mb-8 text-2xl font-bold">
+                    <h3 className="text-secondary-foreground mb-8 text-lg font-bold sm:text-2xl">
                         Powered by industry-leading tools
                     </h3>
                     <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">

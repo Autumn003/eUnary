@@ -32,8 +32,8 @@ const CopyPaste = () => {
     }, []);
 
     return (
-        <div className="container grid grid-cols-2 sm:my-24">
-            <div className="col-span-2 my-20 text-center">
+        <div className="container my-16 grid grid-cols-2">
+            <div className="col-span-2 mb-20 text-center">
                 <h3 className="mb-5 text-xl font-semibold sm:text-4xl">
                     As simple as copy and paste
                 </h3>

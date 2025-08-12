@@ -1,44 +1,19 @@
 import FileContent from '../code/file-content';
-import {
-    IconBrandGithub,
-    IconBrandLinkedin,
-    IconBrandX,
-} from '@tabler/icons-react';
-import { FloatingElementsCard } from '@/components/ui/floating-elements-card';
 import { ExpandableCardDemo } from '@/demo';
-
-const icons = [
-    {
-        icon: <IconBrandLinkedin className="h-10 w-10 text-blue-400" />,
-        link: 'https://www.linkedin.com/in/hemant003/',
-    },
-    {
-        icon: (
-            <IconBrandX className="h-10 w-10 text-neutral-800 dark:text-neutral-50" />
-        ),
-        link: 'https://www.x.com/hemantsh03',
-    },
-    {
-        icon: (
-            <img
-                src="/media/logo-dark.jpg"
-                alt="logo"
-                className="h-10 w-10 rounded-lg"
-            />
-        ),
-        link: 'https://ui.eunary.com/',
-    },
-    {
-        icon: (
-            <IconBrandGithub className="h-10 w-10 text-neutral-600 dark:text-neutral-300" />
-        ),
-        link: 'https://github.com/Autumn003',
-    },
-];
 
 const ComponentExample = () => {
     return (
-        <div className="container my-24">
+        <div className="container my-16">
+            <div className="col-span-2 mb-20 text-center">
+                <h3 className="mb-5 text-xl font-semibold sm:text-4xl">
+                    Fully Customizable Components
+                </h3>
+                <p className="text-secondary-foreground mx-auto max-w-2xl">
+                    Tailor every component to match your brand’s style with
+                    ease—change colors, sizes, and behavior without touching the
+                    core functionality.
+                </p>
+            </div>
             <div className="border-muted-background grid grid-cols-2 gap-10 rounded-4xl p-4">
                 <div className="relative col-span-2 flex flex-col items-center justify-center md:col-span-1">
                     <h1
