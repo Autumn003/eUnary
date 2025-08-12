@@ -57,12 +57,14 @@ const itemVariants = {
 
 export default function UIShowcase() {
     return (
-        <div className="from-primary-background min-h-screen overflow-hidden bg-gradient-to-br via-cyan-100/60 to-gray-200 dark:from-black dark:via-neutral-900 dark:to-neutral-950/50">
+        <div className="from-primary-background relative min-h-screen overflow-hidden bg-gradient-to-br via-cyan-100/60 to-gray-200 dark:from-black dark:via-neutral-900 dark:to-neutral-950/50">
+            <div className="from-primary-background absolute top-0 z-10 h-20 w-full bg-gradient-to-b to-transparent" />
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"></div>
-                <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-purple-500/20 blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-cyan-500/10 blur-3xl"></div>
+                <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
+                <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl"></div>
+                <div className="absolute top-2/3 left-2/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-cyan-500/10 blur-3xl"></div>
+                <div className="absolute top-1/3 left-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-cyan-500/10 blur-3xl"></div>
             </div>
 
             <div className="relative z-10 container mx-auto px-6 py-12">
@@ -116,7 +118,7 @@ export default function UIShowcase() {
                             Interactive 3D MacBook with scroll-triggered
                             animations and hover effects.
                         </p>
-                        <div className="flex h-full w-full items-center">
+                        <div className="flex h-full w-full items-center py-24">
                             <ScrollingMacbook className="flex flex-col items-center justify-center">
                                 <div className="h-full w-full bg-[url(/media/mc-drk.png)] bg-cover bg-center" />
                             </ScrollingMacbook>
@@ -227,6 +229,7 @@ export default function UIShowcase() {
                     </motion.div>
                 </motion.div>
             </div>
+            <div className="from-primary-background absolute bottom-0 z-10 h-20 w-full bg-gradient-to-t to-transparent" />
         </div>
     );
 }
