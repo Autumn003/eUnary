@@ -11,7 +11,7 @@ const HeroSection = () => {
             <div className="bg-primary-background/30 absolute inset-0 z-10 backdrop-blur-lg" />
             <div className="z-20 flex h-full w-full flex-col items-start justify-center xl:px-0">
                 <div className="dark:text-primary-foreground text-secondary-foreground mb-6 max-w-4xl text-left text-4xl font-bold md:text-7xl">
-                    Build your website with Eunary{' '}
+                    Build your <br /> website with <br /> Eunary{' '}
                     <FlipWords
                         words={[
                             'modern',

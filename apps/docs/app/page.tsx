@@ -8,7 +8,7 @@ import {
 
 export default function page() {
     return (
-        <div>
+        <div className="mt-0 xl:-mt-16">
             <HeroSection />
             <CopyPaste />
             <UIShowcase />
