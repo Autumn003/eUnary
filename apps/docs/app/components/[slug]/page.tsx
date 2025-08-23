@@ -1,21 +1,43 @@
 import { notFound } from 'next/navigation';
-import { allDocs } from 'contentlayer/generated';
+import { getDocBySlug, getAllDocs } from '@/lib/mdx';
 import { Mdx } from '@/components/mdx-component';
-import { getFileContent } from '@/lib/getFileContent';
+import { getFileContent } from '@/lib/getFileContent'; // Your existing utility
 
-async function getDocFromParams({ params }: {params: Promise<{slug: string}>}) {
+async function getDocFromParams({ params }: { params: Promise<{ slug: string }> }) {
     const param = await params;
-    const doc = allDocs.find(
-        (doc) => doc.slugAsParams === `docs/components/${param.slug}`
-    );
-
-    if (!doc) {
-        return null;
-    }
+    const doc = getDocBySlug(`docs/components/${param.slug}`);
     return doc;
 }
 
-export default async function DocPage({ params }: {params: Promise<{slug: string}>}) {
+// Generate static params for better performance
+export async function generateStaticParams() {
+    const docs = getAllDocs();
+    
+    return docs
+        .filter(doc => doc.slugAsParams.startsWith('docs/components/'))
+        .map((doc) => ({
+            slug: doc.slugAsParams.replace('docs/components/', ''),
+        }));
+}
+
+// Generate metadata
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const doc = await getDocFromParams({ params });
+
+    if (!doc) {
+        return {
+            title: 'Not Found',
+            description: 'The page you are looking for does not exist.',
+        };
+    }
+
+    return {
+        title: doc.title,
+        description: doc.description,
+    };
+}
+
+export default async function DocPage({ params }: { params: Promise<{ slug: string }> }) {
     const doc = await getDocFromParams({ params });
     const param = await params;
 
@@ -28,7 +50,7 @@ export default async function DocPage({ params }: {params: Promise<{slug: string
     return (
         <main className="container">
             <Mdx
-                code={doc.body.code}
+                content={doc.content}
                 description={doc.description}
                 fileContent={fileContent}
             />

@@ -4,9 +4,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
-            "contentlayer/generated": ["./.contentlayer/generated"]
         },
-        // "types": ["contentlayer/generated"], // Add this line
         "plugins": [
             {
                 "name": "next"
@@ -19,7 +17,7 @@
         "next-env.d.ts",
         "next.config.js",
         ".next/types/**/*.ts",
-        ".contentlayer/generated"
-, "docs/theme-toggler.mdx"    ],
+         "docs/theme-toggler.mdx"
+    ],
     "exclude": ["node_modules"]
 }

@@ -1,13 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-import { withContentlayer } from 'next-contentlayer';
-
 const nextConfig = {
-    experimental: {
-        turbo: {
-            webpack: true, // Use Webpack where necessary
-        },
-    },
+    pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    transpilePackages: ['@repo/ui'],
 };
 
-export default withContentlayer(nextConfig);
+export default nextConfig;
