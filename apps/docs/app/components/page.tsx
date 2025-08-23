@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { items } from '@/comp.json';
+import data  from '@/comp.json';
 import { motion } from 'motion/react';
 
 export default function ShowcasePage() {
-    const sortedItems = [...items].sort((a, b) =>
+    const sortedItems = [...data.items].sort((a, b) =>
         a.title.localeCompare(b.title)
     );
     return (

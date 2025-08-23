@@ -3,13 +3,7 @@ import { allDocs } from 'contentlayer/generated';
 import { Mdx } from '@/components/mdx-component';
 import { getFileContent } from '@/lib/getFileContent';
 
-interface DocPageProps {
-    params: {
-        slug: string;
-    };
-}
-
-async function getDocFromParams({ params }: DocPageProps) {
+async function getDocFromParams({ params }: {params: Promise<{slug: string}>}) {
     const param = await params;
     const doc = allDocs.find(
         (doc) => doc.slugAsParams === `docs/components/${param.slug}`
@@ -21,7 +15,7 @@ async function getDocFromParams({ params }: DocPageProps) {
     return doc;
 }
 
-export default async function DocPage({ params }: DocPageProps) {
+export default async function DocPage({ params }: {params: Promise<{slug: string}>}) {
     const doc = await getDocFromParams({ params });
     const param = await params;
 

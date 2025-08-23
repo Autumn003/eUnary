@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import 'remixicon/fonts/remixicon.css';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import { items } from '@/comp.json';
+import data from '@/comp.json';
 import Link from 'next/link';
 import { IconBrandTabler, IconCircle, IconFile } from '@tabler/icons-react';
 
@@ -108,7 +108,7 @@ export default function SearchBox({
         };
     }, [isDialogOpen]);
 
-    const components = [...items].sort((a, b) =>
+    const components = [...data.items].sort((a, b) =>
         a.title.localeCompare(b.title)
     );
 

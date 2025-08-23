@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { items } from '@/registry.json';
+import data from '@/registry.json';
 import { Badge } from '@/components';
 import { usePathname } from 'next/navigation';
 
@@ -15,7 +15,7 @@ const Sidebar = () => {
         { title: 'CLI', target: 'cli' },
     ];
 
-    const sortedItem = [...items].sort((a, b) =>
+    const sortedItem = [...data.items].sort((a, b) =>
         a.title.localeCompare(b.title)
     );
 
