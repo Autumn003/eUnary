@@ -115,12 +115,7 @@ const headerVariants = {
     animate: {
         opacity: 1,
         y: 0,
-        scale: 1,
-        transition: {
-            delay: 0.2,
-            ease: 'easeInOut',
-            duration: 0.3,
-        },
+        scale: 1
     },
 };
 
@@ -140,21 +135,13 @@ const additionalNotificationVariants = {
         opacity: 1,
         y: 0,
         scale: 0.97,
-        filter: 'blur(0px)',
-        transition: {
-            duration: 0.3,
-            ease: 'easeInOut',
-        },
+        filter: 'blur(0px)'
     },
     exit: {
         opacity: 0,
         y: -20,
         scale: 0.8,
-        filter: 'blur(2px)',
-        transition: {
-            duration: 0.2,
-            ease: 'easeIn',
-        },
+        filter: 'blur(2px)'
     },
 };
 
@@ -290,6 +277,12 @@ export const IOSNotificationsStack = ({
                 {/* Header */}
                 <motion.div
                     variants={headerVariants}
+                    
+        transition={ {
+            delay: 0.2,
+            ease: 'easeInOut',
+            duration: 0.3,
+        }}
                     className="flex w-full items-center justify-between px-2 text-white"
                 >
                     <span className="font-medium text-neutral-700 dark:text-neutral-400">
@@ -394,6 +387,11 @@ export const IOSNotificationsStack = ({
                                                 variants={
                                                     additionalNotificationVariants
                                                 }
+                                                
+        transition={ {
+            duration: 0.3,
+            ease: 'easeInOut',
+        }}
                                                 className="h-16 w-72 rounded-2xl bg-white/50 px-3 py-2 text-neutral-900 shadow-lg backdrop-blur-lg dark:bg-black/50 dark:text-white"
                                                 style={{
                                                     boxShadow:

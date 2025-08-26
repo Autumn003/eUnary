@@ -54,19 +54,11 @@ const secondaryVariant = {
         opacity: 1,
         scale: 1,
         y: 0,
-        transition: {
-            duration: 0.3,
-            ease: 'easeInOut',
-        },
     },
     exit: {
         opacity: 0,
         scale: 0.9,
-        y: -10,
-        transition: {
-            duration: 0.3,
-            ease: 'easeInOut',
-        },
+        y: -10
     },
 };
 
@@ -164,6 +156,10 @@ export const FileUpload = ({
                                         }
                                         exit="exit"
                                         variants={secondaryVariant}
+                                        transition={ {
+                                            duration: 0.3,
+                                            ease: 'easeInOut',
+                                        }}
                                         layout
                                         className={cn(
                                             'relative z-40 mx-auto mt-4 flex w-full flex-col items-start justify-start overflow-hidden rounded-xl bg-white p-4 inset-shadow-sm inset-shadow-neutral-200 md:h-24 dark:bg-neutral-900 dark:inset-shadow-neutral-700',
