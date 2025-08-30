@@ -47,7 +47,7 @@ const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
-        y: 0
+        y: 0,
     },
 };
 
@@ -103,10 +103,10 @@ export default function UIShowcase() {
                         {/* Scrolling Macbook card */}
                         <motion.div
                             variants={itemVariants}
-                            transition={ {
-            duration: 0.6,
-            ease: [0.215, 0.61, 0.355, 1],
-        }}
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.215, 0.61, 0.355, 1],
+                            }}
                             className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
                         >
                             <div className="mb-4 flex items-center">
@@ -132,11 +132,11 @@ export default function UIShowcase() {
                         {/* Floating Elements Card - Large Card */}
                         <motion.div
                             variants={itemVariants}
-                            transition={ {
-            duration: 0.6,
-            ease: [0.215, 0.61, 0.355, 1],
-        }}
-                            className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 lg:col-span-2 lg:row-span-2 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.215, 0.61, 0.355, 1],
+                            }}
+                            className="group hidden rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 lg:col-span-2 lg:row-span-2 lg:block dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
                         >
                             <div className="mb-4 flex items-center">
                                 <Layers
@@ -159,10 +159,10 @@ export default function UIShowcase() {
                         {/* Flip Word Card */}
                         <motion.div
                             variants={itemVariants}
-                            transition={ {
-            duration: 0.6,
-            ease: [0.215, 0.61, 0.355, 1],
-        }}
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.215, 0.61, 0.355, 1],
+                            }}
                             className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
                         >
                             <div className="mb-4 flex items-center">
@@ -200,10 +200,10 @@ export default function UIShowcase() {
                         {/* File Upload Card */}
                         <motion.div
                             variants={itemVariants}
-                            transition={ {
-            duration: 0.6,
-            ease: [0.215, 0.61, 0.355, 1],
-        }}
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.215, 0.61, 0.355, 1],
+                            }}
                             className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 lg:col-span-2 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
                         >
                             <div className="mb-4 flex items-center">
@@ -224,10 +224,10 @@ export default function UIShowcase() {
                         {/* Notifications Card */}
                         <motion.div
                             variants={itemVariants}
-                            transition={ {
-            duration: 0.6,
-            ease: [0.215, 0.61, 0.355, 1],
-        }}
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.215, 0.61, 0.355, 1],
+                            }}
                             className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
                         >
                             <div className="mb-4 flex items-center">
