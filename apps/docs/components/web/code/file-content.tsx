@@ -1,4 +1,5 @@
 'use server';
+import { cn } from '@/lib/utils';
 import fs from 'fs';
 import path from 'path';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -14,11 +15,17 @@ async function getFileContent(filePath: string): Promise<string> {
     }
 }
 
-export default async function FileContent({ filePath }: { filePath: string }) {
+export default async function FileContent({
+    filePath,
+    className,
+}: {
+    filePath: string;
+    className?: string;
+}) {
     const content = await getFileContent(filePath);
 
     return (
-        <div className="rounded-3xl bg-[#1e1e1e] px-3 py-1">
+        <div className={cn('rounded-3xl bg-[#1e1e1e] px-3 py-1', className)}>
             <pre>
                 <SyntaxHighlighter
                     language="tsx"

@@ -28,10 +28,35 @@ const ComponentExample = () => {
                         <ExpandableCardDemo />
                     </div>
                 </div>
-                <div className="relative col-span-2 md:col-span-1">
-                    <div className="absolute -inset-1 rounded-[40px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 opacity-30 blur-xl"></div>
-                    <div className="col-span-2 rounded-[28px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 p-1 shadow-2xl drop-shadow-2xl md:col-span-1">
-                        <FileContent filePath="components/ui/floating-elements-card.tsx" />
+
+                <div className="group relative col-span-2 md:col-span-1">
+                    {/* Multi-layered glow effect */}
+                    <div className="absolute -inset-2 rounded-[42px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 opacity-20 blur-2xl transition-all duration-700 group-hover:opacity-10 group-hover:blur-3xl"></div>
+
+                    {/* Code container with glassmorphism effect */}
+                    <div className="relative col-span-2 rounded-[32px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 p-[2px] shadow-2xl drop-shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-purple-500/15 md:col-span-1">
+                        <div className="overflow-hidden rounded-[30px] border border-white/10 bg-gray-900/95 backdrop-blur-xl">
+                            <div className="relative">
+                                {/* Code header bar */}
+                                <div className="flex items-center gap-2 border-b border-gray-700/50 bg-gray-800/50 px-4 py-3">
+                                    <div className="h-3 w-3 rounded-full bg-red-500/80"></div>
+                                    <div className="h-3 w-3 rounded-full bg-yellow-500/80"></div>
+                                    <div className="h-3 w-3 rounded-full bg-green-500/80"></div>
+                                    <span className="ml-4 font-mono text-xs text-gray-400">
+                                        floating-elements-card.tsx
+                                    </span>
+                                </div>
+
+                                {/* File content with overlay effects */}
+                                <div className="relative">
+                                    <div className="pointer-events-none absolute top-0 left-0 h-20 w-full bg-gradient-to-b from-purple-500/5 to-transparent"></div>
+                                    <FileContent
+                                        filePath="components/ui/floating-elements-card.tsx"
+                                        className="rounded-t-none"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
