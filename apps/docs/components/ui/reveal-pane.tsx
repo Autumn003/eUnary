@@ -229,7 +229,7 @@ export const RevealPane = ({
     return (
         <div
             className={cn(
-                'relative aspect-auto min-h-72 min-w-84 cursor-pointer touch-none overflow-hidden rounded-lg bg-gray-800 select-none sm:aspect-[4/3] sm:min-h-96 sm:min-w-96',
+                'relative aspect-auto h-72 w-84 cursor-pointer touch-none overflow-hidden rounded-lg bg-gray-800 select-none sm:aspect-[4/3] sm:min-h-96 sm:min-w-96',
                 className
             )}
             data-slider-container
@@ -250,8 +250,8 @@ export const RevealPane = ({
                 <Image
                     src={rightImgSrc}
                     alt="right image"
-                    width={800}
-                    height={800}
+                    width={500}
+                    height={500}
                     className="h-full w-full object-cover"
                     draggable={false}
                 />
@@ -276,8 +276,8 @@ export const RevealPane = ({
                     src={leftImgSrc}
                     alt="Cute animals in color"
                     className="h-full w-full object-cover"
-                    width={800}
-                    height={800}
+                    width={500}
+                    height={500}
                     draggable={false}
                 />
             </motion.div>
