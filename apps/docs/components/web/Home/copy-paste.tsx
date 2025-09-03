@@ -167,7 +167,14 @@ const CopyPaste = () => {
 
                         {/* Testimonial Component */}
                         <div className="h-full w-full rounded-b-lg bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-2 md:px-18 md:py-8">
-                            <RevealPane />
+                            <RevealPane
+                                leftImgSrc="/media/floating-elements-card.png"
+                                rightImgSrc="/media/sample-code.png"
+                                autoplay={true}
+                                slideDirection="right"
+                                duration={4}
+                                loop={true}
+                            />
                         </div>
                     </motion.div>
                 </motion.div>
