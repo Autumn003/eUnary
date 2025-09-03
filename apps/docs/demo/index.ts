@@ -9,6 +9,7 @@ import FlipWordsDemo from './flip-words-demo';
 import { FloatingElementsCardDemo } from './floating-elements-card-demo';
 import IOSNotificationsStackDemo2 from './ios-notifications-stack-2-demo';
 import IOSNotificationsStackDemo from './ios-notifications-stack-demo';
+import { RevealPaneDemo } from './reveal-pane-demo';
 import ScrollingMacbookDemo from './scrolling-macbook-demo';
 import ThemeTogglerDemo from './theme-toggler-demo';
 
@@ -26,4 +27,5 @@ export {
     FloatingElementsCardDemo,
     IOSNotificationsStackDemo,
     IOSNotificationsStackDemo2,
+    RevealPaneDemo,
 };

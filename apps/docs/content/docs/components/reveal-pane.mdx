@@ -1,0 +1,72 @@
+---
+title: "Reveal Pane"
+description: Image comparison slider with automated positioning - slide, drag, or set direction to reveal differences between two images.
+---
+
+# Reveal Pane
+
+<ComponentPreview component={<RevealPaneDemo />} fileName="reveal-pane" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/reveal-pane.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge @tabler/icons-react @tsparticles/react @tsparticles/engine @tsparticles/slim
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/reveal-pane.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+   
+
+### Props
+
+Use the following props to customize the Reveal Pane.
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>leftImgSrc</Callout>          | <Callout>string</Callout>          | URL of left image |
+| <Callout>rightImgSrc</Callout>          | <Callout>string</Callout>          | URL of right image |
+| <Callout>className</Callout>         | <Callout>string</Callout>         | CSS class to be applied to the container           |
+| <Callout>leftImgClassName</Callout>         | <Callout>string</Callout>         | CSS class to be applied on the left image           |
+| <Callout>rightImgClassName</Callout>         | <Callout>string</Callout>         | CSS class to be applied on the right image           |
+| <Callout>autoplay</Callout>         | <Callout>boolean</Callout>         | To enable automatic sliding           |
+| <Callout>duration</Callout>         | <Callout>number</Callout>         | Duration in seconds for one interval           |
+| <Callout>loop</Callout>         | <Callout>boolean</Callout>         | Enable loop for autoplay           |
+| <Callout>slideDirection</Callout>         | <Callout>"left" or "right"</Callout>         | Direction of slider to move           |
+| <Callout>pauseOnHover</Callout>         | <Callout>boolean</Callout>         | Stop the slider while hover the component           |
+
+<ExploreComponents recentlyAddedComponent="recent-component" nextComponent="theme-toggler"/>

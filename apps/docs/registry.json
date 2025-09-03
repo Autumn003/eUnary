@@ -161,6 +161,31 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "reveal-pane",
+            "type": "registry:ui",
+            "title": "Reveal Pane",
+            "description": "Image comparison slider drag to reveal differences between two images",
+            "featured": false,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge",
+                "@tabler/icons-react",
+                "@tsparticles/react",
+                "@tsparticles/engine",
+                "@tsparticles/slim"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/reveal-pane.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/reveale-pane.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

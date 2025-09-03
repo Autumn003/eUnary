@@ -7,7 +7,6 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 
-
 import { cn } from '@/lib/utils';
 
 import {
@@ -36,6 +35,7 @@ import {
     FloatingElementsCardDemo,
     IOSNotificationsStackDemo,
     IOSNotificationsStackDemo2,
+    RevealPaneDemo,
 } from '@/demo';
 
 const components = {
@@ -93,7 +93,10 @@ const components = {
             {...props}
         />
     ),
-    a: ({ className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+    a: ({
+        className,
+        ...props
+    }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
         <a
             className={cn(
                 'font-medium underline underline-offset-4',
@@ -102,7 +105,10 @@ const components = {
             {...props}
         />
     ),
-    p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    p: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLParagraphElement>) => (
         <p
             className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}
             {...props}
@@ -117,7 +123,10 @@ const components = {
     li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
         <li className={cn('mt-2', className)} {...props} />
     ),
-    blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
+    blockquote: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLQuoteElement>) => (
         <blockquote
             className={cn(
                 '[&>*]:text-muted-foreground mt-6 border-l-2 pl-6 italic',
@@ -165,7 +174,10 @@ const components = {
             {...props}
         />
     ),
-    th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    th: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLTableCellElement>) => (
         <th
             className={cn(
                 'border-muted-foreground border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
@@ -174,7 +186,10 @@ const components = {
             {...props}
         />
     ),
-    td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    td: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLTableCellElement>) => (
         <td
             className={cn(
                 'border-muted-foreground border px-4 py-3 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
@@ -183,7 +198,11 @@ const components = {
             {...props}
         />
     ),
-    pre: ({ className, children, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
+    pre: ({
+        className,
+        children,
+        ...props
+    }: React.HTMLAttributes<HTMLPreElement>) => {
         // Function to extract text from nested children
         const extractText = (node: any): string => {
             if (typeof node === 'string') {
@@ -232,7 +251,10 @@ const components = {
             {...props}
         />
     ),
-    Callout: ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
+    Callout: ({
+        className,
+        ...props
+    }: React.HTMLAttributes<HTMLSpanElement>) => (
         <span
             className={cn(
                 'rounded-lg bg-[#ededed] px-2 py-1 font-mono text-sm dark:bg-[#27272a]',
@@ -315,6 +337,7 @@ const components = {
     FloatingElementsCardDemo,
     IOSNotificationsStackDemo,
     IOSNotificationsStackDemo2,
+    RevealPaneDemo,
 };
 
 interface MdxProps {
@@ -338,7 +361,10 @@ export function Mdx({ content, preview, description, fileContent }: MdxProps) {
                     ComponentPreview: (props: any) => (
                         <ComponentPreview {...props} />
                     ),
-                    h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+                    h1: ({
+                        className,
+                        ...props
+                    }: React.HTMLAttributes<HTMLHeadingElement>) => (
                         <div className="mb-16">
                             <h1
                                 className={cn(
@@ -358,45 +384,48 @@ export function Mdx({ content, preview, description, fileContent }: MdxProps) {
                 options={{
                     parseFrontmatter: true,
                     mdxOptions: {
-                        remarkPlugins: [
-                            remarkGfm,
-
-                        ],
+                        remarkPlugins: [remarkGfm],
                         rehypePlugins: [
                             rehypeSlug,
-            [
-                rehypePrettyCode,
-                {
-                    theme: 'github-dark',
-                    keepBackground: false,
-                    onVisitLine(node: any) {
-                        if (node.children.length === 0) {
-                            node.children = [{ type: 'text', value: ' ' }];
-                        }
-                    },
-                    onVisitHighlightedLine(node: any) {
-                        if (!node.properties.className) {
-                            node.properties.className = []; // Initialize if undefined
-                        }
-                        node.properties.className.push('line--highlighted');
-                    },
-                    onVisitHighlightedWord(node: any) {
-                        if (!node.properties.className) {
-                            node.properties.className = []; // Initialize if undefined
-                        }
-                        node.properties.className.push('word--highlighted');
-                    },
-                },
-            ],
-            [
-                rehypeAutolinkHeadings,
-                {
-                    properties: {
-                        className: ['subheading-anchor'],
-                        ariallabel: 'Link to section',
-                    },
-                },
-            ],
+                            [
+                                rehypePrettyCode,
+                                {
+                                    theme: 'github-dark',
+                                    keepBackground: false,
+                                    onVisitLine(node: any) {
+                                        if (node.children.length === 0) {
+                                            node.children = [
+                                                { type: 'text', value: ' ' },
+                                            ];
+                                        }
+                                    },
+                                    onVisitHighlightedLine(node: any) {
+                                        if (!node.properties.className) {
+                                            node.properties.className = []; // Initialize if undefined
+                                        }
+                                        node.properties.className.push(
+                                            'line--highlighted'
+                                        );
+                                    },
+                                    onVisitHighlightedWord(node: any) {
+                                        if (!node.properties.className) {
+                                            node.properties.className = []; // Initialize if undefined
+                                        }
+                                        node.properties.className.push(
+                                            'word--highlighted'
+                                        );
+                                    },
+                                },
+                            ],
+                            [
+                                rehypeAutolinkHeadings,
+                                {
+                                    properties: {
+                                        className: ['subheading-anchor'],
+                                        ariallabel: 'Link to section',
+                                    },
+                                },
+                            ],
                         ],
                     },
                 }}
