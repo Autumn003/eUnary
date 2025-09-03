@@ -18,22 +18,34 @@ interface RevealSliderProps {
     slideDirection?: 'left' | 'right';
     autoplay?: boolean;
     duration?: number;
+    pauseOnHover?: boolean;
+    loop?: boolean;
 }
 
 export const RevealPane = ({
     className,
     leftImgClassName,
     rightImgClassName,
-    leftImgSrc,
-    rightImgSrc,
+    leftImgSrc = '',
+    rightImgSrc = '',
     slideDirection = 'right',
     autoplay = false,
     duration = 5000,
+    pauseOnHover = true,
+    loop = true,
 }: RevealSliderProps) => {
     const [sliderPosition, setSliderPosition] = useState(50);
     const [isDragging, setIsDragging] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(autoplay);
+    const [autoplayDirection, setAutoplayDirection] = useState<
+        'left' | 'right'
+    >('right');
+
     const prevPositionRef = useRef(sliderPosition);
+    const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
+    const autoplayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         if (sliderPosition > prevPositionRef.current && isDragging) {
@@ -44,8 +56,77 @@ export const RevealPane = ({
             setDirection(null);
         }
         prevPositionRef.current = sliderPosition;
-        console.log('Direction:', direction);
     }, [sliderPosition, isDragging]);
+
+    // Autoplay logic
+    useEffect(() => {
+        if (!autoplay || isDragging || (pauseOnHover && isHovered)) {
+            if (autoplayIntervalRef.current) {
+                clearInterval(autoplayIntervalRef.current);
+                autoplayIntervalRef.current = null;
+            }
+            if (autoplayTimeoutRef.current) {
+                clearTimeout(autoplayTimeoutRef.current);
+                autoplayTimeoutRef.current = null;
+            }
+            return;
+        }
+
+        if (isAutoPlaying) {
+            const startAutoplay = () => {
+                autoplayIntervalRef.current = setInterval(() => {
+                    setSliderPosition((prev) => {
+                        let newPosition;
+
+                        if (autoplayDirection === 'right') {
+                            newPosition = Math.min(prev + 1, 100);
+                            if (newPosition === 100 && loop) {
+                                // Switch direction after a pause
+                                autoplayTimeoutRef.current = setTimeout(() => {
+                                    setAutoplayDirection('left');
+                                }, 1000);
+                            }
+                        } else {
+                            newPosition = Math.max(prev - 1, 0);
+                            if (newPosition === 0 && loop) {
+                                // Switch direction after a pause
+                                autoplayTimeoutRef.current = setTimeout(() => {
+                                    setAutoplayDirection('right');
+                                }, 1000);
+                            }
+                        }
+
+                        return newPosition;
+                    });
+                }, duration * 10); // multiply duration by 10 for smooth animation
+            };
+
+            startAutoplay();
+        }
+
+        return () => {
+            if (autoplayIntervalRef.current) {
+                clearInterval(autoplayIntervalRef.current);
+            }
+            if (autoplayTimeoutRef.current) {
+                clearTimeout(autoplayTimeoutRef.current);
+            }
+        };
+    }, [
+        autoplay,
+        isAutoPlaying,
+        isDragging,
+        isHovered,
+        pauseOnHover,
+        duration,
+        autoplayDirection,
+        loop,
+    ]);
+
+    // Initialize autoplay direction based on slideDirection prop
+    useEffect(() => {
+        setAutoplayDirection(slideDirection);
+    }, [slideDirection]);
 
     // Helper function to get position from event (mouse or touch)
     const getEventPosition = (e: any) => {
@@ -71,10 +152,15 @@ export const RevealPane = ({
 
     const handleStart = () => {
         setIsDragging(true);
+        setIsAutoPlaying(false); // Pause autoplay when user interacts
     };
 
     const handleEnd = () => {
         setIsDragging(false);
+        // Resume autoplay after user interaction if it was initially enabled
+        if (autoplay) {
+            setTimeout(() => setIsAutoPlaying(true), 1000); // Resume after 1 second
+        }
     };
 
     const handleClick = (e: any) => {
@@ -84,6 +170,20 @@ export const RevealPane = ({
         const { clientX } = getEventPosition(e);
         const rect = e.currentTarget.getBoundingClientRect();
         updateSliderPosition(clientX, rect);
+
+        // Pause and resume autoplay on click
+        if (autoplay) {
+            setIsAutoPlaying(false);
+            setTimeout(() => setIsAutoPlaying(true), 1000);
+        }
+    };
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
     };
 
     useEffect(() => {
@@ -138,6 +238,8 @@ export const RevealPane = ({
             onMouseDown={handleStart}
             onMouseUp={handleEnd}
             onClick={handleClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             // Touch events
             onTouchStart={handleStart}
             onTouchMove={handleMove}
@@ -146,7 +248,7 @@ export const RevealPane = ({
             {/* right image */}
             <div className={cn('absolute inset-0', rightImgClassName)}>
                 <Image
-                    src={rightImgSrc || '/media/sample-code.png'}
+                    src={rightImgSrc}
                     alt="right image"
                     width={800}
                     height={800}
@@ -166,12 +268,12 @@ export const RevealPane = ({
                 }}
                 transition={{
                     type: 'tween',
-                    duration: isDragging ? 0 : 0.3,
+                    duration: isDragging ? 0 : isAutoPlaying ? 0.1 : 0.3,
                     ease: 'easeOut',
                 }}
             >
                 <Image
-                    src={leftImgSrc || '/media/floating-elements-card.png'}
+                    src={leftImgSrc}
                     alt="Cute animals in color"
                     className="h-full w-full object-cover"
                     width={800}
@@ -187,7 +289,7 @@ export const RevealPane = ({
                 animate={{ left: `${sliderPosition}%` }}
                 transition={{
                     type: 'tween',
-                    duration: isDragging ? 0 : 0.3,
+                    duration: isDragging ? 0 : isAutoPlaying ? 0.1 : 0.3,
                     ease: 'easeOut',
                 }}
             >
@@ -198,23 +300,38 @@ export const RevealPane = ({
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         animate={{
-                            scale: isDragging ? 1.1 : 1,
+                            scale: isDragging
+                                ? 1.1
+                                : isAutoPlaying && !isHovered
+                                  ? [1, 1.1, 1]
+                                  : 1,
                             boxShadow: isDragging
                                 ? '0 0 50px rgba(173,70,255)'
-                                : '0 0 15px rgba(173,70,255,0.5)',
+                                : isAutoPlaying && !isHovered
+                                  ? '0 0 25px rgba(173,70,255,0.8)'
+                                  : '0 0 15px rgba(173,70,255,0.5)',
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: isAutoPlaying && !isHovered ? Infinity : 0,
+                            ease: 'easeInOut',
                         }}
                     >
                         <IconGripVertical className="h-4 w-4 text-white" />
                     </motion.div>
                 </div>
+
+                {/* Direction indicator sparkles */}
                 <div
                     className={cn(
                         'absolute top-1/2 left-1/2 h-full w-20 -translate-y-1/2 transform bg-purple-300/10',
-                        direction === 'left' &&
+                        (direction === 'left' ||
+                            (isAutoPlaying && autoplayDirection === 'left')) &&
                             'translate-x-0 [mask-image:radial-gradient(400px_1000px_at_left,white,transparent_20%)]',
-                        direction === 'right' &&
+                        (direction === 'right' ||
+                            (isAutoPlaying && autoplayDirection === 'right')) &&
                             '-translate-x-full [mask-image:radial-gradient(400px_1000px_at_right,white,transparent_20%)]',
-                        !direction && 'hidden'
+                        !direction && !isAutoPlaying && 'hidden'
                     )}
                 >
                     <Sparkles
@@ -223,7 +340,7 @@ export const RevealPane = ({
                         maxSize={1}
                         particleDensity={100}
                         particleColor="#ffffff"
-                        speed={1}
+                        speed={isAutoPlaying ? 0.5 : 1}
                     />
                 </div>
             </motion.div>
