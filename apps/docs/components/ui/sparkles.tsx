@@ -14,6 +14,7 @@ type ParticlesProps = {
     speed?: number;
     particleColor?: string;
     particleDensity?: number;
+    id?: number;
 };
 
 export const Sparkles = ({
@@ -24,6 +25,7 @@ export const Sparkles = ({
     speed,
     particleColor,
     particleDensity,
+    id,
 }: ParticlesProps) => {
     const [init, setInit] = useState(false);
 
@@ -128,7 +130,7 @@ export const Sparkles = ({
             >
                 <Particles
                     className="h-full w-full"
-                    id="tsparticles"
+                    id={id !== undefined ? String(id) : undefined}
                     particlesLoaded={particlesLoaded}
                     options={options}
                 />

@@ -16,6 +16,7 @@ interface cardProps {
     link?: string;
     linkNavigationPath?: string;
     buttonHandler?: any;
+    children?: React.ReactNode;
 }
 
 const Card = ({
@@ -30,6 +31,7 @@ const Card = ({
     link,
     linkNavigationPath,
     buttonHandler,
+    children,
 }: cardProps) => {
     return (
         <div
@@ -85,6 +87,7 @@ const Card = ({
                     </div>
                 </Link>
             )}
+            {children}
         </div>
     );
 };

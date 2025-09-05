@@ -1,6 +1,8 @@
 'use client';
 
 import { Card, ExploreComponents } from '@/components';
+import { Sparkles } from '@/components/ui/sparkles';
+import { IconBolt } from '@tabler/icons-react';
 
 const freeCardPoints = [
     'A growing library of awesome components',
@@ -72,20 +74,66 @@ const page = () => {
                     heading="$4995/mo"
                     subheading="Custom Components"
                     description="Standalone components tailored to your needs and easily integrated. Perfect for website elements or sections."
-                    className="bg-muted-background/50 w-full"
+                    className="group relative w-full overflow-hidden"
                     points={componentsCardpoints}
                     outlineButton="Buy Now"
                     buttonHandler={componenCardtButtonHandler}
-                ></Card>
+                >
+                    <div className="absolute inset-0 h-full w-full bg-white/10 backdrop-blur-md">
+                        <Sparkles
+                            className="h-full w-full"
+                            background={'transparent'}
+                            particleDensity={200}
+                            maxSize={1}
+                            minSize={0.2}
+                            id={1}
+                            particleColor="#dab2ff"
+                        />
+                        <div className="absolute inset-0 mx-auto flex h-full w-full max-w-xs flex-col items-center justify-center gap-3 text-center">
+                            <div className="flex h-14 w-14 animate-pulse items-center justify-center rounded-2xl bg-gradient-to-br from-fuchsia-400 to-violet-400 group-hover:animate-none">
+                                <IconBolt className="h-8 w-8 text-white" />
+                            </div>
+                            <h4 className="text-2xl font-semibold text-purple-400">
+                                Coming soon 👀
+                            </h4>
+                            <p className="text-gray-400 dark:text-gray-200">
+                                Exciting services are on the way.
+                            </p>
+                        </div>
+                    </div>
+                </Card>
                 <Card
                     heading="$6995/mo"
                     subheading="Pages"
                     description="Best for early-stage startups and businesses that need a marketing site and ongoing developmental work."
-                    className="w-full"
+                    className="group relative w-full overflow-hidden"
                     points={pagesCardPoints}
                     solidButton="Buy Now"
                     buttonHandler={pageCardButtonHandler}
-                ></Card>
+                >
+                    <div className="absolute inset-0 h-full w-full bg-white/10 backdrop-blur-md">
+                        <Sparkles
+                            className="h-full w-full"
+                            background={'transparent'}
+                            particleDensity={200}
+                            maxSize={1}
+                            minSize={0.2}
+                            id={2}
+                            particleColor="#dab2ff"
+                        />
+                        <div className="absolute inset-0 mx-auto flex h-full w-full max-w-xs flex-col items-center justify-center gap-3 text-center">
+                            <div className="flex h-14 w-14 animate-pulse items-center justify-center rounded-2xl bg-gradient-to-br from-fuchsia-400 to-violet-400 group-hover:animate-none">
+                                <IconBolt className="h-8 w-8 text-white" />
+                            </div>
+                            <h4 className="text-2xl font-semibold text-purple-400">
+                                Almost Here ⏳
+                            </h4>
+                            <p className="text-gray-400 dark:text-gray-200">
+                                Get ready for a whole new experience.
+                            </p>
+                        </div>
+                    </div>
+                </Card>
             </div>
             <div>
                 <ExploreComponents
