@@ -1,10 +1,30 @@
 import { Sidebar } from '@/components';
+import { generatePageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-    title: 'Components-Eunary',
-    description: 'Components library for quickly create a SAAS products',
-};
+export const metadata: Metadata = generatePageMetadata({
+    title: 'Components – React & Tailwind CSS Components',
+    description:
+        'Collection of production-ready React components from Eunary UI. Copy, paste, and customize modern UI components built with Tailwind CSS. Perfect for Next.js projects and rapid prototyping.',
+    keywords: [
+        'eunary ui components',
+        'react component library',
+        'tailwind css components',
+        'copy paste components',
+        'next.js ui library',
+        'modern react components',
+        'ui component gallery',
+        'frontend component system',
+        'accessible ui components',
+        'customizable react components',
+        'production ready components',
+        'typescript components',
+        'responsive ui components',
+        'component documentation',
+        'ui design system',
+    ],
+    canonical: 'https://ui.eunary.com/components',
+});
 
 export default function docsLayout({
     children,
