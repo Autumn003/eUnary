@@ -1,5 +1,3 @@
-'use client';
-
 import { Card, ExploreComponents } from '@/components';
 import { Sparkles } from '@/components/ui/sparkles';
 import { IconBolt } from '@tabler/icons-react';
@@ -36,14 +34,6 @@ const pagesCardPoints = [
     'Pause or cancel anytime',
 ];
 
-const pageCardButtonHandler = () => {
-    alert('page card button clicked');
-};
-
-const componenCardtButtonHandler = () => {
-    alert('component card button clicked');
-};
-
 const page = () => {
     return (
         <div className="container">
@@ -77,7 +67,6 @@ const page = () => {
                     className="group relative w-full overflow-hidden"
                     points={componentsCardpoints}
                     outlineButton="Buy Now"
-                    buttonHandler={componenCardtButtonHandler}
                 >
                     <div className="absolute inset-0 h-full w-full bg-white/10 backdrop-blur-md">
                         <Sparkles
@@ -109,7 +98,6 @@ const page = () => {
                     className="group relative w-full overflow-hidden"
                     points={pagesCardPoints}
                     solidButton="Buy Now"
-                    buttonHandler={pageCardButtonHandler}
                 >
                     <div className="absolute inset-0 h-full w-full bg-white/10 backdrop-blur-md">
                         <Sparkles
