@@ -92,6 +92,41 @@ export default function RootLayout({
     return (
         <html suppressHydrationWarning lang="en">
             <head>
+                <link
+                    rel="preload"
+                    href="/fonts/font-regular.woff2"
+                    as="font"
+                    type="font/woff2"
+                    crossOrigin="anonymous"
+                />
+                <link
+                    rel="preload"
+                    href="/fonts/font-bold.woff2"
+                    as="font"
+                    type="font/woff2"
+                    crossOrigin="anonymous"
+                />
+                <link
+                    rel="preload"
+                    href="/media/hero-image.png"
+                    as="image"
+                    fetchPriority="high"
+                />
+                <link rel="preload" href="/media/logo-dark.jpg" as="image" />
+                <link
+                    rel="preload"
+                    href="/media/expandable-card.png"
+                    as="image"
+                />
+                <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+                <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+
+                <link
+                    rel="preload"
+                    href="/styles/globals.css"
+                    as="stylesheet"
+                />
+
                 {/* theme initialization script */}
                 <script
                     dangerouslySetInnerHTML={{
