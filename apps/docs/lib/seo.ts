@@ -44,6 +44,7 @@ export function generatePageMetadata({
             title,
             description,
             images: images[0],
+            creator: '@hemantsh03',
         },
         alternates: canonical ? { canonical } : undefined,
     };
