@@ -249,7 +249,7 @@ export const RevealPane = ({
             <div className={cn('absolute inset-0', rightImgClassName)}>
                 <Image
                     src={rightImgSrc}
-                    alt="right image"
+                    alt="Right side image in Reveal Pane UI component for interactive image comparison"
                     width={500}
                     height={500}
                     className="h-full w-full object-cover"
@@ -274,7 +274,7 @@ export const RevealPane = ({
             >
                 <Image
                     src={leftImgSrc}
-                    alt="Cute animals in color"
+                    alt="left side image in Reveal Pane core UI component for interactive image comparison"
                     className="h-full w-full object-cover"
                     width={500}
                     height={500}

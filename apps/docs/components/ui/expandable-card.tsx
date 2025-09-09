@@ -78,7 +78,7 @@ const ExpandableCard = ({
                     >
                         <Image
                             src={contextImage}
-                            alt="bg-image"
+                            alt="Expandable card component main context image"
                             width={200}
                             height={200}
                             className="h-32 w-32 rounded-2xl"

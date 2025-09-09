@@ -8,6 +8,7 @@ interface cardProps {
     heading: string;
     subheading: string;
     imageURL?: string;
+    alt?: string;
     className: string;
     description: string;
     points: string[];
@@ -23,6 +24,7 @@ const Card = ({
     heading,
     subheading,
     imageURL,
+    alt = '',
     className,
     description,
     points,
@@ -44,7 +46,7 @@ const Card = ({
             {imageURL && (
                 <Image
                     src={`${imageURL}`}
-                    alt="Card image"
+                    alt={alt}
                     width={300}
                     height={300}
                     className="mb-2"

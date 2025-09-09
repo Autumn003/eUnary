@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import data  from '@/comp.json';
+import data from '@/comp.json';
 import { motion } from 'motion/react';
 
 export default function ShowcasePage() {
@@ -24,7 +24,7 @@ export default function ShowcasePage() {
                     >
                         <motion.img
                             src={item.thumbnail}
-                            alt={item.title}
+                            alt={`Illustrative image for ${item.title} components, ${item.description}`}
                             className="h-44 w-full rounded-2xl object-cover sm:h-64"
                             whileHover={{
                                 scale: 0.96,

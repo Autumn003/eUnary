@@ -12,7 +12,7 @@ export default function Footer() {
                     >
                         <Image
                             src="/media/logo-dark.jpg"
-                            alt="logo"
+                            alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                             width={40}
                             height={40}
                             className="rounded-xl dark:invert"

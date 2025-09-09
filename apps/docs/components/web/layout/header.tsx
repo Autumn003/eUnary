@@ -25,7 +25,7 @@ export default function Header() {
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
                         src="/media/logo-dark.jpg"
-                        alt="logo"
+                        alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                         width={28}
                         height={28}
                         className="rounded-lg dark:invert"
@@ -100,7 +100,7 @@ export default function Header() {
                         <Link href="/" className="flex h-fit gap-2">
                             <Image
                                 src="/media/logo-dark.jpg"
-                                alt="logo"
+                                alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                                 width={28}
                                 height={28}
                                 className="h-fit rounded-lg dark:invert"
@@ -172,7 +172,7 @@ export default function Header() {
                     >
                         <Image
                             src="/media/logo-dark.jpg"
-                            alt="logo"
+                            alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                             width={28}
                             height={28}
                             className="rounded-lg dark:invert"
