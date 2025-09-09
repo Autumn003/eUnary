@@ -12,8 +12,8 @@ export function RevealPaneDemo() {
             </div>
 
             <RevealPane
-                leftImgSrc="/media/logo-dark.jpg"
-                rightImgSrc="/media/logo-dark.jpg"
+                leftImgSrc="/media/logo-dark.png"
+                rightImgSrc="/media/logo-dark.png"
                 rightImgClassName="invert"
                 className="h-72 w-72 md:h-96 md:w-[30rem]"
             />

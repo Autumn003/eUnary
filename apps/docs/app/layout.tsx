@@ -94,8 +94,14 @@ export default function RootLayout({
         <html suppressHydrationWarning lang="en">
             <head>
                 <link
+                    rel="icon"
+                    href="/media/logo-dark.png"
+                    type="image/png"
+                    sizes="32*32"
+                />
+                <link
                     rel="preload"
-                    href="/media/logo-dark.jpg"
+                    href="/media/logo-dark.png"
                     as="image"
                     fetchPriority="high"
                 />
@@ -134,7 +140,7 @@ export default function RootLayout({
                             url: 'https://ui.eunary.com',
                             logo: {
                                 '@type': 'ImageObject',
-                                url: 'https://ui.eunary.com/media/logo-dark.jpg',
+                                url: 'https://ui.eunary.com/media/logo-dark.png',
                                 width: 800,
                                 height: 600,
                             },

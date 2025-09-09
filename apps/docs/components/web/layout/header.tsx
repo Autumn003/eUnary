@@ -24,7 +24,7 @@ export default function Header() {
             <div className="bg-primary-background/30 border-muted-background fixed inset-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 border-b px-8 backdrop-blur-md lg:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
-                        src="/media/logo-dark.jpg"
+                        src="/media/logo-dark.png"
                         alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                         width={28}
                         height={28}
@@ -99,7 +99,7 @@ export default function Header() {
                     <div className="flex items-center justify-between">
                         <Link href="/" className="flex h-fit gap-2">
                             <Image
-                                src="/media/logo-dark.jpg"
+                                src="/media/logo-dark.png"
                                 alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                                 width={28}
                                 height={28}
@@ -171,7 +171,7 @@ export default function Header() {
                         className="col-span-2 flex items-center gap-2"
                     >
                         <Image
-                            src="/media/logo-dark.jpg"
+                            src="/media/logo-dark.png"
                             alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                             width={28}
                             height={28}

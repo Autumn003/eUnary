@@ -11,7 +11,7 @@ export default function Footer() {
                         className="col-span-2 flex items-center gap-2"
                     >
                         <Image
-                            src="/media/logo-dark.jpg"
+                            src="/media/logo-dark.png"
                             alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                             width={40}
                             height={40}

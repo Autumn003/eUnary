@@ -74,7 +74,7 @@ const HeroSection = () => {
 
                                     {/* Logo image */}
                                     <Image
-                                        src="/media/logo-dark.jpg"
+                                        src="/media/logo-dark.png"
                                         alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                                         width={100}
                                         height={100}

@@ -19,7 +19,7 @@ const icons = [
     {
         icon: (
             <img
-                src="/media/logo-dark.jpg"
+                src="/media/logo-dark.png"
                 alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                 className="h-10 w-10 rounded-lg"
             />
@@ -100,7 +100,7 @@ export const FloatingElementsCardDemo = () => {
                     </div>
                     <div className="h-27 w-27">
                         <img
-                            src="/media/logo-dark.jpg"
+                            src="/media/logo-dark.png"
                             alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
                             className="h-27 w-27 rounded-2xl shadow-md dark:invert"
                         />
