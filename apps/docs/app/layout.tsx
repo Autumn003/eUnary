@@ -97,7 +97,18 @@ export default function RootLayout({
                     rel="icon"
                     href="/media/logo-dark.png"
                     type="image/png"
-                    sizes="32*32"
+                    sizes="32x32"
+                />
+                <link
+                    rel="icon"
+                    href="/media/logo-dark.png"
+                    type="image/png"
+                    sizes="16x16"
+                />
+                <link
+                    rel="apple-touch-icon"
+                    href="/media/logo-dark.png"
+                    sizes="180x180"
                 />
                 <link
                     rel="preload"
