@@ -125,8 +125,7 @@ const page = () => {
             </div>
             <div>
                 <ExploreComponents
-                    nextComponent="Next-component"
-                    recentlyAddedComponent="recent-component"
+                    currentComponent=""
                     className="md:h-96 md:py-16"
                 />
             </div>
