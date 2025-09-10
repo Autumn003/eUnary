@@ -1,15 +1,30 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import data from 'comp.json';
 
 const ExploreComponents = ({
-    nextComponent,
-    recentlyAddedComponent,
+    currentComponent,
     className,
 }: {
-    nextComponent: string;
-    recentlyAddedComponent: string;
+    currentComponent: string;
     className?: string;
 }) => {
+    const items = data.items;
+    const sortedItems = [...data.items].sort((a, b) =>
+        a.title.localeCompare(b.title)
+    );
+
+    const currentComponentIndex = sortedItems.findIndex(
+        (item) => item.name === currentComponent
+    );
+
+    const nextComponent =
+        sortedItems[(currentComponentIndex + 1) % sortedItems.length]?.name ||
+        '/components';
+
+    const recentComponent: string =
+        items[items.length - 1]?.name || '/components';
+
     return (
         <div
             className={cn(
@@ -28,27 +43,20 @@ const ExploreComponents = ({
             </div>
             <div className="col-span-4 flex flex-col gap-4 sm:my-5 sm:p-0 sm:px-8 md:flex-row md:items-end lg:col-span-3">
                 <Link
-                    href={`/components/${recentlyAddedComponent}`}
+                    href={`/components/${recentComponent}`}
                     className="border-muted-foreground text-primary-background bg-secondary-background w-full rounded-lg border px-2 py-4 text-center font-semibold sm:w-52 sm:px-4"
                 >
-                    {formatComponentName(recentlyAddedComponent)}
+                    Recent Component
                 </Link>
                 <Link
                     href={`/components/${nextComponent}`}
                     className="text-primary-foreground border-muted-background bg-primary-background w-full rounded-lg border p-4 text-center font-semibold sm:w-52"
                 >
-                    {formatComponentName(nextComponent)}
+                    Next Component
                 </Link>
             </div>
         </div>
     );
-};
-
-const formatComponentName = (name: string) => {
-    return name
-        .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
 };
 
 export default ExploreComponents;
