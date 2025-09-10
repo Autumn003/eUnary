@@ -45,16 +45,16 @@ export default function Footer() {
                     <div className="flex w-full flex-col">
                         <div className="text-secondary-foreground flex flex-col gap-8 text-sm">
                             <Link
-                                href="/pricing"
-                                className="hover:text-primary-foreground transition-colors duration-200"
-                            >
-                                Pricing
-                            </Link>
-                            <Link
                                 href="/components"
                                 className="hover:text-primary-foreground transition-colors duration-200"
                             >
                                 Components
+                            </Link>
+                            <Link
+                                href="/pricing"
+                                className="hover:text-primary-foreground transition-colors duration-200"
+                            >
+                                Pricing
                             </Link>
                             <Link
                                 href="/templates"
@@ -62,12 +62,12 @@ export default function Footer() {
                             >
                                 Templates
                             </Link>
-                            <Link
+                            {/* <Link
                                 href="/posts"
                                 className="hover:text-primary-foreground transition-colors duration-200"
                             >
                                 Posts
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <div className="flex w-full flex-col">

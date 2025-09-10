@@ -18,13 +18,13 @@ const links = [
         link: '/templates',
     },
     {
-        title: 'Showcase',
-        link: '/showcase',
+        title: 'Pricing',
+        link: '/pricing',
     },
-    {
-        title: 'Posts',
-        link: '/posts',
-    },
+    // {
+    //     title: 'Posts',
+    //     link: '/posts',
+    // },
 ];
 
 const installation = [

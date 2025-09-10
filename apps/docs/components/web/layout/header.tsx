@@ -58,12 +58,12 @@ export default function Header() {
                     >
                         Pricing
                     </Link>
-                    <Link
+                    {/* <Link
                         href="/posts"
                         className="text-secondary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                     >
                         Posts
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className="col-span-4 flex items-center justify-around">
                     <Link
@@ -140,12 +140,12 @@ export default function Header() {
                         >
                             Pricing
                         </Link>
-                        <Link
+                        {/* <Link
                             href="/posts"
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Posts
-                        </Link>
+                        </Link> */}
                     </div>
                     <div className="flex gap-5 px-4">
                         <Link
