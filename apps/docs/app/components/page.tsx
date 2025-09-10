@@ -9,15 +9,15 @@ export default function ShowcasePage() {
         a.title.localeCompare(b.title)
     );
     return (
-        <div className="no-scrollbar grid grid-cols-2 gap-4 overflow-auto px-2">
+        <div className="no-scrollbar grid w-full grid-cols-2 gap-4 overflow-auto px-2">
             {sortedItems.map((item, index) => (
                 <Link
                     key={index}
                     href={`/components/${item.name}`}
-                    className="group col-span-2 m-3 mx-auto h-fit w-full rounded-2xl px-2 md:col-span-1"
+                    className="group col-span-2 m-3 mx-auto h-fit w-full rounded-2xl px-2 sm:col-span-1"
                 >
                     <motion.div
-                        className="flex max-w-80 flex-col items-start justify-center overflow-hidden rounded-3xl sm:max-w-96 lg:max-w-full"
+                        className="flex w-full flex-col items-start justify-center overflow-hidden rounded-3xl"
                         whileHover={{
                             scale: 1.03,
                         }}
@@ -25,13 +25,13 @@ export default function ShowcasePage() {
                         <motion.img
                             src={item.thumbnail}
                             alt={`Illustrative image for ${item.title} components, ${item.description}`}
-                            className="border-muted-background h-44 w-full rounded-3xl border object-cover p-2 sm:h-64"
+                            className="border-muted-background aspect-[3/2] min-w-full rounded-3xl border object-cover p-2"
                             fetchPriority="high"
                             whileHover={{
                                 scale: 0.96,
                             }}
                         />
-                        <div className="px-2 sm:m-2 sm:px-4">
+                        <div className="m-2 px-2 sm:px-4">
                             <h2 className="dark:text-primary-foreground text-xl font-semibold text-neutral-800 transition-transform ease-in-out group-hover:scale-105">
                                 {item.title}
                             </h2>
