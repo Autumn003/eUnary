@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { Badge } from '@/components';
 
 const ExploreComponents = ({
     nextComponent,
@@ -27,19 +26,16 @@ const ExploreComponents = ({
                     craft a stunning and seamless experience for your product.
                 </p>
             </div>
-            <div className="col-span-4 my-5 flex flex-col gap-8 px-8 sm:p-0 md:flex-row md:items-end md:gap-4 lg:col-span-3">
-                <div className="relative flex w-full flex-col gap-[2px] sm:w-52">
-                    <Badge>New</Badge>
-                    <Link
-                        href={`/components/${recentlyAddedComponent}`}
-                        className="border-secondary-background text-primary-background bg-secondary-background w-full rounded-lg border px-2 py-4 text-center text-sm font-semibold sm:w-52 sm:px-4"
-                    >
-                        {formatComponentName(recentlyAddedComponent)}
-                    </Link>
-                </div>
+            <div className="col-span-4 flex flex-col gap-4 sm:my-5 sm:p-0 sm:px-8 md:flex-row md:items-end lg:col-span-3">
+                <Link
+                    href={`/components/${recentlyAddedComponent}`}
+                    className="border-muted-foreground text-primary-background bg-secondary-background w-full rounded-lg border px-2 py-4 text-center font-semibold sm:w-52 sm:px-4"
+                >
+                    {formatComponentName(recentlyAddedComponent)}
+                </Link>
                 <Link
                     href={`/components/${nextComponent}`}
-                    className="text-primary-foreground border-secondary-background bg-primary-background w-full rounded-lg border p-4 text-center text-sm font-semibold sm:w-52"
+                    className="text-primary-foreground border-muted-background bg-primary-background w-full rounded-lg border p-4 text-center font-semibold sm:w-52"
                 >
                     {formatComponentName(nextComponent)}
                 </Link>

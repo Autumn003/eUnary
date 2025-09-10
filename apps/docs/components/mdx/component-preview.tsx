@@ -36,14 +36,14 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
                 <TabsList className="my-2 gap-4">
                     <TabsTrigger
                         value="preview"
-                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2 transition-colors duration-150"
+                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2.5 transition-colors duration-150"
                     >
                         <AppWindowMac className="h-5" />
                         <span className="text-sm font-semibold">Preview</span>
                     </TabsTrigger>
                     <TabsTrigger
                         value="code"
-                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2 transition-colors duration-150"
+                        className="data-[state=active]:bg-muted-background data-[state=active]:text-primary-foreground border-muted-background text-secondary-foreground w-32 cursor-pointer gap-2 rounded-lg border py-2.5 transition-colors duration-150"
                     >
                         <CodeXml className="h-5" />
                         <span className="text-sm font-semibold">Code</span>
