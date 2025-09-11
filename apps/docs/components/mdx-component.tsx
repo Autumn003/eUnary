@@ -36,6 +36,7 @@ import {
     IOSNotificationsStackDemo,
     IOSNotificationsStackDemo2,
     RevealPaneDemo,
+    ShinyButtonDemo,
 } from '@/demo';
 
 const components = {
@@ -338,6 +339,7 @@ const components = {
     IOSNotificationsStackDemo,
     IOSNotificationsStackDemo2,
     RevealPaneDemo,
+    ShinyButtonDemo,
 };
 
 interface MdxProps {

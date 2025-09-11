@@ -1,0 +1,73 @@
+---
+title: "Shiny Button"
+description: A button component with a shiny/glow effect on hover or always-on build with tailwind css and motion.
+---
+
+# Shiny Button
+
+<ComponentPreview component={<ShinyButtonDemo />} fileName="shiny-button" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/shiny-button.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/shiny-button.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+   
+
+### Props
+
+Use the following props to customize the Reveal Pane.
+| Prop                  | Type                                           | Description                                                                 |
+| :-------------------- | :--------------------------------------------- | :-------------------------------------------------------------------------- |
+|  <Callout>className</Callout>             | <Callout>string</Callout>                                         | CSS class applied to the button itself                                      |
+|  <Callout>containerClassName</Callout>    | <Callout>string</Callout>                                         | CSS class applied to the outer container                                    |
+|  <Callout>children</Callout>              | <Callout>React.ReactNode</Callout>                                | Content of the button                                                       |
+|  <Callout>onClick</Callout>               | <Callout>() => void</Callout>                                     | Callback function triggered on button click                                 |
+|  <Callout>shine</Callout>                 | <Callout>"always" \| "hover"</Callout>                            | Controls when the shine effect is visible                                   |
+|  <Callout>shineDirection</Callout>        | <Callout>"top" \| "bottom" \| "left" \| "right"</Callout>         | Direction in which the shine animation moves                                |
+|  <Callout>shineDelay</Callout>            | <Callout>number</Callout>                                         | Delay (in seconds) before repeating shine animation                         |
+|  <Callout>shineDuration</Callout>         | <Callout>number</Callout>                                         | Duration (in seconds) of one shine animation cycle                          |
+|  <Callout>spinGlow</Callout>              | <Callout>"always" \| "hover"</Callout>                            | Controls when the rotating glow effect around the button is visible         |
+|  <Callout>spinGlowDirection</Callout>     | <Callout>"top" \| "bottom" \| "left" \| "right"</Callout>         | Starting direction of the spin glow conic gradient                          |
+|  <Callout>spinGlowRotate</Callout>        | <Callout>"clockwise" \| "anticlockwise"</Callout>                 | Rotation direction of the spin glow                                         |
+|  <Callout>spinGlowSpeed</Callout>         | <Callout>number</Callout>                                         | Speed (in seconds) of one full spin glow rotation                           |
+
+<ExploreComponents currentComponent="shiny-button" />
