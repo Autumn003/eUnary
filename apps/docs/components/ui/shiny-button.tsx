@@ -100,6 +100,7 @@ export const ShinyButton = ({
                 containerClassName
             )}
         >
+            {/* Spinning glow effect */}
             {spinGlow && (
                 <motion.div
                     className={cn(
@@ -120,7 +121,6 @@ export const ShinyButton = ({
                 />
             )}
 
-            {/* Button content */}
             <button
                 onClick={onClick}
                 className={cn(
@@ -128,7 +128,7 @@ export const ShinyButton = ({
                     className
                 )}
             >
-                {/* Shine overlay - only render when shine prop is provided */}
+                {/* Shine overlay */}
                 {shine && (
                     <motion.div
                         className={cn(

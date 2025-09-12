@@ -53,6 +53,12 @@
             "title": "Reveal Pane",
             "description": "Image comparison slider drag to reveal differences between two images.",
             "thumbnail": "/media/reveal-pane.png"
+        },
+        {
+            "name": "shiny-button",
+            "title": "Shiny Button",
+            "description": "A button with a shiny hover effect.",
+            "thumbnail": "/media/shiny-button.png"
         }
     ]
 }

@@ -186,6 +186,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "shiny-button",
+            "type": "registry:ui",
+            "title": "Shiny Button",
+            "description": "A button with a shiny hover effect.",
+            "featured": false,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/shiny-button.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/shiny-button.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

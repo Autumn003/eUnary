@@ -11,6 +11,7 @@ import IOSNotificationsStackDemo2 from './ios-notifications-stack-2-demo';
 import IOSNotificationsStackDemo from './ios-notifications-stack-demo';
 import { RevealPaneDemo } from './reveal-pane-demo';
 import ScrollingMacbookDemo from './scrolling-macbook-demo';
+import { ShinyButtonDemo2 } from './shiny-button-2-demo';
 import { ShinyButtonDemo } from './shiny-button-demo';
 import ThemeTogglerDemo from './theme-toggler-demo';
 
@@ -30,4 +31,5 @@ export {
     IOSNotificationsStackDemo2,
     RevealPaneDemo,
     ShinyButtonDemo,
+    ShinyButtonDemo2,
 };
