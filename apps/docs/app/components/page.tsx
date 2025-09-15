@@ -17,7 +17,7 @@ export default function ShowcasePage() {
                     className="group col-span-2 m-3 mx-auto h-fit w-full rounded-2xl px-2 sm:col-span-1"
                 >
                     <motion.div
-                        className="flex w-full flex-col items-start justify-center overflow-hidden rounded-3xl"
+                        className="border-muted-background flex w-full flex-col items-start justify-center overflow-hidden rounded-3xl border"
                         whileHover={{
                             scale: 1.03,
                         }}
@@ -25,7 +25,7 @@ export default function ShowcasePage() {
                         <motion.img
                             src={item.thumbnail}
                             alt={`Illustrative image for ${item.title} components, ${item.description}`}
-                            className="border-muted-background aspect-[3/2] min-w-full rounded-3xl border object-cover p-2"
+                            className="aspect-[3/2] min-w-full rounded-3xl object-cover p-2"
                             fetchPriority="high"
                             whileHover={{
                                 scale: 0.96,
