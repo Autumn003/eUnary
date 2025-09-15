@@ -23,7 +23,7 @@
             "type": "registry:ui",
             "title": "Expandable Card",
             "description": "An iphone style expandable card.",
-            "featured": true,
+            "featured": false,
             "dependencies": ["motion"],
             "files": [
                 {
@@ -39,7 +39,7 @@
             "type": "registry:ui",
             "title": "Alert",
             "description": "A callout alert for user attention.",
-            "featured": true,
+            "featured": false,
             "dependencies": [
                 "class-variance-authority",
                 "motion",
@@ -81,7 +81,7 @@
             "type": "registry:ui",
             "title": "Flip Words",
             "description": "A component to flip words with a smooth transition effect.",
-            "featured": true,
+            "featured": false,
             "dependencies": [
                 "class-variance-authority",
                 "motion",
@@ -102,7 +102,7 @@
             "type": "registry:ui",
             "title": "File Upload",
             "description": "A file upload component with drag-and-drop support.",
-            "featured": true,
+            "featured": false,
             "dependencies": [
                 "class-variance-authority",
                 "motion",
@@ -125,7 +125,7 @@
             "type": "registry:ui",
             "title": "Floating Elements Card",
             "description": "A card with floating elements appears arround the content on hover",
-            "featured": true,
+            "featured": false,
             "dependencies": [
                 "class-variance-authority",
                 "motion",
