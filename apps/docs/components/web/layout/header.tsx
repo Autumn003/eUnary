@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div>
-            <div className="bg-primary-background/30 border-muted-background fixed inset-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 border-b px-8 backdrop-blur-md lg:grid">
+            <div className="bg-primary-background/30 border-muted-background fixed inset-0 z-50 container hidden h-16 max-w-[88rem] grid-cols-12 border-b px-8 backdrop-blur-md md:grid">
                 <Link href="/" className="col-span-2 flex items-center gap-2">
                     <Image
                         src="/media/logo-dark.png"
@@ -83,10 +83,15 @@ export default function Header() {
                     <ThemeToggler />
                     <button
                         onClick={handleSearchBtn}
-                        className="border-muted-foreground text-secondary-foreground flex h-9 w-56 cursor-pointer items-center justify-around rounded-xl border p-1 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+                        className="border-muted-foreground text-secondary-foreground flex h-9 cursor-pointer items-center justify-around gap-4 rounded-xl border p-1 px-2 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
                     >
                         <i className="ri-search-line"></i>
-                        <p className="text-[12px]">Search components...</p>
+                        <p className="inline-flex gap-1 text-[12px]">
+                            Search{' '}
+                            <span className="hidden lg:block">
+                                components...
+                            </span>
+                        </p>
                         <div className="bg-muted-background flex items-center gap-1 rounded-md px-2 py-1 text-[11px]">
                             <i className="ri-command-line"></i>
                             <p>K</p>
@@ -95,9 +100,13 @@ export default function Header() {
                 </div>
             </div>
             {isOpen ? (
-                <div className="bg-primary-background/30 fixed top-0 z-40 flex h-full w-dvw flex-col gap-12 px-10 py-6 backdrop-blur-md transition-all duration-300 lg:hidden">
+                <div className="bg-primary-background/30 fixed top-0 z-40 flex h-full w-dvw flex-col gap-12 px-10 py-6 backdrop-blur-md transition-all duration-300 md:hidden">
                     <div className="flex items-center justify-between">
-                        <Link href="/" className="flex h-fit gap-2">
+                        <Link
+                            href="/"
+                            className="flex h-fit gap-2"
+                            onClick={handleMenuOpner}
+                        >
                             <Image
                                 src="/media/logo-dark.png"
                                 alt="Eunary UI, a modern component library built with React, Tailwind CSS, and Motion, providing accessible and animated components"
@@ -124,24 +133,28 @@ export default function Header() {
                     <div className="flex flex-col gap-8 px-4 font-semibold">
                         <Link
                             href="/components"
+                            onClick={handleMenuOpner}
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Components
                         </Link>
                         <Link
                             href="/templates"
+                            onClick={handleMenuOpner}
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Templates
                         </Link>
                         <Link
                             href="/pricing"
+                            onClick={handleMenuOpner}
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Pricing
                         </Link>
                         {/* <Link
                             href="/posts"
+                            onClick={handleMenuOpner}
                             className="text-primary-foreground hover:text-primary-foreground transition-colors duration-200 hover:cursor-pointer"
                         >
                             Posts
@@ -165,7 +178,7 @@ export default function Header() {
                     </div>
                 </div>
             ) : (
-                <div className="bg-primary-background/30 border-muted-background fixed top-0 z-50 flex w-full items-center justify-between border-b p-4 backdrop-blur-md transition-all duration-400 lg:hidden">
+                <div className="bg-primary-background/30 border-muted-background fixed top-0 z-50 flex w-full items-center justify-between border-b p-4 backdrop-blur-md transition-all duration-400 md:hidden">
                     <Link
                         href="/"
                         className="col-span-2 flex items-center gap-2"
@@ -178,9 +191,18 @@ export default function Header() {
                             className="rounded-lg dark:invert"
                         />
                     </Link>
-                    <button onClick={handleMenuOpner}>
-                        <i className="ri-menu-3-line text-secondary-foreground ml-4 text-xl"></i>
-                    </button>
+                    <div className="flex items-center">
+                        <button
+                            onClick={handleSearchBtn}
+                            className="border-muted-foreground text-secondary-foreground flex cursor-pointer items-center justify-around gap-2 rounded-xl border px-2 py-1 shadow-[-2px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+                        >
+                            <i className="ri-search-line text-sm"></i>
+                            <p className="text-[12px]">Search </p>
+                        </button>
+                        <button onClick={handleMenuOpner}>
+                            <i className="ri-menu-3-line text-secondary-foreground ml-4 text-xl"></i>
+                        </button>
+                    </div>
                 </div>
             )}
 
@@ -195,7 +217,7 @@ export default function Header() {
             <SearchBox
                 isDialogOpen={isDialogOpen}
                 setIsDialogOpen={setIsDialogOpen}
-                className="fixed top-1/2 left-1/2 z-[70] -translate-x-1/2 -translate-y-1/2"
+                className="fixed top-1/2 left-1/2 z-[70] aspect-[3/1] w-11/12 max-w-xl -translate-x-1/2 -translate-y-1/2"
             />
         </div>
     );
