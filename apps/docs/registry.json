@@ -207,6 +207,32 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "featured-globe",
+            "type": "registry:ui",
+            "title": "Featured Globe",
+            "description": "Interactive 3D globe with scroll-triggered text animations.",
+            "featured": false,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge",
+                "cobe",
+                "react-spring",
+                "@tsparticles/react",
+                "@tsparticles/engine",
+                "@tsparticles/slim"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/featured-globe.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/featured-globe.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

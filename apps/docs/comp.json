@@ -59,6 +59,12 @@
             "title": "Shiny Button",
             "description": "A button with a shiny hover effect.",
             "thumbnail": "/media/shiny-button.png"
+        },
+        {
+            "name": "featured-globe",
+            "title": "Featured Globe",
+            "description": "Interactive 3D globe with scroll-triggered text animations.",
+            "thumbnail": "/media/featured-globe.png"
         }
     ]
 }

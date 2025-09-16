@@ -38,6 +38,7 @@ import {
     RevealPaneDemo,
     ShinyButtonDemo,
     ShinyButtonDemo2,
+    FeaturedGlobeDemo,
 } from '@/demo';
 
 const components = {
@@ -342,6 +343,7 @@ const components = {
     RevealPaneDemo,
     ShinyButtonDemo,
     ShinyButtonDemo2,
+    FeaturedGlobeDemo,
 };
 
 interface MdxProps {

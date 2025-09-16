@@ -1,0 +1,71 @@
+---
+title: "Featured Globe"
+description: Interactive 3D globe with scroll-triggered text animations, sparkle effects, and smooth drag rotation.
+---
+
+# Featured Globe
+
+<ComponentPreview component={<FeaturedGlobeDemo />} className="p-0 mb-20" fileName="featured-globe" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/featured-globe.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install motion clsx tailwind-merge cobe react-spring @tsparticles/react @tsparticles/engine @tsparticles/slim
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/featured-globe.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+
+### Props
+
+Use the following props to customize the featured globe.
+
+| Prop                  | Type                                           | Description                                                                 |
+| :-------------------- | :--------------------------------------------- | :-------------------------------------------------------------------------- |
+|  <Callout>globeClassName</Callout>             | <Callout>string</Callout>                                         | CSS class applied to the globe container                                     |
+|  <Callout>containerClassName</Callout>    | <Callout>string</Callout>                                         | CSS class applied to the main container wrapper                                    |
+|  <Callout>textClassName</Callout>              | <Callout>string</Callout>                                | CSS class applied to the animated text element                                                       |
+|  <Callout>text</Callout>               | <Callout>string</Callout>                                     | Text content displayed over the globe                                 |
+|  <Callout>textSize</Callout>                 | <Callout>"xl" \| "lg" \| "md" \| "sm"</Callout>                            | Size of the text overlay                                   |
+|  <Callout>globeSize</Callout>        | <Callout>number</Callout>         | Size of the globe in pixels                                |
+|  <Callout>globeRotateDirection</Callout>            | <Callout>"left" \| "right"</Callout>                                         | Direction of the globe's automatic rotation                         |
+
+
+<ExploreComponents currentComponent="featured-globe" />
