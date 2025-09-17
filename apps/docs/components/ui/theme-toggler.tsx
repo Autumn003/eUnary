@@ -1,9 +1,15 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
-import 'remixicon/fonts/remixicon.css';
 
-export default function ThemeToggler() {
+export default function ThemeToggler({
+    className,
+    iconsClassName,
+}: {
+    className?: string;
+    iconsClassName?: string;
+}) {
     useEffect(() => {
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
@@ -27,10 +33,18 @@ export default function ThemeToggler() {
     return (
         <>
             <button
-                className="border-muted-background h-8 w-8 cursor-pointer rounded-xl border-[1.5px]"
+                className={cn(
+                    'border-muted-background h-8 w-8 cursor-pointer rounded-xl border-[1.5px]',
+                    className
+                )}
                 onClick={toggleTheme}
             >
-                <div className="text-secondary-foreground hover:text-primary-foreground transition-all duration-200 ease-in-out hover:-rotate-20">
+                <div
+                    className={cn(
+                        'text-secondary-foreground hover:text-primary-foreground transition-all duration-200 ease-in-out hover:-rotate-20',
+                        iconsClassName
+                    )}
+                >
                     {isDark ? (
                         <i className="ri-sun-fill text-xl"></i>
                     ) : (
