@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getDocBySlug, getAllDocs } from '@/lib/mdx';
 import { Mdx } from '@/components/mdx-component';
-import { getFileContent } from '@/lib/getFileContent';
 
 async function getDocFromParams({
     params,
@@ -36,15 +35,9 @@ export default async function DocPage({
         notFound();
     }
 
-    const fileContent = await getFileContent(`components/ui/${param.slug}.tsx`);
-
     return (
         <main className="container">
-            <Mdx
-                content={doc.content}
-                description={doc.description}
-                fileContent={fileContent}
-            />
+            <Mdx content={doc.content} description={doc.description} />
         </main>
     );
 }

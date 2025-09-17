@@ -40,6 +40,28 @@ import {
     ShinyButtonDemo2,
     FeaturedGlobeDemo,
 } from '@/demo';
+import { getFileContent } from '@/lib/getFileContent';
+
+// Create an async wrapper component for ComponentSource
+const AsyncComponentSource = async ({
+    filePath,
+    ...props
+}: { filePath?: string } & any) => {
+    if (!filePath) {
+        return (
+            <div className="text-red-500">Error: No file path provided.</div>
+        );
+    }
+
+    try {
+        const fileContent = await getFileContent(filePath);
+        return <ComponentSource {...props} fileContent={fileContent} />;
+    } catch (error) {
+        return (
+            <div className="text-red-500">Error loading file: {filePath}</div>
+        );
+    }
+};
 
 const components = {
     h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -324,7 +346,7 @@ const components = {
     ),
     Image,
     ThemeToggler,
-    ComponentSource,
+    ComponentSource: AsyncComponentSource, // Use the async wrapper
     ComponentPreview,
     ExploreComponents,
     ThemeTogglerDemo,
@@ -353,7 +375,7 @@ interface MdxProps {
     fileContent?: string;
 }
 
-export function Mdx({ content, preview, description, fileContent }: MdxProps) {
+export async function Mdx({ content, preview, description }: MdxProps) {
     return (
         <div className="mdx">
             {preview}
@@ -361,12 +383,6 @@ export function Mdx({ content, preview, description, fileContent }: MdxProps) {
                 source={content}
                 components={{
                     ...components,
-                    ComponentSource: (props: any) => (
-                        <ComponentSource {...props} fileContent={fileContent} />
-                    ),
-                    ComponentPreview: (props: any) => (
-                        <ComponentPreview {...props} />
-                    ),
                     h1: ({
                         className,
                         ...props
