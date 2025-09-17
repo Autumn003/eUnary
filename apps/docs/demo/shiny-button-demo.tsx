@@ -4,7 +4,7 @@ import { ShinyButton } from '@/components/ui/shiny-button';
 
 export const ShinyButtonDemo = () => {
     return (
-        <div className="flex h-lvh w-full items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
             <ShinyButton
                 className="text-sm"
                 containerClassName=""
