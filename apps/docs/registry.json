@@ -230,6 +230,11 @@
                     "path": "../docs/components/ui/featured-globe.tsx",
                     "type": "registry:ui",
                     "target": "components/ui/featured-globe.tsx"
+                },
+                {
+                    "path": "../docs/components/ui/sparkles.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/sparkles.tsx"
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
