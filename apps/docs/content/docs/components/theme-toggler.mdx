@@ -5,11 +5,11 @@ description: A components to toggle theme between dark and light
 
 # Theme Toggler
 
-<ComponentPreview component={<ThemeTogglerDemo />} className="p-0 mb-20" />
+<ComponentPreview component={<ThemeTogglerDemo />} fileName="theme-toggler" className="p-0 mb-20" />
 
 ### Installation
 
-<Tabs defaultValue="cli">
+<Tabs defaultValue="manual">
   <TabsList>
     <TabsTrigger value="cli">CLI</TabsTrigger>
     <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -26,11 +26,6 @@ description: A components to toggle theme between dark and light
 
   <TabsContent value="manual">
     <Steps>
-      <Step>Run the following command</Step>
-
-      ```bash
-      npm install remixicon --save
-      ```
       <Step>Add util file</Step>
       <Callout>`lib/utils.ts`</Callout>
 
@@ -73,10 +68,6 @@ description: A components to toggle theme between dark and light
           --color-muted-foreground: hsl(var(--muted-foreground));
 
           --color-destructive-background: hsl(var(--destructive-background));
-
-          --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
-              'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-              'Noto Color Emoji';
       }
       
       @layer base {
@@ -112,7 +103,7 @@ description: A components to toggle theme between dark and light
       <Step>Copy the source code</Step>
       <Callout>`components/ui/theme-toggler.tsx`</Callout>
      
-      <ComponentSource className="" collapsible={true}/>
+      <ComponentSource className="" collapsible={true}  filePath="components/ui/theme-toggler.tsx"/>
     </Steps>
   </TabsContent>
 </Tabs>
@@ -121,15 +112,12 @@ description: A components to toggle theme between dark and light
 
 ### Props
 
-Use the following props to customize the tooltip.
+Use the following props to customize the theme toggler button.
 
 | Prop            | Type                     | Description                                  |
 | :-------------- | :----------------------- | :------------------------------------------- |
-| `labelKey`      | string                   | The config or data key to use for the labelafdffsd  fklasjcaj ashsklh. |
-| `nameKey`       | string                   | The config or data key to use for the name.  |
-| `indicator`     | `dot` `line` or `dashed` | The indicator style for the tooltip.         |
-| `hideLabel`     | boolean                  | Whether to hide the label.                   |
-| `hideIndicator` | boolean                  | Whether to hide the indicator.               |
+| <Callout>className</Callout>      | <Callout>string</Callout>                   | CSS class applied to the theme toggler button |
+| <Callout>iconsClassName</Callout>       | <Callout>string</Callout>                   | CSS class applied to the theme toggler icons |
 
 
 <ExploreComponents currentComponent="theme-toggler"/>
