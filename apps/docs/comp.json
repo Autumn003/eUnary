@@ -65,6 +65,12 @@
             "title": "Featured Globe",
             "description": "Interactive 3D globe with scroll-triggered text animations.",
             "thumbnail": "/media/featured-globe.png"
+        },
+        {
+            "name": "carousel",
+            "title": "Carousel",
+            "description": "Animated carousel with smooth transitions and navigation controls.",
+            "thumbnail": "/media/carousel.png"
         }
     ]
 }

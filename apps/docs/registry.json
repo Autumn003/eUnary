@@ -238,6 +238,28 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "carousel",
+            "type": "registry:ui",
+            "title": "Carousel",
+            "description": "Modern image carousel with responsive design, motion animations, side previews, and interactive navigation",
+            "featured": false,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge",
+                "@tabler/icons-react"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/carousel.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/carousel.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

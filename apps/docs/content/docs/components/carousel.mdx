@@ -1,0 +1,73 @@
+---
+title: "Carousel"
+description: Modern image carousel with responsive design, motion animations, side previews, and interactive navigation. 
+---
+
+# Carousel
+
+<ComponentPreview component={<CarouselDemo />} fileName="carousel" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/carousel.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge @tabler/icons-react
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/carousel.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true} filePath="components/ui/carousel.tsx"/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+### Props
+
+Use the following props to customize the carousel.
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>slides</Callout>          | <Callout>slideData[]</Callout>          | Array of slide objects containing title, image source, and optional navigation details. |
+| <Callout>className</Callout>          | <Callout>string</Callout>          | CSS class names for styling the outer carousel container. |
+
+
+##### SlideData Interface
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>title</Callout>          | <Callout>string</Callout>          | Title of the slide, displayed as overlay text on the main image. |
+| <Callout>imageSrc</Callout>          | <Callout>string</Callout>          | Image source URL for the slide. |
+| <Callout>navigationTitle</Callout>          | <Callout>string</Callout>          | Label for the navigation button shown on the slide overlay. |
+| <Callout>naviationLink</Callout>          | <Callout>string</Callout>          | Link URL to navigate when the navigation button is clicked. |
+
+<ExploreComponents currentComponent="carousel" />

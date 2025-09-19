@@ -39,6 +39,7 @@ import {
     ShinyButtonDemo,
     ShinyButtonDemo2,
     FeaturedGlobeDemo,
+    CarouselDemo,
 } from '@/demo';
 import { getFileContent } from '@/lib/getFileContent';
 
@@ -366,6 +367,7 @@ const components = {
     ShinyButtonDemo,
     ShinyButtonDemo2,
     FeaturedGlobeDemo,
+    CarouselDemo,
 };
 
 interface MdxProps {

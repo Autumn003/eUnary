@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface SlideProp {
+interface SlideData {
     title: string;
     navigationLink?: string;
     navigationTitle?: string;
@@ -15,7 +15,7 @@ interface SlideProp {
 }
 
 interface carouselProps {
-    slides: SlideProp[];
+    slides: SlideData[];
     className?: string;
 }
 
@@ -145,7 +145,7 @@ export const Carousel = ({ className, slides }: carouselProps) => {
                     )}
 
                     {/* Center/Main image with sliding animation */}
-                    <div className="z-50 flex items-center justify-center sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
+                    <div className="z-10 flex items-center justify-center rounded-md sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
                         <div className="relative">
                             <AnimatePresence
                                 initial={false}
@@ -258,11 +258,10 @@ export const Carousel = ({ className, slides }: carouselProps) => {
                 <div className="mt-4 flex items-center justify-center gap-8">
                     <motion.button
                         onClick={goToPrevious}
-                        className="flex items-center justify-center rounded-full bg-white p-3 text-gray-800 shadow-lg"
+                        className="flex items-center justify-center rounded-full bg-neutral-200 p-3 text-neutral-800 shadow-lg hover:bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-600"
                         aria-label="Previous image"
                         whileHover={{
                             scale: 1.1,
-                            backgroundColor: 'rgba(255,255,255,1)',
                         }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
@@ -272,11 +271,10 @@ export const Carousel = ({ className, slides }: carouselProps) => {
 
                     <motion.button
                         onClick={goToNext}
-                        className="flex items-center justify-center rounded-full bg-white/90 p-3 text-gray-800 shadow-lg"
+                        className="flex items-center justify-center rounded-full bg-neutral-200 p-3 text-neutral-800 shadow-lg hover:bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-600"
                         aria-label="Next image"
                         whileHover={{
                             scale: 1.1,
-                            backgroundColor: 'rgba(255,255,255,1)',
                         }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
