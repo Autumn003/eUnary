@@ -35,32 +35,11 @@
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
         },
         {
-            "name": "alert",
-            "type": "registry:ui",
-            "title": "Alert",
-            "description": "A callout alert for user attention.",
-            "featured": false,
-            "dependencies": [
-                "class-variance-authority",
-                "motion",
-                "clsx",
-                "tailwind-merge"
-            ],
-            "files": [
-                {
-                    "path": "../docs/components/ui/alert.tsx",
-                    "type": "registry:ui",
-                    "target": "components/ui/alert.tsx"
-                }
-            ],
-            "author": "Hemant Sharma <hemant.develop@gmail.com>"
-        },
-        {
             "name": "scrolling-macbook",
             "type": "registry:ui",
             "title": "Scrolling Macbook",
             "description": "A scrolling macbook with hover effect.",
-            "featured": true,
+            "featured": false,
             "dependencies": [
                 "class-variance-authority",
                 "motion",
@@ -213,7 +192,7 @@
             "type": "registry:ui",
             "title": "Featured Globe",
             "description": "Interactive 3D globe with scroll-triggered text animations.",
-            "featured": false,
+            "featured": true,
             "dependencies": [
                 "class-variance-authority",
                 "motion",

@@ -12,9 +12,9 @@ export function RevealPaneDemo() {
             </div>
 
             <RevealPane
-                leftImgSrc="/media/logo-dark.png"
-                rightImgSrc="/media/logo-dark.png"
-                rightImgClassName="invert"
+                leftImgSrc="/media/character.png"
+                rightImgSrc="/media/character-blur.png"
+                rightImgClassName=""
                 className="h-72 w-72 md:h-96 md:w-[30rem]"
             />
         </div>
