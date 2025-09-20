@@ -298,10 +298,10 @@ export function GridPattern() {
                     return (
                         <div
                             key={`${col}-${row}`}
-                            className={`flex h-14 w-14 shrink-0 border-[0.5px] border-neutral-800 ${
+                            className={`flex h-14 w-14 shrink-0 border-[0.5px] border-neutral-300 dark:border-neutral-800 ${
                                 index % 2 === 0
                                     ? 'bg-gray-50 dark:bg-neutral-950'
-                                    : 'bg-gray-50 dark:bg-neutral-900'
+                                    : 'bg-gray-100 dark:bg-neutral-900'
                             }`}
                         />
                     );
