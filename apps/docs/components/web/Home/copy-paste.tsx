@@ -1,9 +1,9 @@
 'use client';
 
-import { Copy, Check, Command, Folder, Laptop } from 'lucide-react';
+import { Copy, Check, Command, Folder } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { RevealPane } from '@/components/ui/reveal-pane';
+import { FeaturedGlobe } from '@/components/ui/featured-globe';
 
 const CopyPaste = () => {
     const [copiedStep, setCopiedStep] = useState(0);
@@ -73,12 +73,19 @@ const CopyPaste = () => {
                 viewport={{ once: true, margin: '-100px' }}
             >
                 <div className="mb-16 text-center">
-                    <h2 className="mb-4 text-xl font-semibold sm:text-4xl">
-                        As simple as copy and paste
+                    <h2 className="mb-4 text-2xl font-semibold sm:text-4xl">
+                        {/* As simple as copy and paste */}
+                        Ready-to-use Components
                     </h2>
                     <p className="text-secondary-foreground mx-auto max-w-2xl">
-                        Just drop the code into your ui folder and start using
-                        the components in your projects. It's that easy!
+                        {/* Just drop the code into your ui folder and start using
+                        the components in your projects. It's that easy! */}
+                        Simply copy the code into your{' '}
+                        <span className="bg-muted-foreground/70 my-0.5 rounded-md px-1">
+                            ui
+                        </span>{' '}
+                        folder and start importing components right away — no
+                        extra setup
                     </p>
                 </div>
             </motion.div>
@@ -100,13 +107,13 @@ const CopyPaste = () => {
                     }}
                 >
                     <div className="flex items-center gap-1">
-                        <div className="rounded-full border border-blue-500/30 bg-blue-500/20 px-6 py-3 text-center text-sm font-medium text-blue-400 transition-all duration-300">
+                        <div className="rounded-full border border-blue-500/30 bg-blue-500/10 px-6 py-3 text-center text-sm font-medium text-blue-400 transition-all duration-300">
                             Copy & Paste
                         </div>
                         <div className="text-secondary-foreground flex items-center gap-2 px-4 text-sm">
                             <span>or</span>
                         </div>
-                        <div className="rounded-full border border-purple-500/30 bg-purple-500/20 px-6 py-3 text-center text-sm font-medium text-purple-400 transition-all duration-300">
+                        <div className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-6 py-3 text-center text-sm font-medium text-indigo-400 transition-all duration-300">
                             CLI Command
                         </div>
                     </div>
@@ -135,9 +142,10 @@ const CopyPaste = () => {
                         className="rounded-xl border border-gray-700/50 bg-gray-900/80 p-1 shadow-2xl backdrop-blur-xl"
                         animate={{
                             boxShadow: [
-                                '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                                '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
-                                '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                                '0 25px 50px -12px rgba(94, 95, 255, 0.20)',
+                                // '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
+                                '0 25px 50px -12px rgba(94, 95, 255, 0.15)',
+                                '0 25px 50px -12px rgba(94, 95, 255, 0.20)',
                             ],
                         }}
                         transition={{
@@ -166,15 +174,16 @@ const CopyPaste = () => {
                         </div>
 
                         {/* Testimonial Component */}
-                        <div className="h-full w-full rounded-b-lg bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-2 md:px-18 md:py-8">
-                            <RevealPane
+                        <div className="h-96 w-full overflow-hidden rounded-b-lg bg-gradient-to-br from-gray-800/50 to-gray-900/50 py-2 sm:w-xl">
+                            {/* <RevealPane
                                 leftImgSrc="/media/floating-elements-card.png"
                                 rightImgSrc="/media/sample-code.png"
                                 autoplay={true}
                                 slideDirection="right"
                                 duration={4}
                                 loop={true}
-                            />
+                            /> */}
+                            <FeaturedGlobe />
                         </div>
                     </motion.div>
                 </motion.div>
@@ -196,7 +205,7 @@ const CopyPaste = () => {
                                 animate={getStepState(1)}
                             >
                                 <motion.div
-                                    className="z-10 flex h-10 w-10 items-center justify-center rounded-full border border-blue-500/30 bg-blue-500/20 backdrop-blur-lg"
+                                    className="z-10 flex h-10 w-10 items-center justify-center rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-lg"
                                     variants={stepVariants}
                                     transition={{
                                         delay: 0.4,
@@ -247,14 +256,14 @@ const CopyPaste = () => {
                                 animate={getStepState(2)}
                             >
                                 <motion.div
-                                    className="z-10 flex h-10 w-10 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/20 backdrop-blur-lg"
+                                    className="z-10 flex h-10 w-10 items-center justify-center rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-lg"
                                     variants={stepVariants}
                                     transition={{
                                         delay: 0.4,
                                         ease: 'easeInOut',
                                     }}
                                 >
-                                    <Folder className="h-4 w-4 text-purple-400" />
+                                    <Folder className="h-4 w-4 text-indigo-400" />
                                 </motion.div>
                                 <motion.div
                                     className="flex-1"
@@ -335,7 +344,7 @@ const CopyPaste = () => {
                                             }}
                                             exit={{ opacity: 0, scale: 0 }}
                                             transition={{ delay: 0.7 }}
-                                            className="rounded-full border border-emerald-400 bg-emerald-300/20 p-0.5"
+                                            className="rounded-full border border-emerald-400 bg-emerald-400/10 p-0.5"
                                         >
                                             <Check className="h-3 w-3 text-emerald-400" />
                                         </motion.div>
@@ -346,7 +355,7 @@ const CopyPaste = () => {
 
                         {/* Animated connecting line */}
                         <motion.div
-                            className="absolute top-10 left-5 w-px bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-green-500/30"
+                            className="absolute top-10 left-5 w-px bg-gradient-to-b from-blue-500/30 via-indigo-500/30 to-green-500/30"
                             initial={{ height: 0 }}
                             animate={{
                                 height: getLineHeight(),
@@ -424,7 +433,7 @@ const CopyPaste = () => {
                             <div className="mb-2 flex items-center gap-2">
                                 <span className="text-gray-500">$</span>
                                 <motion.span
-                                    className="text-purple-400"
+                                    className="text-indigo-500"
                                     animate={{
                                         opacity: [0.5, 1, 0.5],
                                     }}
@@ -457,15 +466,15 @@ const CopyPaste = () => {
                         }}
                     >
                         <motion.button
-                            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-3 font-medium text-white"
+                            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-400 px-6 py-3 font-medium text-white dark:to-indigo-800"
                             initial={{
                                 boxShadow:
-                                    '0 12px 30px -12px rgba(168, 85, 247, 0.4)',
+                                    '0 12px 30px -12px rgba(97, 95, 255, 0.4)',
                             }}
                             whileHover={{
                                 scale: 1.05,
                                 boxShadow:
-                                    '0 16px 40px -12px rgba(168, 85, 247, 0.4)',
+                                    '0 12px 50px 0px rgba(94, 95, 255, 0.4)',
                             }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -497,7 +506,7 @@ const CopyPaste = () => {
                         title: 'Zero Setup',
                         description:
                             'No complex installation or configuration. Just drop and go.',
-                        color: 'purple',
+                        color: 'indigo',
                     },
                     {
                         icon: Check,
@@ -521,8 +530,8 @@ const CopyPaste = () => {
                             className={`flex min-h-10 min-w-10 items-center justify-center rounded-xl transition-all duration-300 md:mx-auto md:h-16 md:w-16 md:rounded-2xl ${
                                 feature.color === 'blue'
                                     ? 'border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-blue-600/20'
-                                    : feature.color === 'purple'
-                                      ? 'border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-purple-600/20'
+                                    : feature.color === 'indigo'
+                                      ? 'border border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 to-indigo-600/20'
                                       : 'border border-green-500/30 bg-gradient-to-br from-green-500/20 to-green-600/20'
                             }`}
                         >
@@ -530,8 +539,8 @@ const CopyPaste = () => {
                                 className={`h-4 w-4 md:h-8 md:w-8 ${
                                     feature.color === 'blue'
                                         ? 'text-blue-400'
-                                        : feature.color === 'purple'
-                                          ? 'text-purple-400'
+                                        : feature.color === 'indigo'
+                                          ? 'text-indigo-400'
                                           : 'text-green-400'
                                 }`}
                             />

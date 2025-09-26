@@ -10,6 +10,7 @@ import { FileUpload } from '@/components/ui/file-upload';
 import { IOSNotificationsStack } from '@/components/ui/ios-notifications-stack';
 import { FloatingElementsCardDemo } from '@/demo';
 import { IconPointerFilled } from '@tabler/icons-react';
+import { Sparkles } from '@/components/ui/sparkles';
 
 const notifications = [
     {
@@ -54,14 +55,31 @@ const itemVariants = {
 export default function UIShowcase() {
     return (
         <div className="py-16">
-            <div className="from-primary-background relative min-h-screen overflow-hidden bg-gradient-to-br via-gray-200/60 to-gray-200 dark:from-black dark:via-neutral-900 dark:to-neutral-950/50">
+            <div className="relative min-h-screen overflow-hidden">
                 <div className="from-primary-background absolute top-0 z-10 h-20 w-full bg-gradient-to-b to-transparent" />
                 {/* Background Elements */}
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
-                    <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl"></div>
-                    <div className="absolute top-2/3 left-2/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-cyan-500/10 blur-3xl"></div>
-                    <div className="absolute top-1/3 left-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-cyan-500/10 blur-3xl"></div>
+                    <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+                    <div className="absolute top-2/3 left-2/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-indigo-500/15 blur-3xl"></div>
+                    <Sparkles
+                        background="transparent"
+                        minSize={0.4}
+                        maxSize={1}
+                        particleDensity={65}
+                        className="absolute top-2/3 left-2/3 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 transform"
+                        particleColor="#ffffff"
+                        speed={2}
+                    />
+                    <div className="absolute top-1/3 left-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-indigo-500/10 blur-3xl"></div>
+                    <Sparkles
+                        background="transparent"
+                        minSize={0.4}
+                        maxSize={1}
+                        particleDensity={50}
+                        className="absolute top-1/3 left-1/3 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 transform"
+                        particleColor="#ffffff"
+                        speed={2}
+                    />
                 </div>
 
                 <div className="relative z-10 container mx-auto px-6">
@@ -72,18 +90,7 @@ export default function UIShowcase() {
                         transition={{ duration: 0.8 }}
                         className="mb-16 text-center"
                     >
-                        <h3 className="to mb-6 bg-gradient-to-r from-gray-100 via-gray-500 to-gray-800 bg-clip-text text-xl font-bold text-transparent sm:text-4xl dark:from-white dark:via-gray-200 dark:to-gray-400">
-                            <FlipWords
-                                words={[
-                                    'Modern',
-                                    'Beautiful',
-                                    'Elegant',
-                                    'Interactive',
-                                    'Stunning',
-                                ]}
-                                className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-                            />
-                            <br />
+                        <h3 className="to mb-6 bg-gradient-to-r from-gray-100 via-gray-500 to-gray-800 bg-clip-text text-2xl font-bold text-transparent sm:text-4xl dark:from-white dark:via-gray-200 dark:to-gray-400">
                             UI Components
                         </h3>
                         <p className="text-secondary-foreground mx-auto max-w-2xl leading-relaxed">
@@ -228,7 +235,7 @@ export default function UIShowcase() {
                                 duration: 0.6,
                                 ease: [0.215, 0.61, 0.355, 1],
                             }}
-                            className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-sm transition-all duration-300 hover:border-black/20 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
+                            className="group rounded-3xl border border-black/10 bg-black/5 p-6 backdrop-blur-lg transition-all duration-300 hover:border-black/20 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20 dark:hover:bg-white/10"
                         >
                             <div className="mb-4 flex items-center">
                                 <Bell
@@ -247,10 +254,16 @@ export default function UIShowcase() {
                                 Click to expand
                                 <IconPointerFilled className="h-4 w-4" />
                             </p>
-                            <div className="relative flex h-72 w-full flex-col items-center justify-center">
+                            {/* <div className="relative flex h-72 w-full flex-col items-center justify-center">
                                 <IOSNotificationsStack
                                     notifications={notifications}
                                     className="px-8 py-6"
+                                />
+                            </div> */}
+                            <div className="from-primary-background/50 relative mt-5 flex h-72 w-full flex-col items-center justify-center rounded-2xl bg-gradient-to-b to-transparent backdrop-blur-none">
+                                <IOSNotificationsStack
+                                    notifications={notifications}
+                                    className="rounded-4xl p-6"
                                 />
                             </div>
                         </motion.div>

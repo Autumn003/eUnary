@@ -5,7 +5,7 @@ const ComponentExample = () => {
     return (
         <div className="container my-16">
             <div className="col-span-2 mb-20 text-center">
-                <h3 className="mb-5 text-xl font-semibold sm:text-4xl">
+                <h3 className="mb-5 text-2xl font-semibold sm:text-4xl">
                     Fully Customizable Components
                 </h3>
                 <p className="text-secondary-foreground mx-auto max-w-2xl">
@@ -31,10 +31,10 @@ const ComponentExample = () => {
 
                 <div className="group relative col-span-2 md:col-span-1">
                     {/* Multi-layered glow effect */}
-                    <div className="absolute -inset-2 rounded-[42px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 opacity-20 blur-2xl transition-all duration-700 group-hover:opacity-10 group-hover:blur-3xl"></div>
+                    <div className="absolute -inset-2 rounded-[42px] bg-gradient-to-br from-purple-400 via-indigo-400 to-blue-400 opacity-20 blur-2xl transition-all duration-700 group-hover:opacity-10 group-hover:blur-3xl"></div>
 
                     {/* Code container with glassmorphism effect */}
-                    <div className="relative col-span-2 rounded-[32px] bg-gradient-to-br from-pink-400 via-violet-400 to-blue-400 p-[2px] shadow-2xl drop-shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-purple-500/15 md:col-span-1">
+                    <div className="relative col-span-2 rounded-[32px] bg-gradient-to-br from-purple-400 via-indigo-400 to-blue-400 p-[2px] shadow-2xl drop-shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-indigo-400/15 md:col-span-1">
                         <div className="overflow-hidden rounded-[30px] border border-white/10 bg-gray-900/95 backdrop-blur-xl">
                             <div className="relative">
                                 {/* Code header bar */}
@@ -49,7 +49,7 @@ const ComponentExample = () => {
 
                                 {/* File content with overlay effects */}
                                 <div className="relative">
-                                    <div className="pointer-events-none absolute top-0 left-0 h-20 w-full bg-gradient-to-b from-purple-500/5 to-transparent"></div>
+                                    <div className="pointer-events-none absolute top-0 left-0 h-20 w-full bg-gradient-to-b from-indigo-500/5 to-transparent"></div>
                                     <FileContent
                                         filePath="components/ui/floating-elements-card.tsx"
                                         className="rounded-t-none"

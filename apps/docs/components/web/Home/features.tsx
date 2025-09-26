@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zap, Palette, Code, Shield, Smartphone, Moon } from 'lucide-react';
+import { Sparkles } from '@/components/ui/sparkles';
 
 const Features = () => {
     const features = [
@@ -21,7 +22,7 @@ const Features = () => {
             icon: <Code className="h-8 w-8" />,
             title: 'Developer Friendly',
             description:
-                'Clean APIs, excellent TypeScript support, and comprehensive documentation for all frameworks.',
+                'Pre build components with intuitive usage, strong TypeScript support, and easy integration.',
             color: 'from-blue-400 to-cyan-500',
         },
         {
@@ -49,9 +50,9 @@ const Features = () => {
 
     return (
         <section id="features" className="mb-20 py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-16 text-center">
-                    <h2 className="mb-4 text-xl font-semibold sm:text-4xl">
+                    <h2 className="mb-4 text-2xl font-semibold sm:text-4xl">
                         Why developers love Eunary UI
                     </h2>
                     <p className="text-secondary-foreground mx-auto max-w-2xl">
@@ -60,11 +61,19 @@ const Features = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {/* Background Elements */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute bottom-10 -left-40 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+                    <div className="absolute top-10 -right-40 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"></div>
+                    <div className="absolute top-2/3 left-2/3 h-96 w-96 -translate-x-1/3 -translate-y-1/3 transform rounded-full bg-indigo-500/10 blur-3xl"></div>
+
+                    <div className="absolute top-1/3 left-1/6 h-96 w-96 -translate-x-1/3 -translate-y-1/3 transform rounded-full bg-indigo-500/10 blur-3xl"></div>
+                </div>
+                <div className="relative grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="group bg-primary-background/10 border-muted-background transform rounded-2xl border p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                            className="group bg-primary-background/10 border-muted-background transform rounded-2xl border p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
                         >
                             <div
                                 className={`inline-flex rounded-xl bg-gradient-to-r p-3 ${feature.color} mb-6 text-white transition-transform duration-300 group-hover:scale-110`}
