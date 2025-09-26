@@ -250,7 +250,7 @@ export const FileUpload = ({
                                     stiffness: 300,
                                     damping: 20,
                                 }}
-                                className="relative flex h-28 w-32 justify-center rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-900 dark:inset-shadow-neutral-600"
+                                className="relative flex h-28 w-32 justify-center rounded-xl bg-gray-300 inset-shadow-sm inset-shadow-white dark:bg-neutral-900 dark:inset-shadow-neutral-600"
                                 style={customMaskStyle}
                             >
                                 <motion.div
@@ -259,14 +259,14 @@ export const FileUpload = ({
                                 >
                                     <motion.div
                                         variants={childVariant}
-                                        className="absolute bottom-0 mx-1 h-20 w-26 rounded-lg bg-sky-200 dark:bg-cyan-700"
+                                        className="absolute bottom-0 mx-1 h-20 w-26 rounded-lg bg-slate-400 dark:bg-cyan-700"
                                     />
                                     <motion.div
                                         variants={childVariant}
-                                        className="absolute bottom-0 mx-1 h-18 w-28 rounded-lg bg-cyan-200 dark:bg-cyan-400"
+                                        className="absolute bottom-0 mx-1 h-18 w-28 rounded-lg bg-slate-500 dark:bg-cyan-400"
                                     />
                                 </motion.div>
-                                <div className="absolute bottom-0 h-16 w-full rounded-xl bg-neutral-100 inset-shadow-sm inset-shadow-neutral-200 dark:bg-neutral-800 dark:inset-shadow-neutral-600">
+                                <div className="absolute bottom-0 h-16 w-full rounded-xl bg-gray-300 inset-shadow-sm inset-shadow-white dark:bg-neutral-800 dark:inset-shadow-neutral-600">
                                     {isDragActive && (
                                         <motion.p
                                             initial={{ opacity: 0 }}

@@ -7,9 +7,14 @@ import { cn } from '@/lib/utils';
 interface MacbookScrollProps {
     children: React.ReactNode;
     className?: string;
+    contentClassName?: string;
 }
 
-const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
+const ScrollingMacbook = ({
+    children,
+    className,
+    contentClassName,
+}: MacbookScrollProps) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -26,29 +31,21 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
 
     const rotateX = useTransform(
         scrollYProgress,
-        [0, 0.3, 0.5, 0.7, 1],
-        [-75, -75, 0, -75, -75]
+        [0.1, 0.3, 0.5, 0.6],
+        [-75, -25, 0, 10]
     );
     const topGlowRotateX = useTransform(
         scrollYProgress,
-        [0, 0.4, 0.5, 0.6, 1],
-        [60, 60, 0, 60, 60]
+        [0.1, 0.3, 0.5],
+        [60, 30, 0]
     );
     const topGlowOpacity = useTransform(
         scrollYProgress,
-        [0, 0.3, 0.5, 0.7, 1],
-        [1, 1, 0, 1, 1]
+        [0.1, 0.3, 0.5],
+        [1, 0.5, 0]
     );
-    const opacity = useTransform(
-        scrollYProgress,
-        [0, 0.3, 0.5, 0.7, 1],
-        [0, 0, 1, 0, 0]
-    );
-    const scale = useTransform(
-        scrollYProgress,
-        [0, 0.3, 0.5, 0.7, 1],
-        [1, 1, 0.4, 1, 1]
-    );
+    const opacity = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [0, 0.5, 1]);
+    const scale = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [1, 0.7, 0.4]);
 
     const smoothRotateX = useSpring(rotateX, { stiffness: 100, damping: 20 });
     const smoothTopGlowRotateX = useSpring(topGlowRotateX, {
@@ -103,7 +100,10 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
     return (
         <div
             ref={ref}
-            className="relative isolate z-20 mx-auto flex justify-center"
+            className={cn(
+                'relative isolate z-20 mx-auto flex justify-center',
+                className
+            )}
         >
             <motion.div
                 className="group relative isolate [perspective:1000px]"
@@ -151,10 +151,7 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
                     <motion.div
                         animate={hoverAnimation}
                         transition={springTransition}
-                        className={cn(
-                            className,
-                            'z-40 h-full w-full rounded-sm bg-cyan-400/20 blur-lg'
-                        )}
+                        className="z-40 h-full w-full rounded-sm bg-cyan-400/20 blur-lg"
                     />
 
                     {/* Content container */}
@@ -162,7 +159,7 @@ const ScrollingMacbook = ({ children, className }: MacbookScrollProps) => {
                         animate={backdropAnimation}
                         transition={springTransition}
                         className={cn(
-                            className,
+                            contentClassName,
                             'absolute inset-0 z-40 h-full w-full overflow-hidden rounded-sm bg-cyan-400/10'
                         )}
                     >
