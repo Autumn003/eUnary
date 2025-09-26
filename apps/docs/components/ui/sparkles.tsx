@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { type Container, type ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
@@ -16,7 +16,7 @@ type ParticlesProps = {
     speed?: number;
     particleColor?: string;
     particleDensity?: number;
-    id?: number;
+    id?: any;
 };
 
 export const Sparkles = ({
@@ -30,6 +30,8 @@ export const Sparkles = ({
     id,
 }: ParticlesProps) => {
     const [init, setInit] = useState(false);
+
+    const generatedId = useId();
 
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -132,7 +134,7 @@ export const Sparkles = ({
             >
                 <Particles
                     className="h-full w-full"
-                    id={id !== undefined ? String(id) : undefined}
+                    id={id || generatedId}
                     particlesLoaded={particlesLoaded}
                     options={options}
                 />
