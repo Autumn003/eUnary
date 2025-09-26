@@ -1,6 +1,5 @@
 import React from 'react';
 import { Zap, Palette, Code, Shield, Smartphone, Moon } from 'lucide-react';
-import { Sparkles } from '@/components/ui/sparkles';
 
 const Features = () => {
     const features = [

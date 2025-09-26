@@ -70,7 +70,7 @@ export const QuickAccessCard = () => {
 
             {/* Notification */}
             <div className="text-sm text-neutral-500 dark:text-neutral-300">
-                New component added to Button variants.
+                Frequently updated with new components & templates.
             </div>
 
             {/* Cards */}

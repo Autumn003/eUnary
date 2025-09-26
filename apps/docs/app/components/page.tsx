@@ -31,7 +31,7 @@ export default function ShowcasePage() {
                                 scale: 0.96,
                             }}
                         />
-                        <div className="m-2 px-2 sm:px-4">
+                        <div className="mx-2 h-20 w-full px-2 sm:px-4">
                             <h2 className="dark:text-primary-foreground text-xl font-semibold text-neutral-800 transition-transform ease-in-out group-hover:scale-105">
                                 {item.title}
                             </h2>
