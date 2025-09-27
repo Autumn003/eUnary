@@ -65,6 +65,12 @@
             "title": "Carousel",
             "description": "Animated carousel with smooth transitions and navigation controls.",
             "thumbnail": "/media/carousel.png"
+        },
+        {
+            "name": "progress-card",
+            "title": "Progress Card",
+            "description": "Interactive progress card with percentage indicators and progress bar.",
+            "thumbnail": "/media/progress-card.png"
         }
     ]
 }

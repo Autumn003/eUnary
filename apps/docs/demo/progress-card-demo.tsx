@@ -9,7 +9,7 @@ import {
     IconDatabase,
 } from '@tabler/icons-react';
 
-const Page = () => {
+const ProgressCardDemo = () => {
     // Sample tasks data
     const developmentTasks = [
         {
@@ -34,7 +34,7 @@ const Page = () => {
     ];
 
     return (
-        <div className="relative h-full min-h-screen w-full bg-gradient-to-br bg-[radial-gradient(circle,#73737350_1px,transparent_1px)] bg-[size:20px_20px]">
+        <div className="relative h-full min-h-screen w-full bg-gradient-to-br bg-[radial-gradient(circle,#73737350_1px,transparent_1px)] bg-[size:20px_20px] p-3">
             <div className="mx-auto max-w-7xl">
                 {/* Header */}
                 <div className="mb-12 text-center">
@@ -62,4 +62,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default ProgressCardDemo;

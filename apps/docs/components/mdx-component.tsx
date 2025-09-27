@@ -40,6 +40,7 @@ import {
     ShinyButtonDemo2,
     FeaturedGlobeDemo,
     CarouselDemo,
+    ProgressCardDemo,
 } from '@/demo';
 import { getFileContent } from '@/lib/getFileContent';
 
@@ -368,6 +369,7 @@ const components = {
     ShinyButtonDemo2,
     FeaturedGlobeDemo,
     CarouselDemo,
+    ProgressCardDemo,
 };
 
 interface MdxProps {

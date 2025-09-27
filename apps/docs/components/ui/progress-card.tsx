@@ -3,10 +3,10 @@
 import { cn } from '@/lib/utils';
 import { IconChecks } from '@tabler/icons-react';
 import { motion, animate } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { ComponentType, useEffect, useState } from 'react';
 
 interface Task {
-    icon?: any;
+    icon: ComponentType<{ className?: string }>;
     label?: string;
     completed: number;
     total: number;

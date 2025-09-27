@@ -1,0 +1,79 @@
+---
+title: "Progress Card"
+description: Interactive progress card with smooth animations, percentage indicators, and dynamic visuals to monitor and showcase task progress.
+---
+
+# Progress Card
+
+<ComponentPreview component={<ProgressCardDemo />} fileName="progress-card" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/progress-card.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge @tabler/icons-react
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/progress-cad.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}  filePath="components/ui/progress-card.tsx"/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+### Props
+
+Use the following props to configure the progress card.
+
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>title</Callout>          | <Callout>string</Callout>          | Title displayed at the top of the card. |
+| <Callout>description</Callout>          | <Callout>string</Callout>          | Short description or subtitle below the title. |
+| <Callout>themeColor</Callout>         | <Callout>string</Callout>         | Custom theme color in hex code for progress ring, accents, and highlights.           |
+| <Callout>percentage</Callout>         | <Callout>number</Callout>         | Overall completion percentage (0–100). If provided, circular progress is shown.           |
+| <Callout>tasks</Callout>         | <Callout>task[]</Callout>         | List of tasks with icon, label, and completion data.           |
+| <Callout>className</Callout>         | <Callout>string</Callout>         | Additional CSS classes to customize the card container styling.           |
+
+
+##### Task Interface
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>icon</Callout>          | <Callout>ComponentType</Callout>          | Icon component displayed alongside the task label. |
+| <Callout>label</Callout>          | <Callout>string</Callout>          | Label of the task. |
+| <Callout>completed</Callout>          | <Callout>number</Callout>          | Number of completed items for this task. |
+| <Callout>total</Callout>          | <Callout>number</Callout>          | Total number of items for this task. |
+
+<ExploreComponents currentComponent="progress-card" />
