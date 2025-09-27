@@ -3,10 +3,29 @@
 import { FlipWords } from '@/components/ui/flip-words';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { IconArrowRight, IconTerminal } from '@tabler/icons-react';
+import {
+    IconArrowRight,
+    IconBlocks,
+    IconTemplate,
+    IconTerminal,
+} from '@tabler/icons-react';
 import { QuickAccessCard } from '@/components/ui/quick-access-card';
 import { ProgressCard } from '@/components/ui/progress-card';
-import { PerformanceCard } from '@/components/ui/performance-card';
+
+const ProgressTasks = [
+    {
+        icon: IconBlocks,
+        label: 'Components',
+        completed: 12,
+        total: 15,
+    },
+    {
+        icon: IconTemplate,
+        label: 'Template',
+        completed: 1,
+        total: 4,
+    },
+];
 
 const HeroSection = () => {
     return (
@@ -67,10 +86,20 @@ const HeroSection = () => {
                         className="flex flex-col gap-4"
                     >
                         <div className="">
-                            <PerformanceCard />
+                            <ProgressCard
+                                title="Performance Score"
+                                description="Optimized components with fast loading time and smooth
+                        user interactions."
+                                percentage={92}
+                                themeColor="#615FFF"
+                            />
                         </div>
                         <div className="">
-                            <ProgressCard />
+                            <ProgressCard
+                                title="Development Progress"
+                                tasks={ProgressTasks}
+                                themeColor="#615FFF"
+                            />
                         </div>
                     </motion.div>
                     <motion.div
