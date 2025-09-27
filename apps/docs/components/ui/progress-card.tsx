@@ -15,9 +15,10 @@ interface Task {
 interface ProgressCardProps {
     title?: string;
     description?: string;
-    themeColor: string;
+    themeColor?: string;
     tasks?: Task[];
     percentage?: number;
+    className?: string;
 }
 
 export const ProgressCard = ({
@@ -26,6 +27,7 @@ export const ProgressCard = ({
     themeColor = '#7f9cf5',
     tasks,
     percentage,
+    className,
 }: ProgressCardProps) => {
     const circumference = 2 * Math.PI * 45; // radius of 45
     const strokeDasharray = circumference;
@@ -88,7 +90,8 @@ export const ProgressCard = ({
     return (
         <div
             className={cn(
-                'group relative overflow-hidden rounded-2xl p-6 backdrop-blur-md transition-transform duration-300 hover:scale-103'
+                'group relative overflow-hidden rounded-2xl p-6 backdrop-blur-md transition-transform duration-300 hover:scale-103',
+                className
             )}
             style={{
                 background: isDarkMode ? '#5252521a' : `${themeColor}1a`,
