@@ -50,7 +50,7 @@ export const QuickAccessCard = () => {
     ];
 
     return (
-        <div className="w-full space-y-4 rounded-2xl bg-indigo-300/20 p-6 backdrop-blur-lg dark:bg-neutral-600/20">
+        <div className="w-full space-y-4 rounded-2xl bg-indigo-500/10 p-6 backdrop-blur-lg dark:bg-neutral-500/10">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">

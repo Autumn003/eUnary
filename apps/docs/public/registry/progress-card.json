@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Progress Card",
   "author": "Hemant Sharma <hemant.develop@gmail.com>",
-  "description": "Animated progress card with percentage display and task breakdown to visualize project completion effortlessly",
+  "description": "Interactive progress card with smooth animations, percentage indicators, and dynamic visuals to monitor and showcase task progress",
   "dependencies": [
     "class-variance-authority",
     "motion",
