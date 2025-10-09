@@ -1,0 +1,81 @@
+---
+title: "Payment Card 3D"
+description: An interactive 3D payment card component with flip, tilt, glare, and secure reveal animations, perfect for showcasing credit or debit card details.
+---
+
+# Payment Card 3D
+
+<ComponentPreview component={<PaymentCard3DDemo />} fileName="payment-card-3d" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/payment-card-3d.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/payment-card-3d.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}  filePath="components/ui/payment-card-3d.tsx"/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
+### Props
+
+Use the following props to configure the payment card 3d.
+
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>cardHolder</Callout>          | <Callout>string</Callout>          | Name of the card holder displayed at the bottom-left of the card front. |
+| <Callout>cardNumber</Callout>          | <Callout>number</Callout>          | Full card number (16 digits). Automatically formatted and masked on the back side. |
+| <Callout>cardExpiryMonth</Callout>         | <Callout>number</Callout>         | Expiry month displayed on the back side (between 1 to 12).           |
+| <Callout>cardExpiryYear</Callout>         | <Callout>number</Callout>         | Expiry year of your card displayed on the back side           |
+| <Callout>tascardBankNameks</Callout>         | <Callout>string</Callout>         | Bank name or issuer label shown on the front of the card.           |
+| <Callout>themeColor</Callout>         | <Callout>string</Callout>         | Accent color (in HEX or CSS color) applied to highlights, shadows, and text glow.           |
+| <Callout>chipColor</Callout>         | <Callout> "silver" \| "gold"</Callout>         | Chip color variant for the front card chip. Defaults to 'gold'.           |
+
+
+##### CardFace Interface
+
+| Prop                | Type                     | Description                                        |
+| :------------------ | :----------------------- | :------------------------------------------------- |
+| <Callout>isVisible</Callout>          | <Callout>boolean</Callout>          | Determines if this face is currently visible (used to control opacity and front/back visibility during flip). |
+| <Callout>glareStyle</Callout>          | <Callout>React.CSSProperties</Callout>          | Inline CSS style for the animated glare effect that follows mouse movement. |
+| <Callout>baseClass</Callout>          | <Callout>string</Callout>          | CSS classes defining the gradient background, shadows, and overall look of the card face. |
+| <Callout>style</Callout>          | <Callout>React.CSSProperties</Callout>          | Additional inline styles for custom transformations or layout (e.g., rotating the back face) |
+| <Callout>children</Callout>          | <Callout>React.ReactNode</Callout>          | Content to render inside the card face (e.g., chip, card number, CVV, etc.) |
+
+<ExploreComponents currentComponent="payment-card-3d" />

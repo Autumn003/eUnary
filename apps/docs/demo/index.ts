@@ -11,6 +11,7 @@ import FlipWordsDemo from './flip-words-demo';
 import { FloatingElementsCardDemo } from './floating-elements-card-demo';
 import IOSNotificationsStackDemo2 from './ios-notifications-stack-2-demo';
 import IOSNotificationsStackDemo from './ios-notifications-stack-demo';
+import PaymentCard3DDemo from './payment-card-3d-demo';
 import ProgressCardDemo from './progress-card-demo';
 import { RevealPaneDemo } from './reveal-pane-demo';
 import ScrollingMacbookDemo from './scrolling-macbook-demo';
@@ -38,4 +39,5 @@ export {
     FeaturedGlobeDemo,
     CarouselDemo,
     ProgressCardDemo,
+    PaymentCard3DDemo,
 };

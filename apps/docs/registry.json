@@ -261,6 +261,27 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "payment-card-3d",
+            "type": "registry:ui",
+            "title": "Payment Card 3D",
+            "description": "An interactive 3D payment card component with flip, tilt, glare, and secure reveal animations, perfect for showcasing credit or debit card details",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/payment-card-3d.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/payment-card-3d.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }
