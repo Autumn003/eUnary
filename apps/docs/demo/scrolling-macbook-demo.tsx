@@ -6,7 +6,7 @@ const ScrollingMacbookDemo = () => {
     return (
         <div>
             <ScrollingMacbook className="mt-20">
-                <div className="h-full w-full bg-[url(/media/mc-screen.webp)] bg-cover bg-center" />
+                <div className="h-full w-full bg-[url(/media/mc-monterey.jpg)] bg-cover bg-center" />
             </ScrollingMacbook>
         </div>
     );
