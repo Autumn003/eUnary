@@ -2,6 +2,7 @@ import AlertDefaultDemo from './alert-default-demo';
 import AlertDemo from './alert-demo';
 import AlertErrorDemo from './alert-error-demo';
 import AlertProcessDemo from './alert-processing-demo';
+import CarouselDemo2 from './carousel-2-demo';
 import CarouselDemo from './carousel-demo';
 import ExpandableCardDemo from './expandable-card-demo';
 import FeaturedGlobeDemo from './featured-globe-demo';
@@ -40,4 +41,5 @@ export {
     CarouselDemo,
     ProgressCardDemo,
     PaymentCard3DDemo,
+    CarouselDemo2,
 };
