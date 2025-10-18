@@ -1,5 +1,5 @@
 import FileContent from '../code/file-content';
-import { ExpandableCardDemo } from '@/demo';
+import { FeaturedGlobeDemo } from '@/demo';
 
 const ComponentExample = () => {
     return (
@@ -14,18 +14,19 @@ const ComponentExample = () => {
                     core functionality.
                 </p>
             </div>
-            <div className="border-muted-background grid grid-cols-2 gap-10 rounded-4xl p-4">
-                <div className="relative col-span-2 flex flex-col items-center justify-center md:col-span-1">
+            <div className="border-muted-background grid grid-cols-2 gap-4 rounded-4xl">
+                <div className="relative col-span-2 mb-6 flex flex-col items-center justify-center overflow-hidden md:col-span-1">
+                    <div className="from-primary-background absolute bottom-0 z-20 h-16 w-full bg-gradient-to-t to-transparent" />
                     <h1
-                        className="absolute top-1/2 left-0 -z-10 -translate-y-1/2 text-5xl font-bold text-transparent sm:text-7xl md:text-7xl lg:text-9xl"
+                        className="absolute top-0 left-1/2 -z-10 -translate-x-1/2 text-center text-7xl font-bold text-transparent md:text-8xl lg:text-9xl"
                         style={{
                             WebkitTextStroke: '1px rgba(82, 82, 82, 0.3)',
                         }}
                     >
                         Customize Your Component
                     </h1>
-                    <div className="flex h-96 w-full items-center justify-center p-10">
-                        <ExpandableCardDemo />
+                    <div className="flex h-96 w-full items-center justify-center">
+                        <FeaturedGlobeDemo />
                     </div>
                 </div>
 
@@ -51,7 +52,7 @@ const ComponentExample = () => {
                                 <div className="relative">
                                     <div className="pointer-events-none absolute top-0 left-0 h-20 w-full bg-gradient-to-b from-indigo-500/5 to-transparent"></div>
                                     <FileContent
-                                        filePath="components/ui/floating-elements-card.tsx"
+                                        filePath="components/ui/featured-globe.tsx"
                                         className="rounded-t-none"
                                     />
                                 </div>

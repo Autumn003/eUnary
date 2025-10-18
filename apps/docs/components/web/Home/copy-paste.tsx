@@ -3,7 +3,7 @@
 import { Copy, Check, Command, Folder } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { FeaturedGlobe } from '@/components/ui/featured-globe';
+import { RevealPane } from '@/components/ui/reveal-pane';
 
 const CopyPaste = () => {
     const [copiedStep, setCopiedStep] = useState(0);
@@ -139,11 +139,10 @@ const CopyPaste = () => {
                     whileHover={{ scale: 1.02 }}
                 >
                     <motion.div
-                        className="rounded-xl border border-gray-700/50 bg-gray-900/80 p-1 shadow-2xl backdrop-blur-xl"
                         animate={{
                             boxShadow: [
                                 '0 25px 50px -12px rgba(94, 95, 255, 0.20)',
-                                // '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
+                                '0 25px 50px -12px rgba(59, 130, 246, 0.15)',
                                 '0 25px 50px -12px rgba(94, 95, 255, 0.15)',
                                 '0 25px 50px -12px rgba(94, 95, 255, 0.20)',
                             ],
@@ -153,38 +152,27 @@ const CopyPaste = () => {
                             repeat: Infinity,
                             ease: 'easeInOut',
                         }}
+                        className="overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-100 p-4 px-4 dark:border-neutral-800 dark:bg-neutral-900"
                     >
-                        {/* Mock Browser Header */}
-                        <div className="flex items-center gap-2 border-b border-gray-700/50 p-3">
-                            <motion.div
-                                className="h-3 w-3 rounded-full bg-red-500"
-                                whileHover={{ scale: 1.2 }}
-                            />
-                            <motion.div
-                                className="h-3 w-3 rounded-full bg-yellow-500"
-                                whileHover={{ scale: 1.2 }}
-                            />
-                            <motion.div
-                                className="h-3 w-3 rounded-full bg-green-500"
-                                whileHover={{ scale: 1.2 }}
-                            />
+                        <div className="mb-6 flex items-center gap-2 border-b border-gray-700/50 p-3">
+                            <div className="h-3 w-3 rounded-full bg-red-500" />
+                            <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                            <div className="h-3 w-3 rounded-full bg-green-500" />
                             <div className="ml-auto text-xs text-gray-400">
-                                Component Preview
+                                Reveal Pane
                             </div>
                         </div>
 
-                        {/* Testimonial Component */}
-                        <div className="h-96 w-full overflow-hidden rounded-b-lg bg-gradient-to-br from-gray-800/50 to-gray-900/50 py-2 sm:w-xl">
-                            {/* <RevealPane
-                                leftImgSrc="/media/floating-elements-card.png"
-                                rightImgSrc="/media/sample-code.png"
-                                autoplay={true}
-                                slideDirection="right"
-                                duration={4}
-                                loop={true}
-                            /> */}
-                            <FeaturedGlobe />
-                        </div>
+                        <RevealPane
+                            leftImgSrc="/media/floating-elements-card.png"
+                            rightImgSrc="/media/sample-code.png"
+                            rightImgClassName=""
+                            className="h-72 w-72 md:h-96 md:w-[30rem]"
+                            autoplay={true}
+                            duration={6}
+                            pauseOnHover={true}
+                            loop={true}
+                        />
                     </motion.div>
                 </motion.div>
 
