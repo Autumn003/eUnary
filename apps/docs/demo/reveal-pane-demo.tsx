@@ -12,8 +12,8 @@ export function RevealPaneDemo() {
             </div>
 
             <RevealPane
-                leftImgSrc="/media/character.png"
-                rightImgSrc="/media/character-blur.png"
+                leftImgSrc="/media/floating-elements-card.png"
+                rightImgSrc="/media/sample-code.png"
                 rightImgClassName=""
                 className="h-72 w-72 md:h-96 md:w-[30rem]"
             />

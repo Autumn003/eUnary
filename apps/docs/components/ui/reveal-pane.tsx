@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import { motion, useAnimation } from 'motion/react';
 import Image from 'next/image';
 import { IconGripVertical } from '@tabler/icons-react';
@@ -322,7 +322,7 @@ export const RevealPane = ({
                 </div>
 
                 {/* Direction indicator sparkles */}
-                <div
+                <motion.div
                     className={cn(
                         'absolute top-1/2 left-1/2 h-full w-20 -translate-y-1/2 transform bg-purple-300/10',
                         (direction === 'left' ||
@@ -334,15 +334,15 @@ export const RevealPane = ({
                         !direction && !isAutoPlaying && 'hidden'
                     )}
                 >
-                    <Sparkles
+                    <MemoizedSparkles
                         background="transparent"
                         minSize={0.4}
                         maxSize={1}
-                        particleDensity={100}
+                        particleDensity={300}
                         particleColor="#ffffff"
                         speed={isAutoPlaying ? 0.5 : 1}
                     />
-                </div>
+                </motion.div>
             </motion.div>
         </div>
     );
@@ -368,6 +368,7 @@ export const Sparkles = ({
     particleDensity,
 }: ParticlesProps) => {
     const [init, setInit] = useState(false);
+    const generatedId = useId();
 
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -470,7 +471,7 @@ export const Sparkles = ({
             >
                 <Particles
                     className="h-full w-full"
-                    id="tsparticles"
+                    id={generatedId}
                     particlesLoaded={particlesLoaded}
                     options={options}
                 />
@@ -480,3 +481,5 @@ export const Sparkles = ({
 
     return <></>;
 };
+
+export const MemoizedSparkles = React.memo(Sparkles);

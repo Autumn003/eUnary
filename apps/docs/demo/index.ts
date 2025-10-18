@@ -14,6 +14,7 @@ import IOSNotificationsStackDemo2 from './ios-notifications-stack-2-demo';
 import IOSNotificationsStackDemo from './ios-notifications-stack-demo';
 import PaymentCard3DDemo from './payment-card-3d-demo';
 import ProgressCardDemo from './progress-card-demo';
+import { RevealPaneDemo2 } from './reveal-pane-2-demo';
 import { RevealPaneDemo } from './reveal-pane-demo';
 import ScrollingMacbookDemo from './scrolling-macbook-demo';
 import { ShinyButtonDemo2 } from './shiny-button-2-demo';
@@ -42,4 +43,5 @@ export {
     ProgressCardDemo,
     PaymentCard3DDemo,
     CarouselDemo2,
+    RevealPaneDemo2,
 };

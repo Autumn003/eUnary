@@ -43,6 +43,7 @@ import {
     ProgressCardDemo,
     PaymentCard3DDemo,
     CarouselDemo2,
+    RevealPaneDemo2,
 } from '@/demo';
 import { getFileContent } from '@/lib/getFileContent';
 
@@ -374,6 +375,7 @@ const components = {
     ProgressCardDemo,
     PaymentCard3DDemo,
     CarouselDemo2,
+    RevealPaneDemo2,
 };
 
 interface MdxProps {
