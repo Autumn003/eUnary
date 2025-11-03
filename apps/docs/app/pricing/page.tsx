@@ -3,11 +3,11 @@ import { Sparkles } from '@/components/ui/sparkles';
 import { IconBolt } from '@tabler/icons-react';
 
 const freeCardPoints = [
-    'A growing library of awesome components',
-    'React / Next.js / Tailwind CSS code',
-    'Serves a wide variety of audience',
-    'MIT Licence. Personal or commercial projects',
-    'Contact over chat for support',
+    'An ever-expanding collection of stunning components',
+    'Built with Motion, React, and Tailwind CSS',
+    'Designed to serve diverse audiences and use-cases',
+    'MIT licensed — free for personal and commercial use',
+    'Get quick support directly through chat',
 ];
 
 const componentsCardpoints = [
@@ -52,16 +52,7 @@ const page = () => {
             </div>
             <div className="mb-20 flex flex-col items-center justify-around gap-5 md:flex-row">
                 <Card
-                    heading="Free"
-                    subheading="Existing Components"
-                    description="All the components that are freely available on the website are free to use."
-                    className="w-full"
-                    points={freeCardPoints}
-                    link="Browse Components"
-                    linkNavigationPath="/components"
-                ></Card>
-                <Card
-                    heading="$4995/mo"
+                    heading="$199/mo"
                     subheading="Custom Components"
                     description="Standalone components tailored to your needs and easily integrated. Perfect for website elements or sections."
                     className="group relative w-full overflow-hidden"
@@ -75,7 +66,6 @@ const page = () => {
                             particleDensity={200}
                             maxSize={1}
                             minSize={0.2}
-                            id={1}
                             particleColor="#dab2ff"
                         />
                         <div className="absolute inset-0 mx-auto flex h-full w-full max-w-xs flex-col items-center justify-center gap-3 text-center">
@@ -92,7 +82,16 @@ const page = () => {
                     </div>
                 </Card>
                 <Card
-                    heading="$6995/mo"
+                    heading="Free"
+                    subheading="Existing Components"
+                    description="All the components that are freely available on the website are free to use."
+                    className="mb-36 w-full"
+                    points={freeCardPoints}
+                    link="Browse Components"
+                    linkNavigationPath="/components"
+                ></Card>
+                <Card
+                    heading="$299/mo"
                     subheading="Pages"
                     description="Best for early-stage startups and businesses that need a marketing site and ongoing developmental work."
                     className="group relative w-full overflow-hidden"
@@ -106,7 +105,6 @@ const page = () => {
                             particleDensity={200}
                             maxSize={1}
                             minSize={0.2}
-                            id={2}
                             particleColor="#dab2ff"
                         />
                         <div className="absolute inset-0 mx-auto flex h-full w-full max-w-xs flex-col items-center justify-center gap-3 text-center">

@@ -61,7 +61,7 @@ const Card = ({
                 {points.length > 0 &&
                     points.map((point, index) => (
                         <div key={index} className="my-4 flex gap-3">
-                            <i className="ri-checkbox-circle-fill text-lg text-violet-500"></i>
+                            <i className="ri-checkbox-circle-fill text-lg text-indigo-500"></i>
                             <p>{point}</p>
                         </div>
                     ))}
@@ -69,7 +69,7 @@ const Card = ({
             {solidButton && (
                 <button
                     onClick={buttonHandler}
-                    className="my-5 w-full cursor-pointer rounded-xl bg-violet-500 from-violet-600 via-violet-500 to-violet-600 py-3 font-semibold text-white transition-colors duration-150 hover:bg-violet-600/90 dark:bg-gradient-to-r dark:hover:from-violet-700/80 dark:hover:via-violet-500/80 dark:hover:to-violet-700/80"
+                    className="my-5 w-full cursor-pointer rounded-2xl bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-500 py-3 text-center font-semibold text-white transition-all duration-200 hover:scale-95 hover:shadow-lg dark:from-indigo-800 dark:via-indigo-500 dark:to-indigo-800"
                 >
                     {solidButton}
                 </button>
@@ -77,14 +77,14 @@ const Card = ({
             {outlineButton && (
                 <button
                     onClick={buttonHandler}
-                    className="my-5 w-full cursor-pointer rounded-xl border-[1.5px] border-violet-500 py-3 font-semibold text-violet-500 transition-all duration-150 hover:border-violet-600/90 hover:text-violet-600/90"
+                    className="my-5 w-full cursor-pointer rounded-xl border-[1.5px] border-indigo-500 py-3 font-semibold text-indigo-500 transition-all duration-150 hover:border-indigo-600/90 hover:text-indigo-600/90"
                 >
                     {outlineButton}
                 </button>
             )}
             {link && (
                 <Link href={linkNavigationPath || ''}>
-                    <div className="my-5 w-full cursor-pointer rounded-xl bg-violet-500 from-violet-600 via-violet-500 to-violet-600 py-3 text-center font-semibold text-white transition-colors duration-150 hover:bg-violet-600/90 dark:bg-gradient-to-r dark:hover:from-violet-700/80 dark:hover:via-violet-500/80 dark:hover:to-violet-700/80">
+                    <div className="my-5 w-full cursor-pointer rounded-2xl bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-500 py-3 text-center font-semibold text-white transition-all duration-200 hover:scale-95 hover:shadow-lg dark:from-indigo-800 dark:via-indigo-500 dark:to-indigo-800">
                         {link}
                     </div>
                 </Link>
