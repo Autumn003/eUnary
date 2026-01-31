@@ -46,6 +46,7 @@ import {
     RevealPaneDemo2,
 } from '@/demo';
 import { getFileContent } from '@/lib/getFileContent';
+import FloatingNavbarDemo from '@/demo/floating-navbar-demo';
 
 // Create an async wrapper component for ComponentSource
 const AsyncComponentSource = async ({
@@ -376,6 +377,7 @@ const components = {
     PaymentCard3DDemo,
     CarouselDemo2,
     RevealPaneDemo2,
+    FloatingNavbarDemo,
 };
 
 interface MdxProps {

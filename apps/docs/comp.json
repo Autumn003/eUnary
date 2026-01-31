@@ -77,6 +77,12 @@
             "title": "Payment Card 3D",
             "description": "A 3D interactive payment card with flip, tilt, glare, and secure detail reveal.",
             "thumbnail": "/media/payment-card-3d.png"
+        },
+        {
+            "name": "floating-navbar",
+            "title": "Floating Navbar",
+            "description": "An animated floating navbar with expandable pill buttons, smooth morph transitions, and a sliding active indicator.",
+            "thumbnail": "/media/floating-navbar.png"
         }
     ]
 }

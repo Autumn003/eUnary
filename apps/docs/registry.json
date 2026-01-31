@@ -282,6 +282,28 @@
                 }
             ],
             "author": "Hemant Sharma <hemant.develop@gmail.com>"
+        },
+        {
+            "name": "floating-navbar",
+            "type": "registry:ui",
+            "title": "Floating Navbar",
+            "description": "An animated floating navigation bar with expandable pill buttons on each end, fluid morph transitions on hover, and a spring-animated active indicator that seamlessly slides between navigation items",
+            "featured": true,
+            "dependencies": [
+                "class-variance-authority",
+                "motion",
+                "clsx",
+                "tailwind-merge",
+                "@tabler/icons-react"
+            ],
+            "files": [
+                {
+                    "path": "../docs/components/ui/floating-navbar.tsx",
+                    "type": "registry:ui",
+                    "target": "components/ui/floating-navbar.tsx"
+                }
+            ],
+            "author": "Hemant Sharma <hemant.develop@gmail.com>"
         }
     ]
 }

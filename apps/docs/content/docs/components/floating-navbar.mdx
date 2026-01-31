@@ -1,0 +1,84 @@
+---
+title: "Floating Navbar"
+description: An animated floating navigation bar with expandable pill buttons on each end, fluid morph transitions on hover, and a spring-animated active indicator that seamlessly slides between navigation items.
+---
+
+# Floating Navbar
+
+<ComponentPreview component={<FloatingNavbarDemo />} fileName="floating-navbar" className="p-0 mb-20" />
+
+### Installation
+
+<Tabs defaultValue="manual">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="cli">
+    <Steps>
+      <Step>Run the following command</Step>
+      ```bash
+      npx shadcn@latest add https://ui.eunary.com/registry/floating-navbar.json
+      ```
+    </Steps>
+  </TabsContent>
+
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      ```bash
+      npm install class-variance-authority motion clsx tailwind-merge @tabler/icons-react
+      ```
+      <Step>Add util file</Step>
+      <Callout>lib/utils.ts</Callout>
+
+      ```tsx
+      import { ClassValue, clsx } from 'clsx';
+      import { twMerge } from 'tailwind-merge';
+
+      export function cn(...inputs: ClassValue[]) {
+          return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy the source code</Step>
+      <Callout>components/ui/floating-navbar.tsx</Callout>
+     
+      <ComponentSource className="" collapsible={true}  filePath="components/ui/floating-navbar.tsx"/>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+### Props
+
+Use the following props to configure the floating navbar.
+
+| Prop | Type | Description |
+| :--- | :--- | :---------- |
+| <Callout>leftPill</Callout> | <Callout>PillConfig</Callout> | Configuration for the left pill button, including content, label, and optional URL. |
+| <Callout>rightPill</Callout> | <Callout>PillConfig</Callout> | Configuration for the right pill button, including content, label, and optional URL. |
+| <Callout>navLinks</Callout> | <Callout>NavLink[]</Callout> | Array of navigation links to display in the center section of the navbar. |
+| <Callout>defaultActive</Callout> | <Callout>string</Callout> | Label of the nav item that should be active by default. Defaults to 'Home'. |
+| <Callout>onNavigate</Callout> | <Callout>(url: string, label: string) => void</Callout> | Optional callback function triggered when a nav item is clicked. Receives the URL and label. |
+| <Callout>className</Callout> | <Callout>string</Callout> | Additional CSS classes to apply to the outer container div. |
+| <Callout>pillsClassName</Callout> | <Callout>string</Callout> | Additional CSS classes to apply to both left and right pill buttons. |
+
+##### NavLink Interface
+
+| Prop | Type | Description |
+| :--- | :--- | :---------- |
+| <Callout>url</Callout> | <Callout>string</Callout> | The destination URL for the navigation link. |
+| <Callout>icon</Callout> | <Callout>React.ElementType</Callout> | Icon component to display alongside the label (e.g., Lucide icons). |
+| <Callout>label</Callout> | <Callout>string</Callout> | Text label for the navigation item. Also used for active state tracking. |
+
+##### PillConfig Interface
+
+| Prop | Type | Description |
+| :--- | :--- | :---------- |
+| <Callout>url</Callout> | <Callout>string</Callout> | Optional destination URL when the pill is clicked. If not provided, pill won't navigate. |
+| <Callout>content</Callout> | <Callout>React.ReactNode</Callout> | Content to render inside the pill (typically an icon or small component). |
+| <Callout>label</Callout> | <Callout>string</Callout> | Text label that appears on hover (visible on screens ≥640px for right pill). |
+
+<ExploreComponents currentComponent="floating-navbar" />
