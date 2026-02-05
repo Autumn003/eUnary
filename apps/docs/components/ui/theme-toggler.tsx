@@ -15,7 +15,7 @@ export default function ThemeToggler({
             document.documentElement.classList.add('dark');
             setIsDark(true);
         }
-    });
+    }, []);
 
     const [isDark, setIsDark] = useState(false);
 
