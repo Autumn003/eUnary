@@ -1,22 +1,59 @@
-# Use a lightweight Node.js base image
-FROM node:20.12.0-alpine3.19
+# # Use a lightweight Node.js base image
+# FROM node:20.12.0-alpine3.19
 
-# Set working directory to monorepo root
+# # Set working directory to monorepo root
+# WORKDIR /app
+
+# # Copy package management files
+# COPY package.json package-lock.json turbo.json ./
+
+# # Copy the rest of the application code
+# COPY . .
+
+# # Install dependencies
+# RUN npm install
+
+# # Build the application
+# RUN npm run build
+
+# EXPOSE 3000
+
+# # Start the application
+# CMD ["npm", "run", "run-docs-app"]
+
+
+
+
+# Multi-stage build - only final artifacts go to production
+FROM node:20.12.0-alpine3.19 AS builder
+
 WORKDIR /app
 
-# Copy package management files
+# Install dependencies in clean environment
 COPY package.json package-lock.json turbo.json ./
+RUN npm ci --only=production --ignore-scripts
 
-# Copy the rest of the application code
+# Copy source and build
 COPY . .
-
-# Install dependencies
-RUN npm install
-
-# Build the application
 RUN npm run build
+
+# Production stage - fresh clean image
+FROM node:20.12.0-alpine3.19
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001
+
+WORKDIR /app
+
+# Copy ONLY built artifacts (not entire filesystem)
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+USER nextjs
 
 EXPOSE 3000
 
-# Start the application
 CMD ["npm", "run", "run-docs-app"]

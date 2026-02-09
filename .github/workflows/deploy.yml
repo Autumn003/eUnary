@@ -1,3 +1,49 @@
+# name: Build and Deploy to Docker Hub
+
+# on:
+#     push:
+#         branches:
+#             - main
+
+# jobs:
+#     build-and-push:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Check Out Repo
+#               uses: actions/checkout@v2
+
+#             - name: Log in to Docker Hub
+#               uses: docker/login-action@v1
+#               with:
+#                   username: ${{ secrets.DOCKER_USERNAME }}
+#                   password: ${{ secrets.DOCKER_PASSWORD }}
+
+#             - name: Build and Push Docker image
+#               uses: docker/build-push-action@v2
+#               with:
+#                   context: .
+#                   file: ./docker/Dockerfile.docsApp
+#                   push: true
+#                   tags: hemant003/eunary-docs:latest
+
+#             - name: Verify Pushed Image
+#               run: docker pull hemant003/eunary-docs:latest
+
+#             - name: Deploy to EC2
+#               uses: appleboy/ssh-action@master
+#               with:
+#                   host: ${{ secrets.SSH_HOST }}
+#                   username: ${{ secrets.SSH_USERNAME }}
+#                   key: ${{ secrets.SSH_KEY }}
+#                   script: |
+#                       sudo docker pull hemant003/eunary-docs:latest
+#                       sudo docker stop eunary-docs-app || true
+#                       sudo docker rm eunary-docs-app || true
+#                       sudo docker run -d \
+#                         --name eunary-docs-app \
+#                         -p 3000:3000 \
+#                         hemant003/eunary-docs:latest
+
 name: Build and Deploy to Docker Hub
 
 on:
@@ -10,24 +56,22 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Check Out Repo
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Log in to Docker Hub
-              uses: docker/login-action@v1
+              uses: docker/login-action@v3
               with:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
 
             - name: Build and Push Docker image
-              uses: docker/build-push-action@v2
+              uses: docker/build-push-action@v5
               with:
                   context: .
                   file: ./docker/Dockerfile.docsApp
                   push: true
                   tags: hemant003/eunary-docs:latest
-
-            - name: Verify Pushed Image
-              run: docker pull hemant003/eunary-docs:latest
+                  platforms: linux/amd64
 
             - name: Deploy to EC2
               uses: appleboy/ssh-action@master
@@ -40,6 +84,19 @@ jobs:
                       sudo docker stop eunary-docs-app || true
                       sudo docker rm eunary-docs-app || true
                       sudo docker run -d \
-                        --name eunary-docs-app \
-                        -p 3000:3000 \
-                        hemant003/eunary-docs:latest
+                      --name eunary-docs-app \
+                      --restart unless-stopped \
+                      --memory="512m" \
+                      --cpus="0.5" \
+                      --read-only \
+                      --tmpfs /tmp:rw,noexec,nosuid,size=100m \
+                      --tmpfs /app/.next/cache:rw,noexec,nosuid,size=200m \
+                      --security-opt no-new-privileges:true \
+                      --cap-drop ALL \
+                      --cap-add NET_BIND_SERVICE \
+                      --user node \
+                      -p 127.0.0.1:3000:3000 \
+                      hemant003/eunary-docs:latest
+
+                      # Clean up old images
+                      sudo docker image prune -af
