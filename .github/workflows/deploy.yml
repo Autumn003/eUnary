@@ -80,23 +80,28 @@ jobs:
                   username: ${{ secrets.SSH_USERNAME }}
                   key: ${{ secrets.SSH_KEY }}
                   script: |
+                      # Pull latest image
                       sudo docker pull hemant003/eunary-docs:latest
+
+                      # Stop and remove old container
                       sudo docker stop eunary-docs-app || true
                       sudo docker rm eunary-docs-app || true
-                      sudo docker run -d \
-                      --name eunary-docs-app \
-                      --restart unless-stopped \
-                      --memory="512m" \
-                      --cpus="0.5" \
-                      --read-only \
-                      --tmpfs /tmp:rw,noexec,nosuid,size=100m \
-                      --tmpfs /app/.next/cache:rw,noexec,nosuid,size=200m \
-                      --security-opt no-new-privileges:true \
-                      --cap-drop ALL \
-                      --cap-add NET_BIND_SERVICE \
-                      --user node \
-                      -p 127.0.0.1:3000:3000 \
-                      hemant003/eunary-docs:latest
 
-                      # Clean up old images
-                      sudo docker image prune -af
+                      # Deploy with security hardening
+                      sudo docker run -d \
+                        --name eunary-docs-app \
+                        --restart unless-stopped \
+                        --memory="512m" \
+                        --cpus="0.5" \
+                        --read-only \
+                        --tmpfs /tmp:rw,noexec,nosuid,size=100m \
+                        --tmpfs /app/.next/cache:rw,noexec,nosuid,size=200m \
+                        --security-opt no-new-privileges:true \
+                        --cap-drop ALL \
+                        --cap-add NET_BIND_SERVICE \
+                        --user 1001:1001 \
+                        -p 127.0.0.1:3000:3000 \
+                        hemant003/eunary-docs:latest
+
+                      # Clean up old images and containers
+                      sudo docker system prune -af --filter "until=24h"
