@@ -42,7 +42,7 @@ RUN npm ci
 COPY . .
 
 # Build with verbose output to see errors
-RUN npm run build -- --verbose
+RUN npm run build --verbose
 
 # Production stage - clean, minimal image
 FROM node:20.12.0-alpine3.19
